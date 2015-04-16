@@ -8,6 +8,7 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,11 +22,16 @@ public class ConnectDB {
         
         try
         {
+            // 2 บรรทัดล่างนี้ใช้เชื่อมต่อ database
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            
+            // สร้างคำสั่ง sql เพื่อใช้งาน database จะใช้ Statement หรือ PreparedStatement ก็ได้
             String sql = "select * from Members;";
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
+           
+            // ด้านล่างนี้คือตัวอย่างการแสดงผลลัพธ์ที่ได้จาก database
             while (rs.next()) {
                 System.out.println("Frist Name ::" + rs.getString("first_name"));
                 System.out.println("Last Name ::" + rs.getString("last_name"));
