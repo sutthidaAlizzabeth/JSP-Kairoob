@@ -1,10 +1,9 @@
 # JSP-Kairoob
 Kairoob E-commerce Web Programming Project
 
-Create by
-Nattha Boonnumchai
-Sutthida Chonpanichakul
-Sumet Benjawan
-Pongtorn Pasuthasathit
+Create from Thailand by
+Nattha Boonnumchai,
+Sutthida Chonpanichakul,
+Sumet Benjawan, 
+Pongtorn Pasuthasathit,
 Earth Waran
-Thailand
