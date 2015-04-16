@@ -1,0 +1,188 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 6, 2015, 12:56:54 PM
+    Author     : nattha
+*/
+
+
+.search-photo{
+    padding-top:30px;
+}
+
+#icon-find{
+    color:#22A7F0;
+}
+
+
+#icon-cart{
+    color:#2ECC71;
+}
+
+
+.icon-payments{
+    color:#F89406;
+    padding-left: 10px;
+}
+
+
+#bg-aboutus{
+    background-color:#FFFFFF;
+    
+}
+
+#bg-service{
+    background-color:#EEEEEE;
+}
+
+.section-page{
+    padding: 50px 0;
+}
+
+.group-all{
+    margin:45px 0;
+}
+
+.divcen{
+    border: black solid 1px;
+    margin: 100px 100px 100px;
+    height: 500px;
+}
+
+.history td{
+    font-size: 18px;
+    width: 300px;
+    text-align: center;
+}
+
+.accountedit td{
+    font-size: 18px;
+    //text-align: center;
+    //border: black solid 2px;
+    width: 250px;
+    height: 40px;
+}
+
+.paymentdiv{
+    border: black solid 1px;
+    margin: 100px 100px 100px;
+    height: 500px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 25px;
+}
+
+.payment td{
+    //border: black solid 2px;
+    font-size: 18px;
+    width: 300px;
+    //text-align: center;
+    height: 40px;
+}
+
+//วิธีแก้ไขนะ ฟูสร้าง class ที่ชื่อว่า navbar-kairoob ใน css ขึ้นมาใหม่เลยอ่ะ ถ้าเรียกใช้ก็ พิมพ์ว่า navbar-kairoob///
+.navbar-kairoob {
+  background-color: #222;
+  border-color: #080808;
+}
+.navbar-kairoob .navbar-brand {
+color: #FFFFFF;
+}
+.navbar-kairoob  .navbar-brand:hover,
+.navbar-kairoob  .navbar-brand:focus {
+color: #9d9d9d;
+background-color: transparent;
+}
+.navbar-kairoob  .navbar-text {
+color: #fff;
+}
+.navbar-kairoob  .navbar-nav > li > a {
+color: #fff;
+}
+.navbar-kairoob  .navbar-nav > li > a:hover,
+.navbar-kairoob  .navbar-nav > li > a:focus {
+color: #9D9D9D;
+background-color: transparent;
+}
+.navbar-kairoob  .navbar-nav > .active > a,
+.navbar-kairoob.navbar-nav > .active > a:hover,
+.navbar-kairoob .navbar-nav > .active > a:focus {
+color: #fff;
+background-color: #080808;
+}
+.navbar-kairoob .navbar-nav > .disabled > a,
+.navbar-kairoob .navbar-nav > .disabled > a:hover,
+.navbar-kairoob .navbar-nav > .disabled > a:focus {
+color: #444;
+background-color: transparent;
+}
+.navbar-kairoob  .navbar-toggle {
+border-color: #333;
+}
+.navbar-kairoob  .navbar-toggle:hover,
+.navbar-kairoob .navbar-toggle:focus {
+background-color: #333;
+}
+.navbar-kairoob  .navbar-toggle .icon-bar {
+background-color: #fff;
+}
+.navbar-kairoob .navbar-collapse,
+.navbar-inverse .navbar-form {
+border-color: #101010;
+}
+.navbar-kairoob  .navbar-nav > .open > a,
+.navbar-kairoob  .navbar-nav > .open > a:hover,
+.navbar-kairoob .navbar-nav > .open > a:focus {
+color: #fff;
+background-color: #080808;
+}
+@media (max-width: 767px) {
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .dropdown-header {
+border-color: #080808;
+}
+.navbar-kairoob  .navbar-nav .open .dropdown-menu .divider {
+background-color: #080808;
+}
+.navbar-kairoob  .navbar-nav .open .dropdown-menu > li > a {
+color: #fff;
+}
+.navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:focus {
+color: #9d9d9d;
+background-color: transparent;
+}
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-kairoob  .navbar-nav .open .dropdown-menu > .active > a:focus {
+color: #9d9d9d;
+background-color: #080808;
+}
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a,
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+color: #9d9d9d;
+background-color: transparent;
+}
+}
+.navbar-kairoob .navbar-link {
+color: #fff;
+}
+.navbar-kairoob .navbar-link:hover {
+color: #9d9d9d;
+}
+.navbar-kairoob .btn-link {
+color: #fff;
+}
+.navbar-kairoob .btn-link:hover,
+.navbar-kairoob .btn-link:focus {
+color: #9d9d9d;
+}
+.navbar-kairoob .btn-link[disabled]:hover,
+fieldset[disabled] .btn-link:hover,
+.navbar-kairoob .btn-link[disabled]:focus,
+fieldset[disabled] .btn-link:focus {
+color: #444;
+}
