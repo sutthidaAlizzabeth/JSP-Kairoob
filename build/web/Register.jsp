@@ -20,9 +20,10 @@
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
         <script type="text/javascript" src="Assets/js/jquery.js"></script>
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="Assets/js/kairoob.js"></script>
     </head>
     <body>
-    <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
+    <navbar class="navbar navbar-inverse navbar-fixed-top" role="nav">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,16 +58,20 @@
                         <p>สมาชิก VIP เดือนละ 350 บาท</p>
                     </div>
                     <div class="col-md-6 group-all">
-                        <form action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
+                        <form name='regis' action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
                             <div class="form-group">
                                 <label>E-mail</label>
-                                <input type="email" class="form-control" name="username" placeholder="E-mail" required>
+                                <input id='username' onblur="checkEmail(this.value)" type="email" class="form-control" name="username" placeholder="E-mail" required>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="password" required>
+                                <input id='pass' onblur="chkpass()" type="password" class="form-control" name="password" placeholder="password" required>
                             </div>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="form-group">
+                                <label>Re-Password</label>
+                                <input id='repass' onblur='chkpass()' type="password" class="form-control" name="repassword" placeholder="repassword" required>
+                            </div>
+                            <button onclick="sub()" type="submit" class="btn btn-success">Submit</button>
                         </form>
                     </div>
                 </div>
