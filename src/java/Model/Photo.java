@@ -102,12 +102,12 @@ public class Photo {
             //ถ้า kind = 0 หมายถึงให้ค้นหาจากทุกประเภท
             if (kind != 0) {
                 //limt 0,12 ในคำสั่ง sql หมายถึงเมื่อ query ข้อมูลมาแล้ว ให้ดึงข้อมูลออกมาตั้งแต่ record ที่ 0 ถึง 12 เท่านั้น
-                sql = "select * from 'Photo' where 'category_id' = ? and 'tag' like ? limit 0,12;";
+                sql = "select * from Photo where category_id = ? and tag like ? limit 0,12;";
                 pstm = con.prepareStatement(sql);
                 pstm.setInt(1, kind);
                 pstm.setString(2, tag);
             } else {
-                sql = "select * from 'Photo' where 'tag' like ? limit 0,12;";
+                sql = "select * from Photo where tag like ? limit 0,12;";
                 pstm = con.prepareStatement(sql);
                 pstm.setString(1, tag);
             }
@@ -131,5 +131,17 @@ public class Photo {
         }
 
         return photoList;
+    }
+    
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        List<Photo> photos = Photo.searchPhoto("%", 0);
+        if(photos != null){
+            for(Photo p : photos){
+                System.out.println(p.getId());
+                System.out.println(p.getPath());
+                System.out.println(p.getTag());
+                System.out.println(p.getCategoryId());
+            }
+        }
     }
 }
