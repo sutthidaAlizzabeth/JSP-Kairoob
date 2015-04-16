@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlet;
 
+import Model.Photo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,18 +30,60 @@ public class PhotoListServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String key = request.getParameter("photosearchkey"); //ดึงคำที่ใช้ search
-        String kind = request.getParameter("kind"); //ดูว่า search รูปตามประเภทอะไร
-        if(key == null)
-        {
-            key = "";
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String key = request.getParameter("photosearchkey");
+        String kindPhoto = request.getParameter("kind");
+        int kind = 0;
+        String msg = null;
+
+        //ถ้าไม่ได้ใส่ key ในการค้นหา ให้ดึงข้อมูลทุกอย่างออกมา
+        if (key == null || key.length() == 0 || key.equals("")) {
+            key = "%";
+        } else {
+            key = "%" + key + "%";
         }
-        if(kind.equalsIgnoreCase("blackandwhite"))
-        {
-            
+
+        //แปลงชื่อประเภทของรูป ให้กลายเป็น id ของประเภทนั้นๆ ใน database
+        if (kindPhoto.equalsIgnoreCase("animals")) {
+            kind = 9;
+        } else if (kindPhoto.equalsIgnoreCase("blackandwhite")) {
+            kind = 1;
+        } else if (kindPhoto.equalsIgnoreCase("cityscape")) {
+            kind = 2;
+        } else if (kindPhoto.equalsIgnoreCase("food")) {
+            kind = 3;
+        } else if (kindPhoto.equalsIgnoreCase("landscape")) {
+            kind = 4;
+        } else if (kindPhoto.equalsIgnoreCase("nature")) {
+            kind = 5;
+        } else if (kindPhoto.equalsIgnoreCase("people")) {
+            kind = 6;
+        } else if (kindPhoto.equalsIgnoreCase("toy")) {
+            kind = 7;
+        } else if (kindPhoto.equalsIgnoreCase("transportation")) {
+            kind = 8;
+        } else {
+            kind = 0;
         }
+
+        //เรียกใช้ method searchPhoto ใน Photo Model เพื่อค้นหา/ดึงรูปภาพจาก database
+        List<Photo> photoList = null;
+        try {
+            photoList = Photo.searchPhoto(key, kind);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        //ถ้า photoList == null หมายถึง ค้นหาไม่เจอรูป
+        if(photoList == null){
+            msg = key+" does not exist!!!";
+        }
+        
+        request.setAttribute("msg", msg);
+        request.setAttribute("photoList", photoList);
+        
+        getServletContext().getRequestDispatcher("/PhotoList.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
