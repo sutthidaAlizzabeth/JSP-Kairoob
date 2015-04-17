@@ -81,24 +81,25 @@
                     </div>
                 </form>
                 <br/>
-                <!--แสดงรูป-->
                 <c:choose>
                     <c:when test="${! empty photoList}">
-                        <c:forEach items="${photoList}" var="p" varStatus="count">
-                            <div class="col-lg-4">
-                                <img src="${p.getPath()}" alt="${p.getCaption()}"/>
-                            </div>
-                            <c:if test="${(count.index+1)%3 == 0}">
-                                <br/>
-                            </c:if>
-                        </c:forEach>
+                        <table>
+                            <c:forEach items="${photoList}" var="p" varStatus="count">
+                                <c:if test="${(count.index+1)%3 == 1}">
+                                    <tr>
+                                </c:if>
+                                    <td class="col-lg-4">
+                                        <img width="200px" src="${p.getPath()}" alt="${p.getCaption()}"/>
+                                    </td>
+                                <c:if test="${(count.index+1)%3 == 0}">
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </table>
                     </c:when>
-                <!--./แสดงรูป-->   
-                <!--แสดงข้อความ error เมื่อค้นหาไม่เจอ-->
                     <c:otherwise>
                         <h3 style="color:red; margin: 0 auto;">${msg}</h3>
                     </c:otherwise>
-                <!--./แสดงข้อความ error เมื่อค้นหาไม่เจอ-->
                 </c:choose>
             </div>
         </div>
