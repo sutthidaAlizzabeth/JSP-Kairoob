@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>KaiRoob</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Assets/css/reset.css"/>
         <link rel="stylesheet" href="Assets/css/bootstrap.css"/>
@@ -20,9 +21,9 @@
         <link rel="stylesheet" href="Assets/css/kairoob.css"/>
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.css"/>
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <title>KaiRoob</title>
+        <script type="text/javascript" src="Assets/js/jquery.js"></script>
+        <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
+
     </head>
     <body>
     <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
@@ -89,7 +90,7 @@
                                     <tr>
                                 </c:if>
                                     <td class="col-lg-4">
-                                        <img width="200px" src="${p.getPath()}" alt="${p.getCaption()}"/>
+                                        <img width="100px" src="${p.getPath()}" alt="${p.getCaption()}" />
                                     </td>
                                 <c:if test="${(count.index+1)%3 == 0}">
                                     </tr>
