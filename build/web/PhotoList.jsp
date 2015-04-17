@@ -5,6 +5,7 @@
 --%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.util.List" %>
 <%@page import="Model.Photo" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -95,7 +96,7 @@
                 <!--./แสดงรูป-->   
                 <!--แสดงข้อความ error เมื่อค้นหาไม่เจอ-->
                     <c:otherwise>
-                
+                        <h3 style="color:red; margin: 0 auto;">${msg}</h3>
                     </c:otherwise>
                 <!--./แสดงข้อความ error เมื่อค้นหาไม่เจอ-->
                 </c:choose>
