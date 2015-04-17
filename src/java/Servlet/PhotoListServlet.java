@@ -42,6 +42,10 @@ public class PhotoListServlet extends HttpServlet {
         } else {
             key = "%" + key + "%";
         }
+        
+        if(kindPhoto == null || kindPhoto.length() == 0){
+            kindPhoto = "all";
+        }
 
         //แปลงชื่อประเภทของรูป ให้กลายเป็น id ของประเภทนั้นๆ ใน database
         if (kindPhoto.equalsIgnoreCase("animals")) {
