@@ -46,6 +46,11 @@
             </div>
         </div>
     </navbar>
+    <c:if test="${! empty message}">
+        <script type="text/javascript">
+            alert("${message}");
+        </script>
+    </c:if>
     <section class="section-page">
         <div class="container">
             <div class="row">
