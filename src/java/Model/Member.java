@@ -20,33 +20,19 @@ public class Member {
     public Member() {
     }
 
-    public Member(String email, String password) {    
-        this.email = email;
-        this.password = password;
-       
-        String sqlSelect = "Select max(id) as max_id from Members";
-        String sqlInsert = "insert into Members values (?,?,?,?,?,?)";
+    public static void addMember(String aemail, String apassword) {    
+
+        String sqlInsert = "insert into Members (email, password) values (?,?);";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
-            Member mem = new Member();
+
+            PreparedStatement pstmInsert = con.prepareStatement(sqlInsert);
             
-            Statement statement = con.createStatement() ;    
-            ResultSet rsSelect = statement.executeQuery(sqlSelect);
+            pstmInsert.setString(1, aemail);
+            pstmInsert.setString(2, apassword);
             
-            while (rsSelect.next()){
-                mem.setId(1+(rsSelect.getInt("max_id")));
-            }
-            
-            PreparedStatement pstmInsert = con.prepareStatement(sqlInsert) ;
-            pstmInsert.setInt(1, id);
-            pstmInsert.setInt(2, idenNum);
-            pstmInsert.setString(3, firstName);
-            pstmInsert.setString(4, lastName);
-            pstmInsert.setString(5, this.password);
-            pstmInsert.setString(6, this.email);
-            
-            int rsInsert = pstmInsert.executeUpdate();
+            pstmInsert.executeUpdate();
             
         } catch (Exception ex) {
             System.out.println(ex);

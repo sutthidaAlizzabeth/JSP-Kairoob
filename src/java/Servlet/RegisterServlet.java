@@ -30,37 +30,40 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String rePassword = request.getParameter("repassword");
-        
-        if (userName == null && password == null && rePassword == null){
+
+        if (userName == null && password == null && rePassword == null) {
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
             return;
         }
-        
+
         String message = "";
         //out.println(userName);
         //out.println(password);
         //out.println(rePassword);
-        
+
         if (userName != null && password != null && rePassword != null && userName.length() != 0 && password.length() != 0 && rePassword.length() != 0) {
-            Member member = Member.findByEmail(userName);
-            //out.println("123"+member.getEmail()+"456");
-            if (member != null) {                                                        //Email is already exist
-                message = "Email '" + member.getEmail() + " is already registered !!!";
-                //out.println("Email '" + member.getEmail() + "' is already registered !!!");
-            } else {
-                new Member(userName, password);
-                //out.println("Registeration complete");
-                getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);    
+            if (password.equals(rePassword)) {
+                Member member = Member.findByEmail(userName);
+                //out.println("123"+member.getEmail()+"456");
+                if (member != null) {                                                        //Email is already exist
+                    message = "Email '" + member.getEmail() + "' is already registered !!!";
+                    //out.println("Email '" + member.getEmail() + "' is already registered !!!");
+                } else {
+                    Member.addMember(userName, password);
+                    //out.println("Registeration complete");
+                    getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+                }
             }
+
         }
-        
-        request.setAttribute("message", message);    
+
+        request.setAttribute("message", message);
         getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

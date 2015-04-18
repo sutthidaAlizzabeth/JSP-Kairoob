@@ -44,7 +44,7 @@
                         <form id="regis" name='regis' action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
                             <div class="form-group">
                                 <label>E-mail</label>
-                                <input id='username' onblur="checkEmail(this.value)" type="email" class="form-control" name="username" placeholder="E-mail" required>
+                                <input id='username' type="email" class="form-control" name="username" placeholder="E-mail" required>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>

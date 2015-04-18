@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-function checkEmail(inputvalue){	
-    var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
-    if(pattern.test(inputvalue)){ 
-        
-    }else{   
+function checkEmail(inputvalue) {
+    var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+    if (pattern.test(inputvalue)) {
+
+    } else {
         alert("Invalid Email (xxx@xxx.xx)");
-        document.getElementById('username').value ="";      
+        document.getElementById('username').value = "";
     }
 }
 
@@ -19,37 +19,40 @@ function chkpass()
 {
     var pass = document.getElementById('pass').value;
     var repass = document.getElementById('repass').value;
-    if(pass == ""){
-        
-    }else{
-        if(pass != repass){
+    if (pass == "") {
+
+    } else {
+        if (pass != repass) {
             alert("Password Not Match");
             document.getElementById('repass').value = "";
         }
     }
 }
 
-function sub(){
+function sub() {
     var user = document.getElementById('username').value;
     var pass = document.getElementById('pass').value;
     var repass = document.getElementById('repass').value;
+    var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
     var chksub;
-    if(user == ""){
-        alert("Please input E-mail");
+    if (pattern.test(user)) {
+        if (pass == "" || repass == "") {
+            alert("Please enter empty field");
+            chksub = false;
+        }
+        if (pass != repass) {
+            alert("Password are not match");
+            document.getElementById('pass').value = "";
+            document.getElementById('repass').value = "";
+            chksub = false;
+        } else {
+            chksub = true;
+        }
+    } else {
+        alert("Invalid Email (xxx@xxx.xx)");
+        document.getElementById('username').value = "";
         chksub = false;
-    }else if(pass == ""){
-        alert("Please input password");
-        document.getElementById('pass').focus();
-        chksub = false;
-    }else if(repass == ""){
-        alert("Please input password again");
-        document.getElementById('repass').focus();
-        chksub = false;
-    }else if(pass != repass){
-        chkpass();
-        chksub = false;
-    }else{
-        chksub = true;
     }
+
     return chksub;
 }
