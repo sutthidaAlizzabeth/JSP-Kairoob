@@ -79,12 +79,8 @@ public class PhotoListServlet extends HttpServlet {
             System.out.println(e);
         }
         
-        //ถ้า photoList == null หมายถึง ค้นหาไม่เจอรูป
-        if(photoList == null){
-            msg = search+" does not exist!!!";
-        }
-        
-        request.setAttribute("msg", msg);
+ 
+        request.setAttribute("kind", kindPhoto);
         request.setAttribute("photoList", photoList);
         
         getServletContext().getRequestDispatcher("/PhotoList.jsp").forward(request, response);

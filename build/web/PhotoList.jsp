@@ -38,16 +38,87 @@
                             </div>
                             <div class="col-md-2 search-photo">
                                 <select name="kind" class="form-control">
-                                    <option value="all">All</option>
-                                    <option value="animals">Animals</option>
-                                    <option value="blackandwhite">Black & White</option>
-                                    <option value="cityscape">Cityscape</option>
-                                    <option value="food">Food</option>  
-                                    <option value="landscape">Landscape</option> 
-                                    <option value="nature">Nature</option>
-                                    <option value="people">People</option>
-                                    <option value="toy">Toy</option>
-                                    <option value="transportation">Transportation</option>
+                                    <c:choose>
+                                        <c:when test="${kind == 'all'}">
+                                            <option value="all" selected>All</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="all">All</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'animals'}">
+                                            <option value="animals" selected>Animals</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="animals">Animals</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                            <c:choose>
+                                        <c:when test="${kind == 'blackandwhite'}">
+                                            <option value="blackandwhite" selected>Black & White</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="blackandwhite">Black & White</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'cityscape'}">
+                                            <option value="cityscape" selected>Cityscape</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="cityscape">Cityscape</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'food'}">
+                                            <option value="food" selected>Food</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="food">Food</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'landscape'}">
+                                            <option value="landscape" selected>Landscape</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="landscape">Landscape</option>
+                                        </c:otherwise>
+                                    </c:choose>  
+                                    <c:choose>
+                                        <c:when test="${kind == 'nature'}">
+                                            <option value="nature" selected>Nature</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="nature">Nature</option>
+                                        </c:otherwise>
+                                    </c:choose>  
+                                    <c:choose>
+                                        <c:when test="${kind == 'people'}">
+                                            <option value="people" selected>People</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="people">People</option>
+                                        </c:otherwise>
+                                    </c:choose>  
+                                    <c:choose>
+                                        <c:when test="${kind == 'toy'}">
+                                            <option value="toy" selected>Toy</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="toy">Toy</option>
+                                        </c:otherwise>
+                                    </c:choose> 
+                                    <c:choose>
+                                        <c:when test="${kind == 'transportation'}">
+                                            <option value="transportation" selected>Transportation</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="transportation">Transportation</option>
+                                        </c:otherwise>
+                                    </c:choose> 
+                                    
                                 </select>
                             </div>
                             <div class="col-md-8 search-photo">
@@ -68,7 +139,7 @@
                                             <c:forEach items="${photoList}" var="p" varStatus="count">
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="thumbnail">
-                                                        <img style="max-height: 230px; max-width: 350px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                                        <img style="max-height: 230px; max-width: 350px; min-height: 230px;" src="${p.getPath()}" alt="${p.getCaption()}">
                                                         <div class="caption">
                                                             <table style="width: 100%;">
                                                                 <tr>
@@ -78,10 +149,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <c:if test="(count.index+1)%3 == 0">
-                                                    <br/>
-                                                </c:if>
+                                                </div>           
                                             </c:forEach>
                                         </div>
                                     </div>
