@@ -76,7 +76,7 @@
                         </table>
                     </c:when>
                     <c:otherwise>
-                            <h3 style="color:red;">${msg}</h3>
+                            <h3 style="color:red;">Not Found</h3>
                     </c:otherwise>
                 </c:choose>
             </div>
