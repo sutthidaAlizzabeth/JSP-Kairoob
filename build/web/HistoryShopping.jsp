@@ -21,7 +21,7 @@
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
     </head>
     <body>
-        <jsp:include page="include/header.jsp"/>
+        <jsp:include page="WEB-INF/include/header.jsp"/>
     <div align="center" class='divcen'>
         <div align="center">
             <h2>ประวัติการซื้อสินค้า</h2>
@@ -42,6 +42,6 @@
             </tr>
         </table>
     </div>
-        <jsp:include page="include/footer.jsp"/>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>
 </html>

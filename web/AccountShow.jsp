@@ -8,10 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="include/taghead.jsp"/>
+        <jsp:include page="WEB-INF/include/taghead.jsp"/>
     </head>
     <body>
-        <jsp:include page="include/header.jsp"/>
+        <jsp:include page="WEB-INF/include/header.jsp"/>
         <div class="divcen" align="center">
             <h1>Account</h1>
             <table class="accountedit">
@@ -57,6 +57,6 @@
                 </tr>
             </table>
         </div>
-        <jsp:include page="include/footer.jsp"/>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
     </body>
 </html>
