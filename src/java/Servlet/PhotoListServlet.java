@@ -31,16 +31,17 @@ public class PhotoListServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String key = request.getParameter("photosearchkey");
+        String search = request.getParameter("photosearchkey");
         String kindPhoto = request.getParameter("kind");
         int kind = 0;
+        String key = null;
         String msg = null;
 
         //ถ้าไม่ได้ใส่ key ในการค้นหา ให้ดึงข้อมูลทุกอย่างออกมา
-        if (key == null || key.length() == 0 || key.equals("")) {
+        if (search == null || search.length() == 0 || search.equals("")) {
             key = "%";
         } else {
-            key = "%" + key + "%";
+            key = "%" + search + "%";
         }
         
         if(kindPhoto == null || kindPhoto.length() == 0){
@@ -80,7 +81,7 @@ public class PhotoListServlet extends HttpServlet {
         
         //ถ้า photoList == null หมายถึง ค้นหาไม่เจอรูป
         if(photoList == null){
-            msg = key+" does not exist!!!";
+            msg = search+" does not exist!!!";
         }
         
         request.setAttribute("msg", msg);
