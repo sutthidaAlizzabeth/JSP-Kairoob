@@ -53,10 +53,7 @@ public class RegisterServlet extends HttpServlet {
                 //out.println("Email '" + member.getEmail() + "' is already registered !!!");
             } else {
                 new Member(userName, password);
-                message = "Registeration complete";
                 //out.println("Registeration complete");
-                
-                request.setAttribute("message", message);
                 getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);    
             }
         }
