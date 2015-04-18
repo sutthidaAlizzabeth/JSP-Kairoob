@@ -48,15 +48,9 @@ public class RegisterServlet extends HttpServlet {
         if (userName != null && password != null && rePassword != null && userName.length() != 0 && password.length() != 0 && rePassword.length() != 0) {
             Member member = Member.findByEmail(userName);
             //out.println("123"+member.getEmail()+"456");
-            if (userName.indexOf('@') == -1) {                                                  //Not contain '@'
-                message = "'@' is missing from your email !!!";
-                //out.println("'@' is missing from your email !!!");
-            } else if (member != null) {                                                        //Email is already exist
-                message = "Email '" + member.getEmail() + "' is already registered !!!";
+            if (member != null) {                                                        //Email is already exist
+                message = "Email '" + member.getEmail() + " is already registered !!!";
                 //out.println("Email '" + member.getEmail() + "' is already registered !!!");
-            } else if (!(password.equals(rePassword))) {                                        //Password are not match
-                message = "Your password are not match";
-                //out.println("Your password are not match");
             } else {
                 new Member(userName, password);
                 message = "Registeration complete";
@@ -65,9 +59,6 @@ public class RegisterServlet extends HttpServlet {
                 request.setAttribute("message", message);
                 getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);    
             }
-        } else {
-            message = "Please complete every field";                                            //Some field are empty
-            //out.print("Please complete every field");
         }
         
         request.setAttribute("message", message);    
