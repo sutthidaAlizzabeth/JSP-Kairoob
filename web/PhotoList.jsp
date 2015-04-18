@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <form action="PhotoList" method="post">
-                    <h1>Photo List</h1>
+                    <h1>Photo Search</h1>
                     <div class="container">
                         <div class="col-md-1 search-photo">
                             <h4>Search</h4>
@@ -88,18 +88,18 @@
                             <c:forEach items="${photoList}" var="p" varStatus="count">
                                 <c:if test="${(count.index+1)%3 == 1}">
                                     <tr>
-                                </c:if>
+                                    </c:if>
                                     <td class="col-lg-4">
                                         <img width="100px" src="${p.getPath()}" alt="${p.getCaption()}" />
                                     </td>
-                                <c:if test="${(count.index+1)%3 == 0}">
+                                    <c:if test="${(count.index+1)%3 == 0}">
                                     </tr>
                                 </c:if>
                             </c:forEach>
                         </table>
                     </c:when>
                     <c:otherwise>
-                        <h3 style="color:red; margin: 0 auto;">${msg}</h3>
+                            <h3 style="color:red;">${msg}</h3>
                     </c:otherwise>
                 </c:choose>
             </div>
