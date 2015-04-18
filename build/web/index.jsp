@@ -76,79 +76,96 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/animals/icons_animals.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Animals</h3>
+                            <a href="PhotoList?kind=animals">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/animals/icons_animals.jpg" alt="animals">
+                                    <div class="caption">
+                                        <h3>Animals</h3>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/blackandwhite/blackandwhite-city.jpg" alt="...">
-                                <div class="caption">
-                                    <input type="checkbox" name="selectedProduct" value="">
-                                    <h3>Black & White</h3>
+                            <a href="PhotoList?kind=blackandwhite">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/blackandwhite/blackandwhite-city.jpg" alt="black and white">
+                                    <div class="caption">
+                                        <h3>Black & White</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/cityscape/cityscape.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cityscape</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/food/noodle.JPG" alt="...">
-                                <div class="caption">
-                                    <h3>Food</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/landscape/landscape.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Landscape</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/nature/sunflower-2.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Nature</h3>
-                                </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/people/people-3.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>People</h3>
+                            <a href="PhotoList?kind=cityscape">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/cityscape/cityscape.jpg" alt="cityscape">
+                                    <div class="caption">
+                                        <h3>Cityscape</h3>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/toy/Lego-2.JPG" alt="...">
-                                <div class="caption">
-                                    <h3>Toy</h3>
+                            <a href="PhotoList?kind=food">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/food/noodle.JPG" alt="food">
+                                    <div class="caption">
+                                        <h3>Food</h3>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Assets/photo/transportation/BTS-1.JPG" alt="...">
-                                <div class="caption">
-                                    <h3>Transportation</h3>
+                            <a href="PhotoList?kind=landscape">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/landscape/landscape.jpg" alt="landscape">
+                                    <div class="caption">
+                                        <h3>Landscape</h3>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a href="PhotoList?kind=nature">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/nature/sunflower-2.jpg" alt="nature">
+                                    <div class="caption">
+                                        <h3>Nature</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <a href="PhotoList?kind=people">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/people/people-3.jpg" alt="people">
+                                    <div class="caption">
+                                        <h3>People</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a href="PhotoList?kind=toy">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/toy/Lego-2.JPG" alt="toy">
+                                    <div class="caption">
+                                        <h3>Toy</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a href="PhotoList?kind=transportation">
+                                <div class="thumbnail">
+                                    <img src="Assets/photo/transportation/BTS-1.JPG" alt="transportation">
+                                    <div class="caption">
+                                        <h3>Transportation</h3>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div> 
