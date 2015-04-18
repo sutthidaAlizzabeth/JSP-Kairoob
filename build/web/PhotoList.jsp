@@ -26,62 +26,75 @@
 
     </head>
     <body>
-    <jsp:include page="WEB-INF/include/header.jsp"/>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <form action="PhotoList" method="post">
-                    <h1>Photo Search</h1>
-                    <div class="container">
-                        <div class="col-md-1 search-photo">
-                            <h4>Search</h4>
+        <jsp:include page="WEB-INF/include/header.jsp"/>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="PhotoList" method="post">
+                        <h1>Photo Search</h1>
+                        <div class="container">
+                            <div class="col-md-1 search-photo">
+                                <h4>Search</h4>
+                            </div>
+                            <div class="col-md-2 search-photo">
+                                <select name="kind" class="form-control">
+                                    <option value="all">All</option>
+                                    <option value="animals">Animals</option>
+                                    <option value="blackandwhite">Black & White</option>
+                                    <option value="cityscape">Cityscape</option>
+                                    <option value="food">Food</option>  
+                                    <option value="landscape">Landscape</option> 
+                                    <option value="nature">Nature</option>
+                                    <option value="people">People</option>
+                                    <option value="toy">Toy</option>
+                                    <option value="transportation">Transportation</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8 search-photo">
+                                <input type="text" class="form-control" name="photosearchkey" value="${param.photosearchkey}">
+                            </div>
+                            <div class="col-md-1 search-photo">
+                                <button type="submit" class="btn btn-default">Search</button>
+                            </div>
                         </div>
-                        <div class="col-md-2 search-photo">
-                            <select name="kind" class="form-control">
-                                <option value="all">All</option>
-                                <option value="animals">Animals</option>
-                                <option value="blackandwhite">Black & White</option>
-                                <option value="cityscape">Cityscape</option>
-                                <option value="food">Food</option>  
-                                <option value="landscape">Landscape</option> 
-                                <option value="nature">Nature</option>
-                                <option value="people">People</option>
-                                <option value="toy">Toy</option>
-                                <option value="transportation">Transportation</option>
-                            </select>
-                        </div>
-                        <div class="col-md-8 search-photo">
-                            <input type="text" class="form-control" name="photosearchkey" value="${param.photosearchkey}">
-                        </div>
-                        <div class="col-md-1 search-photo">
-                            <button type="submit" class="btn btn-default">Search</button>
-                        </div>
-                    </div>
-                </form>
-                <br/>
-                <c:choose>
-                    <c:when test="${! empty photoList}">
-                        <table>
-                            <c:forEach items="${photoList}" var="p" varStatus="count">
-                                <c:if test="${(count.index+1)%3 == 1}">
-                                    <tr>
-                                    </c:if>
-                                    <td class="col-lg-4">
-                                        <img width="100px" src="${p.getPath()}" alt="${p.getCaption()}" />
-                                    </td>
-                                    <c:if test="${(count.index+1)%3 == 0}">
-                                    </tr>
-                                </c:if>
-                            </c:forEach>
-                        </table>
-                    </c:when>
-                    <c:otherwise>
+                    </form>
+                    <br/>
+                    <c:choose>
+                        <c:when test="${! empty photoList}">
+                            <section class="section-page">
+                                <div class="container">
+                                    <div class="container">
+                                        <div class="row">
+                                            <c:forEach items="${photoList}" var="p" varStatus="count">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img style="max-height: 230px; max-width: 350px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                                        <div class="caption">
+                                                            <table style="width: 100%;">
+                                                                <tr>
+                                                                    <td><h3>${p.getCaption()}</h3></td>
+                                                                    <td style="float: right;">add to cart <input type="checkbox" name="selectedProduct" value="${p.getId()}"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <c:if test="(count.index+1)%3 == 0">
+                                                    <br/>
+                                                </c:if>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </c:when>
+                        <c:otherwise>
                             <h3 style="color:red;">Not Found</h3>
-                    </c:otherwise>
-                </c:choose>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </div>
         </div>
-    </div>
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>

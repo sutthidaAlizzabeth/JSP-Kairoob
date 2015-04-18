@@ -22,138 +22,139 @@
     </head>
     <body>
         <!-- Navigation เมนู -->
-    <jsp:include page="WEB-INF/include/header.jsp"/>
-    <section class="header">
-        <div class="text-vertical-center">
-            <h1>Kairoob</h1>
-            <h3>Easy to buy Everywhere Everytime</h3>
-        </div>
-    </section>
-    <section id="bg-aboutus" class="section-page">
-        <div class="container">
-            <div class="col-lg-12 text-center">
-                <h1>About us</h1>
-                <h2>เว็บ Stockphoto โดยคนไทย เพื่อคนไทย</h2>
+        <jsp:include page="WEB-INF/include/header.jsp"/>
+        <section class="header">
+            <div class="text-vertical-center">
+                <h1>Kairoob</h1>
+                <h3>Easy to buy Everywhere Everytime</h3>
             </div>
-        </div>
-    </section>
-    <section id="bg-service" class="section-page">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h1>Our Services</h1>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-8">
-                            <div class="service-item">
-                                <span id="icon-find" class="glyphicon glyphicon-search" style="font-size: 5em"></span>
-                                <h3>Easy to find</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-8">
-                            <div class="service-item">
-                                <span id="icon-cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 5em"></span>
-                                <h3>Easy to buy </h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-8">
-                            <div class="service-item">
-                                <span class="fa fa-cc-paypal fa-5x icon-payments" ></span>
-                                <span class="fa fa-money fa-5x icon-payments"></span>
-                                <span class="fa fa-cc-visa fa-5x icon-payments"></span>
-                                <h3>Quick and easy ecommerce</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--page content catagory หมวดหมู่รูปภาพ-->
-    <section class="section-page">
-        <div class="container">
-            <h1>Browser By Category</h1>
+        </section>
+        <section id="bg-aboutus" class="section-page">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/animals/icons_animals.jpg" alt="...">
-                            <div class="caption">
-                                <h3>Animals</h3>
+                <div class="col-lg-12 text-center">
+                    <h1>About us</h1>
+                    <h2>เว็บ Stockphoto โดยคนไทย เพื่อคนไทย</h2>
+                </div>
+            </div>
+        </section>
+        <section id="bg-service" class="section-page">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h1>Our Services</h1>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-8">
+                                <div class="service-item">
+                                    <span id="icon-find" class="glyphicon glyphicon-search" style="font-size: 5em"></span>
+                                    <h3>Easy to find</h3>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/blackandwhite/blackandwhite-city.jpg" alt="...">
-                            <div class="caption">
-                                <h3>Black & White</h3>
+                            <div class="col-md-4 col-sm-8">
+                                <div class="service-item">
+                                    <span id="icon-cart" class="glyphicon glyphicon-shopping-cart" style="font-size: 5em"></span>
+                                    <h3>Easy to buy </h3>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/cityscape/cityscape.jpg" alt="...">
-                            <div class="caption">
-                                <h3>Cityscape</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/food/noodle.JPG" alt="...">
-                            <div class="caption">
-                                <h3>Food</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/landscape/landscape.jpg" alt="...">
-                            <div class="caption">
-                                <h3>Landscape</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/nature/sunflower-2.jpg" alt="...">
-                            <div class="caption">
-                                <h3>Nature</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/people/people-3.jpg" alt="...">
-                            <div class="caption">
-                                <h3>People</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/toy/Lego-2.JPG" alt="...">
-                            <div class="caption">
-                                <h3>Toy</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="Assets/photo/transportation/BTS-1.JPG" alt="...">
-                            <div class="caption">
-                                <h3>Transportation</h3>
+                            <div class="col-md-4 col-sm-8">
+                                <div class="service-item">
+                                    <span class="fa fa-cc-paypal fa-5x icon-payments" ></span>
+                                    <span class="fa fa-money fa-5x icon-payments"></span>
+                                    <span class="fa fa-cc-visa fa-5x icon-payments"></span>
+                                    <h3>Quick and easy ecommerce</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div>
-    </section>
-    <!--footer-- ฟุตเตอร์-->
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+            </div>
+        </section>
+        <!--page content catagory หมวดหมู่รูปภาพ-->
+        <section class="section-page">
+            <div class="container">
+                <h1>Browser By Category</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/animals/icons_animals.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Animals</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/blackandwhite/blackandwhite-city.jpg" alt="...">
+                                <div class="caption">
+                                    <input type="checkbox" name="selectedProduct" value="">
+                                    <h3>Black & White</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/cityscape/cityscape.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cityscape</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/food/noodle.JPG" alt="...">
+                                <div class="caption">
+                                    <h3>Food</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/landscape/landscape.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Landscape</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/nature/sunflower-2.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Nature</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/people/people-3.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>People</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/toy/Lego-2.JPG" alt="...">
+                                <div class="caption">
+                                    <h3>Toy</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Assets/photo/transportation/BTS-1.JPG" alt="...">
+                                <div class="caption">
+                                    <h3>Transportation</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+        <!--footer-- ฟุตเตอร์-->
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>

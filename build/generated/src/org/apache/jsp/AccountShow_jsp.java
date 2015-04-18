@@ -48,12 +48,12 @@ public final class AccountShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "include/taghead.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "WEB-INF/include/taghead.jsp", out, false);
       out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "include/header.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "WEB-INF/include/header.jsp", out, false);
       out.write("\n");
       out.write("        <div class=\"divcen\" align=\"center\">\n");
       out.write("            <h1>Account</h1>\n");
@@ -101,7 +101,7 @@ public final class AccountShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </table>\n");
       out.write("        </div>\n");
       out.write("        ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "include/footer.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "WEB-INF/include/footer.jsp", out, false);
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
