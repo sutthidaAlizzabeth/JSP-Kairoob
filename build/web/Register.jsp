@@ -41,20 +41,20 @@
                         <p>สมาชิก VIP เดือนละ 350 บาท</p>
                     </div>
                     <div class="col-md-6 group-all">
-                        <form name='regis' action="Register" method="post"> 
+                        <form id="regis" name='regis' action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
                             <div class="form-group">
                                 <label>E-mail</label>
                                 <input id='username' onblur="checkEmail(this.value)" type="email" class="form-control" name="username" placeholder="E-mail" required>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input id='pass' onblur="chkpass()" type="password" class="form-control" name="password" placeholder="password" required>
+                                <input id='pass' type="password" class="form-control" name="password" placeholder="password" required>
                             </div>
                             <div class="form-group">
                                 <label>RePassword</label>
-                                <input id='repass' onblur='chkpass()' type="password" class="form-control" name="repassword" placeholder="repassword" required>
+                                <input id='repass' type="password" class="form-control" name="repassword" placeholder="repassword" required>
                             </div>
-                            <button onclick="sub()" type="submit" class="btn btn-success">Submit</button>
+                            <input onclick="return sub()" type="submit" class="btn btn-success">
                         </form>
                     </div>
                 </div>

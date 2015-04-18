@@ -29,3 +29,27 @@ function chkpass()
     }
 }
 
+function sub(){
+    var user = document.getElementById('username').value;
+    var pass = document.getElementById('pass').value;
+    var repass = document.getElementById('repass').value;
+    var chksub;
+    if(user == ""){
+        alert("Please input E-mail");
+        chksub = false;
+    }else if(pass == ""){
+        alert("Please input password");
+        document.getElementById('pass').focus();
+        chksub = false;
+    }else if(repass == ""){
+        alert("Please input password again");
+        document.getElementById('repass').focus();
+        chksub = false;
+    }else if(pass != repass){
+        chkpass();
+        chksub = false;
+    }else{
+        chksub = true;
+    }
+    return chksub;
+}
