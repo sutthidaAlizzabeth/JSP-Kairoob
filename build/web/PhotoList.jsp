@@ -144,7 +144,10 @@
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td><h3>${p.getCaption()}</h3></td>
-                                                                    <td style="float: right;">add to cart <input type="checkbox" name="selectedProduct" value="${p.getId()}"></td>
+                                                                    <td style="float: right;">
+                                                                        <input type="hidden" name="select" value="${p.getId()}">
+                                                                        <input type="submit" value="add to cart">
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </div>
