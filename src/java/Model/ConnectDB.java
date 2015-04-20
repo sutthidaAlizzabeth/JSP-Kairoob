@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 /**
  *
@@ -23,8 +24,15 @@ public class ConnectDB {
         try
         {
             // 2 บรรทัดล่างนี้ใช้เชื่อมต่อ database
+            Properties prop = new Properties();
+            prop.setProperty("user", "kairoob");
+            prop.setProperty("password", "bTLWzH");
+            prop.setProperty("useUnicode", "true");
+            prop.setProperty("characterEncoding", "UTF-8");
+            
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", prop);
             
             // สร้างคำสั่ง sql เพื่อใช้งาน database จะใช้ Statement หรือ PreparedStatement ก็ได้
             String sql = "select * from Members;";

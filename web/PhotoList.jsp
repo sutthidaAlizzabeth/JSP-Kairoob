@@ -54,7 +54,7 @@
                                             <option value="animals">Animals</option>
                                         </c:otherwise>
                                     </c:choose>
-                                            <c:choose>
+                                    <c:choose>
                                         <c:when test="${kind == 'blackandwhite'}">
                                             <option value="blackandwhite" selected>Black & White</option>
                                         </c:when>
@@ -118,7 +118,7 @@
                                             <option value="transportation">Transportation</option>
                                         </c:otherwise>
                                     </c:choose> 
-                                    
+
                                 </select>
                             </div>
                             <div class="col-md-8 search-photo">
@@ -145,8 +145,9 @@
                                                                 <tr>
                                                                     <td><h3>${p.getCaption()}</h3></td>
                                                                     <td style="float: right;">
-                                                                        <input type="hidden" name="select" value="${p.getId()}">
-                                                                        <input type="submit" value="add to cart">
+                                                                        <a>
+                                                                            <input type="submit" value="add to cart">
+                                                                        </a>
                                                                     </td>
                                                                 </tr>
                                                             </table>

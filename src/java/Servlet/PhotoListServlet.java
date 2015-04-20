@@ -31,6 +31,7 @@ public class PhotoListServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String search = request.getParameter("photosearchkey");
         String kindPhoto = request.getParameter("kind");
         int kind = 0;

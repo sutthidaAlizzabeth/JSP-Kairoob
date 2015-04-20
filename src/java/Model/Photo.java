@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  *
@@ -124,8 +125,14 @@ public class Photo {
 
         try {
             // 2 บรรทัดล่างนี้ใช้เชื่อมต่อ database
+            Properties prop = new Properties();
+            prop.setProperty("user", "kairoob");
+            prop.setProperty("password", "bTLWzH");
+            prop.setProperty("useUnicode", "true");
+            prop.setProperty("characterEncoding", "UTF-8");
+            
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", "kairoob", "bTLWzH");
+            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", prop);
 
             //ด้านล่างนี้คือการใช้งานฐานข้อมูล
             String sql = null;
