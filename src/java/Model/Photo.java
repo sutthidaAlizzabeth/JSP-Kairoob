@@ -19,11 +19,12 @@ import java.util.List;
  */
 public class Photo {
 
-    int id = 0;//PK
-    String path = null;
-    String caption = null;
-    String tag = null;
-    String resolution = null;
+    private int id = 0;//PK
+    private String path = null;
+    private String caption = null;
+    private String tag = null;
+    private String resolution = null;
+    private double price = 0;
     int categoryId = 0;//FK_Category
 
     public int getId() {
@@ -66,12 +67,44 @@ public class Photo {
         this.resolution = resolution;
     }
 
+    public double getPrice(){
+        return price ;
+    }
+    
+    public void setPrice(double price){
+        this.price = price;
+    }
+    
     public int getCategoryId() {
         return categoryId;
     }
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+    
+    public static Photo findById(int id){
+        Photo p = null;
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", "kairoob", "bTLWzH");
+
+            String sql = "select * from Photo where id = ?";
+            
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setInt(1, id);
+            ResultSet result = pstm.executeQuery();
+            
+            if(result.next()){
+                Photo.setPhoto(result, p);
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return p;
     }
     
     //method สำหรับเอาข้อมูลรูปภาพจาก database มาตั้งค่าใน object ของ photo
