@@ -48,7 +48,7 @@ public class AddToCart extends HttpServlet {
 
         }
         
-        getServletContext().getRequestDispatcher("/SearchProduct").forward(request, response);
+        getServletContext().getRequestDispatcher("/PhotoList").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
