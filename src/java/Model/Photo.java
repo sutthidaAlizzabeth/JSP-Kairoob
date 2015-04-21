@@ -88,9 +88,16 @@ public class Photo {
         Photo p = null;
         
         try {
+            Properties prop = new Properties();
+            prop.setProperty("user", "kairoob");
+            prop.setProperty("password", "bTLWzH");
+            prop.setProperty("useUnicode", "true");
+            prop.setProperty("characterEncoding", "UTF-8");
+            
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", "kairoob", "bTLWzH");
+            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob", prop);
 
+            
             String sql = "select * from Photo where id = ?";
             
             PreparedStatement pstm = con.prepareStatement(sql);
