@@ -137,23 +137,25 @@
                                     <div class="container">
                                         <div class="row">
                                             <c:forEach items="${photoList}" var="p" varStatus="count">
-                                                <div class="col-sm-6 col-md-4">
-                                                    <div class="thumbnail">
-                                                        <img style="max-height: 230px; max-width: 350px; min-height: 230px;" src="${p.getPath()}" alt="${p.getCaption()}">
-                                                        <div class="caption">
-                                                            <table style="width: 100%;">
-                                                                <tr>
-                                                                    <td><h3>${p.getCaption()}</h3></td>
-                                                                    <td style="float: right;">
-                                                                        <a>
-                                                                            <input type="submit" value="add to cart">
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
+                                                <form action="AddToCart?id=${p.getId()}" method="post">
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="thumbnail">
+                                                            <img style="max-height: 230px; max-width: 350px; min-height: 230px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                                            <div class="caption">
+                                                                <table style="width: 100%;">
+                                                                    <tr>
+                                                                        <td><h3>${p.getCaption()}</h3></td>
+                                                                        <td style="float: right;">
+                                                                            <a>
+                                                                                <input type="submit" value="add to cart">
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>           
+                                                </form>
                                             </c:forEach>
                                         </div>
                                     </div>
@@ -161,7 +163,7 @@
                             </section>
                         </c:when>
                         <c:otherwise>
-                            <h3 style="color:red;">Not Found</h3>
+                            <h3 style="color:red; text-align: center;">Not Found</h3>
                         </c:otherwise>
                     </c:choose>
                 </div>
