@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="PhotoList" method="post">
+                    <form action="<%=response.encodeURL("PhotoList")%>" method="post">
                         <h1>Photo Search</h1>
                         <div class="container">
                             <div class="col-md-1 search-photo">
@@ -137,7 +137,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <c:forEach items="${photoList}" var="p" varStatus="count">
-                                                <form action="AddToCart?id=${p.getId()}" method="post">
+                                                <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="thumbnail">
                                                             <img style="max-height: 230px; max-width: 350px; min-height: 230px;" src="${p.getPath()}" alt="${p.getCaption()}">
@@ -147,6 +147,7 @@
                                                                         <td><h3>${p.getCaption()}</h3></td>
                                                                         <td style="float: right;">
                                                                             <a>
+                                                                                <input type="hidden" value="${p.getId()}">
                                                                                 <input type="submit" value="add to cart">
                                                                             </a>
                                                                         </td>
