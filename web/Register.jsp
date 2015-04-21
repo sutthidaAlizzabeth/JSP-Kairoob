@@ -41,7 +41,7 @@
                         <p>สมาชิก VIP เดือนละ 350 บาท</p>
                     </div>
                     <div class="col-md-6 group-all">
-                        <form id="regis" name='regis' action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
+                        <form id="regis" name='regis' action="<%=response.encodeURL("Register")%>" method="post"> 
                             <div class="form-group">
                                 <label>E-mail</label>
                                 <input id='username' type="email" class="form-control" name="username" placeholder="E-mail" required>
