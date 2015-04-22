@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-md-6">
-                        <form action="#" method="post"> <!--ยังไม่ได้ใส่ action-->
+                        <form action="<%= response.encodeURL("Login")%>" method="post">
                             <div class="form-group">
                                 <label>E-mail</label>
                                 <input type="email" class="form-control" name="username" placeholder="E-mail" required>
