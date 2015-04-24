@@ -24,8 +24,7 @@ public class Member {
 
         String sqlInsert = "insert into Members (email, password) values (?,?);";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            Connection con = ConnectDB.db();
 
             PreparedStatement pstmInsert = con.prepareStatement(sqlInsert);
             
@@ -101,8 +100,7 @@ public class Member {
         Member mem = null ;     
         String sqlCmd = "select * from members where id=?";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            Connection con = ConnectDB.db();
             PreparedStatement pstm = con.prepareStatement(sqlCmd) ;
             pstm.setInt(1, id) ;
             ResultSet rs = pstm.executeQuery();
@@ -116,21 +114,21 @@ public class Member {
         return mem;
     }
     
-    public static List<Member> findByName(String name) {                        //แก้ด้วยๆ
+    public static List<Member> findByName(String name) {                        
         Member mem = null ;
         List<Member> members = null ;        
         String sqlCmd = "select * from member where name like ?";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            Connection con = ConnectDB.db();
             PreparedStatement pstm = con.prepareStatement(sqlCmd) ;
-            pstm.setString(1, name+ "%") ;
+            pstm.setString(1, "%" + name+ "%") ;
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 mem = new Member();
                 getRow(mem, rs) ;
-                if (members == null)
+                if (members == null){
                     members = new ArrayList<Member>();
+                }
                 members.add(mem);
             }
         } catch (Exception ex) {
@@ -143,8 +141,7 @@ public class Member {
         Member mem = null ;
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://jsp.itkmutt19.in.th/project_kairoob","kairoob","bTLWzH");
+            Connection con = ConnectDB.db();
             String sqlCmd = "select * from Members where email=?";
             PreparedStatement pstm = con.prepareStatement(sqlCmd) ;
             pstm.setString(1, email) ;
@@ -158,5 +155,26 @@ public class Member {
         }
         return mem;
     }
-     
+    
+    public static Member login(String aemail, String apassword){
+        Member member = null;
+        
+        try {
+            Connection con = ConnectDB.db();
+            String sql = "select * from Members where email = ? and password = ?";
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, aemail);
+            pstm.setString(2, apassword);
+            ResultSet result = pstm.executeQuery();
+            if(result.next()){
+                member = new Member();
+                getRow(member, result);
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return member;
+    }
 }
