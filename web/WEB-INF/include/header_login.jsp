@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-lock"></span> <span> Logout</span></a></li>
+                <li><a href="<%=response.encodeURL("Logout") %>"><span class="glyphicon glyphicon-off"></span> <span> Logout</span></a></li>
             </ul>
         </div>
     </div>
