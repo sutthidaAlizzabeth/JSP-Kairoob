@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
             if (member == null) {
                 message = "email or password is wrong";
             } else {
+                request.getSession().setAttribute("user", member);
                 message = "success!!!";
             }
         }
