@@ -3,7 +3,7 @@
     Created on : Apr 2, 2015, 9:38:19 PM
     Author     : nattha
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,6 +49,9 @@
             </div>
         </div>
     </section>
+    <c:if test="${! empty message}">
+        ${message}
+    </c:if>
     <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>
 </html>
