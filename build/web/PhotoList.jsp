@@ -333,8 +333,9 @@
                                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="thumbnail">
+                                                            
                                                             <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
-                                                                <img src="${p.getPath()}" alt="" />
+                                                                <img src="${p.getPath()}" alt="${p.getCaption()}">
                                                             </a>
                                                             <div class="caption">
                                                                 <table style="width: 100%;">
