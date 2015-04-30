@@ -56,3 +56,7 @@ function sub() {
 
     return chksub;
 }
+
+function addtocart(){
+    document.getElementById("addcart").submit();
+}

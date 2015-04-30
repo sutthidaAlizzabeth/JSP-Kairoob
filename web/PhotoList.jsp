@@ -333,9 +333,8 @@
                                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="thumbnail">
-                                                            
                                                             <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
-                                                                <img src="${p.getPath()}" alt="${p.getCaption()}">
+                                                                <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
                                                             </a>
                                                             <div class="caption">
                                                                 <table style="width: 100%;">
@@ -344,7 +343,11 @@
                                                                         <td style="float: right;">
                                                                             <a>
                                                                                 <input type="hidden" value="${p.getId()}">
-                                                                                <input type="submit" value="add to cart">
+                                                                                <div>
+                                                                                    <button onclick='addtocart()'>
+                                                                                        <i class='fa fa-cart-plus'> add to cart</i>
+                                                                                    </button>
+                                                                                </div>
                                                                             </a>
                                                                         </td>
                                                                     </tr>
