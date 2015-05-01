@@ -88,12 +88,8 @@ public class Photo {
         Photo p = null;
         
         try {
-            
             Connection con = ConnectDB.db();
-
-            
             String sql = "select * from Photo where id = ?";
-            
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1, id);
             ResultSet result = pstm.executeQuery();
@@ -166,15 +162,5 @@ public class Photo {
         return photoList;
     }
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        List<Photo> photos = Photo.searchPhoto("%", 0);
-        if(photos != null){
-            for(Photo p : photos){
-                System.out.println(p.getId());
-                System.out.println(p.getPath());
-                System.out.println(p.getTag());
-                System.out.println(p.getCategoryId());
-            }
-        }
-    }
+    
 }

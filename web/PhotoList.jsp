@@ -337,7 +337,7 @@
                                                                         <td><h3>${p.getCaption()}</h3></td>
                                                                         <td style="float: right;">
                                                                             <a>
-                                                                                <input type="hidden" value="${p.getId()}">
+                                                                                <input type="hidden" name="id" value="${p.getId()}">
                                                                                 <div>
                                                                                     <button onclick='addtocart()'>
                                                                                         <i class='fa fa-cart-plus'> add to cart</i>

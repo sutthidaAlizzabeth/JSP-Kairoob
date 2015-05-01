@@ -10,7 +10,14 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> <span>&nbsp;&nbsp;0 </span></a></li>
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                            
+                        </span>
+                        <span>&nbsp;&nbsp;0</span>
+                    </a>
+                </li>
                 <li><a href="<%=response.encodeURL("Register")%>"><span class="glyphicon glyphicon-user"></span> <span> Sign up</span></a></li>
                 <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
             </ul>

@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
+
+        
     </head>
     <body>
         <c:choose>
@@ -30,36 +32,34 @@
                 <jsp:include page="WEB-INF/include/header.jsp"/>
             </c:otherwise>
         </c:choose>
-    
-    <section class="section-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-md-6">
-                        <form action="<%= response.encodeURL("Login")%>" method="post">
-                            <div class="form-group">
-                                <label>E-mail</label>
-                                <input type="email" class="form-control" name="username" placeholder="E-mail" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Need an account</h2>
-                        <p>สมัครสมาชิกวันนี้ ทดลองใช้ VIP ฟรี 14 วัน</p>
-                        <a href="Register.jsp" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
+
+        <section class="section-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-6">
+                            <form action="<%= response.encodeURL("Login")%>" method="post">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input type="email" class="form-control" name="username" placeholder="E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <h2>Need an account</h2>
+                            <p>สมัครสมาชิกวันนี้ ทดลองใช้ VIP ฟรี 14 วัน</p>
+                            <a href="Register.jsp" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <c:if test="${! empty message}">
-        ${message}
-    </c:if>
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+        </section>
+
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>
