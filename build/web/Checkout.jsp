@@ -21,14 +21,7 @@
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
     </head>
     <body>
-    <c:choose>
-        <c:when test="${! empty user}">
-            <jsp:include page="WEB-INF/include/header_login.jsp"/>
-        </c:when>
-        <c:otherwise>
-            <jsp:include page="WEB-INF/include/header.jsp"/>
-        </c:otherwise>
-    </c:choose>
+    <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
     <section class="section-page">
         <div class="container">
             <div class="row group-all" >

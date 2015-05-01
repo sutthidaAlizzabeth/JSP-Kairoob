@@ -214,14 +214,7 @@
 
     </head>
     <body>
-        <c:choose>
-            <c:when test="${! empty user}">
-                <jsp:include page="WEB-INF/include/header_login.jsp"/>
-            </c:when>
-            <c:otherwise>
-                <jsp:include page="WEB-INF/include/header.jsp"/>
-            </c:otherwise>
-        </c:choose>
+        <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

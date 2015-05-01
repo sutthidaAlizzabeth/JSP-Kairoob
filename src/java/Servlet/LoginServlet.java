@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String message = null;
 
+        
         if (email != null && email.length() != 0 && password != null && password.length() != 0 && (email.indexOf("@") != -1)) {
             Member member = Member.login(email, password);
             if (member == null) {
@@ -43,11 +44,12 @@ public class LoginServlet extends HttpServlet {
             }
         }
         else{
-            message = "email or password is wrong";
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
         
         request.setAttribute("message", message);
-        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
