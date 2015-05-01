@@ -22,7 +22,14 @@
     </head>
     <body>
         <!-- Navigation เมนู -->
-        <jsp:include page="WEB-INF/include/header.jsp"/>
+        <c:choose>
+            <c:when test="${! empty user}">
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
         <section class="header">
             <div class="text-vertical-center" >
                 <h1>Kairoob</h1>

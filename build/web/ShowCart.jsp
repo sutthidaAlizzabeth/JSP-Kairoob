@@ -20,7 +20,14 @@
         <title></title>
     </head>
     <body>
-    <jsp:include page="WEB-INF/include/header.jsp"/>
+    <c:choose>
+        <c:when test="${! empty user}">
+            <jsp:include page="WEB-INF/include/header_login.jsp"/>
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+        </c:otherwise>
+    </c:choose>
     <section class="section-page">
         <div class="container">
             <h1>Your cart :::</h1>

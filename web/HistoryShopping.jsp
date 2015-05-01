@@ -21,7 +21,14 @@
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
     </head>
     <body>
-        <jsp:include page="WEB-INF/include/header.jsp"/>
+    <c:choose>
+        <c:when test="${! empty user}">
+            <jsp:include page="WEB-INF/include/header_login.jsp"/>
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+        </c:otherwise>
+    </c:choose>
     <div align="center" class='divcen'>
         <div align="center">
             <h2>ประวัติการซื้อสินค้า</h2>
@@ -37,11 +44,11 @@
             </tr>
             <tr>
                 <td colspan='6'>
-                 ( Backend )                   
+                    ( Backend )                   
                 </td>
             </tr>
         </table>
     </div>
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>
 </html>

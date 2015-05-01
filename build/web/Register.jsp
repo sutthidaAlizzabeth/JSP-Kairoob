@@ -24,43 +24,50 @@
         <script type="text/javascript" src="Assets/js/kairoob.js"></script>
     </head>
     <body>
-    <jsp:include page="WEB-INF/include/header.jsp"/>
-    <c:if test="${! empty message}">
-        <script type="text/javascript">
-            alert("${message}");
-        </script>
-    </c:if>
-    <section class="section-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-md-6">
-                        <h2>Register Free</h2>
-                        <p>สมาชิกแบบธรรมดา อัพโหลดรูปได้ 10 รูป ต่อ สัปดาห์</p>
-                        <p>สมัครวันนี้ทดลองแบบ VIP 14 วัน</p>
-                        <p>สมาชิก VIP เดือนละ 350 บาท</p>
-                    </div>
-                    <div class="col-md-6 group-all">
-                        <form id="regis" name='regis' action="<%=response.encodeURL("Register")%>" method="post"> 
-                            <div class="form-group">
-                                <label>E-mail</label>
-                                <input id='username' type="email" class="form-control" name="username" placeholder="E-mail" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input id='pass' type="password" class="form-control" name="password" placeholder="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label>RePassword</label>
-                                <input id='repass' type="password" class="form-control" name="repassword" placeholder="repassword" required>
-                            </div>
-                            <input onclick="return sub()" type="submit" class="btn btn-success">
-                        </form>
+        <c:choose>
+            <c:when test="${! empty user}">
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
+        <c:if test="${! empty message}">
+            <script type="text/javascript">
+                alert("${message}");
+            </script>
+        </c:if>
+        <section class="section-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-6">
+                            <h2>Register Free</h2>
+                            <p>สมาชิกแบบธรรมดา อัพโหลดรูปได้ 10 รูป ต่อ สัปดาห์</p>
+                            <p>สมัครวันนี้ทดลองแบบ VIP 14 วัน</p>
+                            <p>สมาชิก VIP เดือนละ 350 บาท</p>
+                        </div>
+                        <div class="col-md-6 group-all">
+                            <form id="regis" name='regis' action="<%=response.encodeURL("Register")%>" method="post"> 
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input id='username' type="email" class="form-control" name="username" placeholder="E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input id='pass' type="password" class="form-control" name="password" placeholder="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>RePassword</label>
+                                    <input id='repass' type="password" class="form-control" name="repassword" placeholder="repassword" required>
+                                </div>
+                                <input onclick="return sub()" type="submit" class="btn btn-success">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+        </section>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>
