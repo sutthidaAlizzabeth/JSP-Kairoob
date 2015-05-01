@@ -24,9 +24,20 @@
         <!-- Navigation เมนู -->
         <jsp:include page="WEB-INF/include/header.jsp"/>
         <section class="header">
-            <div class="text-vertical-center">
+            <div class="text-vertical-center" >
                 <h1>Kairoob</h1>
                 <h3>Easy to buy Everywhere Everytime</h3>
+                <div align='center' style="margin-left: 425px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group" style="text-align: center;">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
             </div>
         </section>
         <section id="bg-aboutus" class="section-page">
