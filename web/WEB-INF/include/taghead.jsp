@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" charset="UTF-8" >
 <title>Kairoob</title>
 <link rel="stylesheet" href="Assets/css/reset.css"/>
 <link rel="stylesheet" href="Assets/css/bootstrap.css"/>
