@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
-    int id = 0;                 //PK
-    int idenNum = 0;            //int or String??
-    String firstName = "";
-    String lastName = "";
-    String password = "";
-    static String email = "";
+    private int id = 0;                 //PK
+    private int idenNum = 0;            //int or String??
+    private String firstName = "";
+    private String lastName = "";
+    private String password = "";
+    private String email = "";
 
     public Member() {
     }
@@ -79,7 +79,7 @@ public class Member {
         this.password = password;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
