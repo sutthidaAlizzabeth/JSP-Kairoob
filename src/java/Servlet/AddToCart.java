@@ -32,7 +32,10 @@ public class AddToCart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String pid = request.getParameter("id");
+        String kind = request.getParameter("kind");
+        String photosearchkey = request.getParameter("photosearchkey");
 
         HttpSession session = request.getSession(true);
         Cart cart = (Cart) session.getAttribute("cart");
@@ -48,7 +51,7 @@ public class AddToCart extends HttpServlet {
 
         }
         
-        getServletContext().getRequestDispatcher("/PhotoList").forward(request, response);
+        getServletContext().getRequestDispatcher("/PhotoList?kind="+kind+"&photosearchkey="+photosearchkey).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

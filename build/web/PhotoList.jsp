@@ -346,6 +346,8 @@
                                                                         <td style="float: right;">
                                                                             <a>
                                                                                 <input type="hidden" name="id" value="${p.getId()}">
+                                                                                <input type="hidden" name="kind" value="${kind}">
+                                                                                <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
                                                                                 <div>
                                                                                     <button onclick='addtocart()'>
                                                                                         <i class='fa fa-cart-plus'> add to cart</i>
