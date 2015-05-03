@@ -26,7 +26,7 @@ public class Photo {
     private String tag = null;
     private String resolution = null;
     private double price = 0;
-    int categoryId = 0;//FK_Category
+    private int categoryId = 0;//FK_Category
 
     public int getId() {
         return id;
@@ -68,14 +68,14 @@ public class Photo {
         this.resolution = resolution;
     }
 
-    public double getPrice(){
-        return price ;
+    public double getPrice() {
+        return price;
     }
-    
-    public void setPrice(double price){
+
+    public void setPrice(double price) {
         this.price = price;
     }
-    
+
     public int getCategoryId() {
         return categoryId;
     }
@@ -83,39 +83,41 @@ public class Photo {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-    
-    public static Photo findById(int id){
+
+    public static Photo findById(int id) {
         Photo p = null;
-        
+        String sql = "select * from Photo where id = ?;";
+
         try {
             Connection con = ConnectDB.db();
-            String sql = "select * from Photo where id = ?";
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1, id);
             ResultSet result = pstm.executeQuery();
-            
-            if(result.next()){
+
+            if (result.next()) {
+                p = new Photo();
                 Photo.setPhoto(result, p);
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
         return p;
     }
-    
+
     //method สำหรับเอาข้อมูลรูปภาพจาก database มาตั้งค่าใน object ของ photo
-    private static Photo setPhoto(ResultSet result, Photo p) throws SQLException{
-        p.setId(result.getInt(1));
-        p.setPath(result.getString(2));
-        p.setCaption(result.getString(3));
-        p.setTag(result.getString(4));
-        p.setResolution(result.getString(5));
-        p.setCategoryId(result.getInt(6));
+    private static Photo setPhoto(ResultSet result, Photo p) throws SQLException {
+        p.setId(result.getInt("id"));
+        p.setPath(result.getString("path"));
+        p.setCaption(result.getString("caption"));
+        p.setTag(result.getString("tag"));
+        p.setResolution(result.getString("resolution"));
+        p.setPrice(result.getDouble("price"));
+        p.setCategoryId(result.getInt("category_id"));
         return p;
     }
-    
+
     //method สำหรับค้นหา/ดึงรูปภาพขึ้นมาจาก database
     public static List<Photo> searchPhoto(String tag, int kind) throws ClassNotFoundException, SQLException {
         List<Photo> photoList = null;
@@ -142,11 +144,11 @@ public class Photo {
             }
             //เก็บผลลัพธ์จาก database ไว้ใน "result"
             ResultSet result = pstm.executeQuery();
-            
+
             //เอา result มาเช็คว่ามีข้อมูลหรือไม่
             while (result.next()) {
                 //ถ้าเป็นครั้งแรกของ loop ให้ new ArrayList
-                if(photoList == null){
+                if (photoList == null) {
                     photoList = new ArrayList<Photo>();
                 }
                 Photo p = new Photo();
@@ -161,6 +163,6 @@ public class Photo {
 
         return photoList;
     }
-    
-    
+
+
 }

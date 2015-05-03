@@ -12,10 +12,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        <span class="glyphicon glyphicon-shopping-cart">
-                            
-                        </span>
-                        <span>&nbsp;&nbsp;0</span>
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <span>&nbsp;&nbsp; ${cart.items == null ? 0 : cart.size}</span>
                     </a>
                 </li>
                 <li><a href="<%=response.encodeURL("Register")%>"><span class="glyphicon glyphicon-user"></span> <span> Sign up</span></a></li>
