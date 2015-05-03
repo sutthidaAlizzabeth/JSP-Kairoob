@@ -3,7 +3,7 @@
     Created on : Apr 12, 2015, 2:47:00 PM
     Author     : Boom
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,14 @@
         <jsp:include page="WEB-INF/include/taghead.jsp"/>
     </head>
     <body>
-    <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
+        <c:choose>
+            <c:when test="${! empty user}" >
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
     <div class="divcen" align="center">
         <h1>Account</h1>
         <table class="accountedit">

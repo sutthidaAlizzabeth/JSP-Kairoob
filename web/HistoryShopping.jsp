@@ -3,7 +3,7 @@
     Created on : Apr 11, 2015, 11:31:41 PM
     Author     : Boom
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,27 +21,34 @@
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
     </head>
     <body>
-    <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
-    <div align="center" class='divcen'>
-        <div align="center">
-            <h2>ประวัติการซื้อสินค้า</h2>
+        <c:choose>
+            <c:when test="${! empty user}" >
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
+        <div align="center" class='divcen'>
+            <div align="center">
+                <h2>ประวัติการซื้อสินค้า</h2>
+            </div>
+            <table class="history">
+                <tr>
+                    <td>ลำดับ</td>
+                    <td>รายการ</td>
+                    <td>ราคา</td>
+                    <td>สถานะ</td>
+                    <td>รายละเอียด</td>
+                    <td>แจ้งการชำระเงิน</td>
+                </tr>
+                <tr>
+                    <td colspan='6'>
+                        ( Backend )                   
+                    </td>
+                </tr>
+            </table>
         </div>
-        <table class="history">
-            <tr>
-                <td>ลำดับ</td>
-                <td>รายการ</td>
-                <td>ราคา</td>
-                <td>สถานะ</td>
-                <td>รายละเอียด</td>
-                <td>แจ้งการชำระเงิน</td>
-            </tr>
-            <tr>
-                <td colspan='6'>
-                    ( Backend )                   
-                </td>
-            </tr>
-        </table>
-    </div>
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>

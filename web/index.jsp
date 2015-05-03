@@ -4,6 +4,7 @@
     Author     : nattha
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,16 @@
     </head>
     <body>
         <!-- Navigation เมนู -->
-        <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
+        <c:choose>
+            <c:when test="${! empty user}" >
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
+        
+        <!--body -->
         <section class="header">
             <div class="text-vertical-center" >
                 <h1>Kairoob</h1>

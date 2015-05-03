@@ -21,10 +21,18 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
 
-        
+
     </head>
     <body>
-        <jsp:include page="WEB-INF/include/headerstatus.jsp"/>
+        <c:choose>
+            <c:when test="${! empty user}" >
+                <jsp:include page="WEB-INF/include/header_login.jsp"/>
+            </c:when>
+            <c:otherwise>
+                <jsp:include page="WEB-INF/include/header.jsp"/>
+            </c:otherwise>
+        </c:choose>
+
         <section class="section-page">
             <div class="container">
                 <div class="row">
@@ -51,6 +59,12 @@
                 </div>
             </div>
         </section>
+
+        <c:if test="${! empty message}">
+            ${message}
+            <br/>
+            ${user.email}
+        </c:if>
 
         <jsp:include page="WEB-INF/include/footer.jsp"/>
     </body>
