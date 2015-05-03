@@ -53,7 +53,14 @@
                                     <td>${item.p.categoryName}</td>
                                     <td>${item.p.resolution}</td>
                                     <td>${item.p.price}</td>
-                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                    <td>
+                                        <form action="<%= response.encodeURL("RemoveFormCart")%>" method="post">
+                                            <input type="hidden" name="pid" value="${item.p.id}" />
+                                            <button type="submit">
+                                                <i class='glyphicon glyphicon-trash'></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>

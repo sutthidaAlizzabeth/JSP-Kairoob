@@ -28,6 +28,10 @@
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>Servlet.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveFormCart</servlet-name>
+        <servlet-class>Servlet.RemoveFormCart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PhotoListServlet</servlet-name>
         <url-pattern>/PhotoList</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFormCart</servlet-name>
+        <url-pattern>/RemoveFormCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
