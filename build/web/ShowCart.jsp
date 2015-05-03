@@ -40,16 +40,20 @@
                         <td>Category</td>
                         <td>Resolution</td>
                         <td>Price</td>
+                        <td>Delete</td>
                     </tr>
                     <!--coding -->
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                   
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
                 </table>
                 <!--ปุ่ม submit checkout update-->
                 <div class="row">
@@ -57,12 +61,12 @@
 
                         <div class="col-md-4">
                             <div class="col-md-offset-4">
-                                <a href="PhotoList.jsp"><button class="btn btn-primary" value="Continue Shopping">Continue Shopping</button></a>
+                                <a href="<%=response.encodeURL("PhotoList") %>"><button class="btn btn-primary" value="Continue Shopping">Continue Shopping</button></a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="col-md-offset-8">
-                                <a href="Checkout.jsp"><button class="btn btn-success" value="checkout">Checkout</button></a>
+                                <a href="<%=response.encodeURL("Checkout") %>"><button class="btn btn-success" value="checkout">Checkout</button></a>
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">
+                    <a href="<%=response.encodeURL("ShowCart")%>">
                         <span class="glyphicon glyphicon-shopping-cart"></span> 
                         <span>&nbsp;&nbsp; ${cart.items == null ? 0 : cart.size} </span>
                     </a>
