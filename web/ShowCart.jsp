@@ -32,41 +32,48 @@
         <section class="section-page">
             <div class="container">
                 <h1>Your cart :::</h1>
-                <table class="table table-bordered">
-                    <tr>
-                        <td>No</td>
-                        <td>Preview</td>
-                        <td>Caption</td>
-                        <td>Category</td>
-                        <td>Resolution</td>
-                        <td>Price</td>
-                        <td>Delete</td>
-                    </tr>
-                    <!--coding -->
-                   
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                </table>
+                <c:choose>
+                    <c:when test="${! empty cart}">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>No</td>
+                                <td>Preview</td>
+                                <td>Caption</td>
+                                <td>Category</td>
+                                <td>Resolution</td>
+                                <td>Price</td>
+                                <td>Delete</td>
+                            </tr>
+                            <!--coding -->
+                            <c:forEach items="${cart.items}" var="item" varStatus="no">
+                                <tr>
+                                    <td>${no.index+1}</td>
+                                    <td><img width="50px" height="50px" src="${item.p.path}" /></td>
+                                    <td>${item.p.caption}</td>
+                                    <td>${item.p.categoryName}</td>
+                                    <td>${item.p.resolution}</td>
+                                    <td>${item.p.price}</td>
+                                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </c:when>
+                    <c:otherwise>
+                        Empty
+                    </c:otherwise>
+                </c:choose>
                 <!--ปุ่ม submit checkout update-->
                 <div class="row">
                     <div class="col-lg-12 ">
 
                         <div class="col-md-4">
                             <div class="col-md-offset-4">
-                                <a href="<%=response.encodeURL("PhotoList") %>"><button class="btn btn-primary" value="Continue Shopping">Continue Shopping</button></a>
+                                <a href="<%=response.encodeURL("PhotoList")%>"><button class="btn btn-primary" value="Continue Shopping">Continue Shopping</button></a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="col-md-offset-8">
-                                <a href="<%=response.encodeURL("Checkout") %>"><button class="btn btn-success" value="checkout">Checkout</button></a>
+                                <a href="<%=response.encodeURL("Checkout")%>"><button class="btn btn-success" value="checkout">Checkout</button></a>
                             </div>
                         </div>
                     </div>

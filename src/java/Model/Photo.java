@@ -83,6 +83,24 @@ public class Photo {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
+    
+    public String getCategoryName(){
+        String categoryName = null;
+        String sql = "select category_name from Categories where id = ?";
+        try {
+            Connection con = ConnectDB.db();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setInt(1, this.categoryId);
+            ResultSet result = pstm.executeQuery();
+            if(result.next()){
+                categoryName = result.getString("category_name");
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return categoryName;
+    }
 
     public static Photo findById(int id) {
         Photo p = null;
