@@ -47,7 +47,7 @@ public class AddToCart extends HttpServlet {
         int id = Integer.parseInt(pid);
         Photo p = Photo.findById(id);
         if (p != null) {
-            cart.add(p, 1);
+            cart.add(p);
 
         }
         

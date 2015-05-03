@@ -22,7 +22,7 @@ public class Cart implements Serializable {
     public int getSize(){
         int count = 0;
         for(LineItem item : items){
-            count = count + item.getQuantity();
+            count = count + 1;
         }
         return count;
     }
@@ -35,17 +35,15 @@ public class Cart implements Serializable {
         items = new ArrayList<>();
     }
     
-    public void add(Photo p, int qty) {
+    public void add(Photo p) {
         LineItem item = new LineItem();
         item.setP(p);
-        item.setQuantity(qty);
         
         int x = items.indexOf(item);
         if (x<0) {
             items.add(item);
         } else {
             LineItem lt = items.get(x);
-            lt.setQuantity(qty+ lt.getQuantity());
         }
     }
     
@@ -55,18 +53,10 @@ public class Cart implements Serializable {
         items.remove(item);
     }
     
-    public void replace(Photo p , int qty) {
-        LineItem item = new LineItem();
-        item.setP(p);
-        int index = items.indexOf(item);
-        if(index >= 0 ){
-            items.get(index).quantity = qty;
-        }
-    }
+
         
     public class LineItem implements Serializable, Comparable<LineItem> {
         private Photo p ;
-        private int quantity;
         private double discount ;
 
         @Override
@@ -103,13 +93,6 @@ public class Cart implements Serializable {
             this.p = p;
         }
 
-        public int getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
 
         public double getDiscount() {
             return discount;
