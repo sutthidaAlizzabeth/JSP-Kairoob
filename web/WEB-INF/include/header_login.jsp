@@ -16,7 +16,7 @@
                         <span>&nbsp;&nbsp; ${cart.items == null ? 0 : cart.size} </span>
                     </a>
                 </li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
+                <li><a href="<%=response.encodeURL("AccountShow")%>"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
                 <li><a href="<%=response.encodeURL("Logout")%>"><span class="glyphicon glyphicon-off"></span> <span> Logout</span></a></li>
             </ul>
         </div>

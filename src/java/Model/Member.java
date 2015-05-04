@@ -12,10 +12,11 @@ import java.util.List;
 public class Member {
     private int id = 0;                 //PK
     private int idenNum = 0;            //int or String??
-    private String firstName = "";
-    private String lastName = "";
-    private String password = "";
-    private String email = "";
+    private String firstName = null;
+    private String lastName = null;
+    private String password = null;
+    private String email = null;
+    private String tel = null;
 
     public Member() {
     }
@@ -85,6 +86,14 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getTel(){
+        return tel;
+    }
+    
+    public void setTel(String tel){
+        this.tel = tel;
     }
     
     private static void getRow(Member mem, ResultSet rs) throws SQLException {

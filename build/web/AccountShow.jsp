@@ -24,38 +24,38 @@
             <table class="accountedit">
                 <tr>
                     <td colspan="2" rowspan="9">picture</td>
-                    <td colspan="2">เลขบัตรประจำตัวประชาชน</td>
+                    <td colspan="2">Identity Card <font style="color: red;">** require</font></td>
                 </tr>
                 <tr>
-                    <td colspan="2">123456789456</td>
-                </tr>
-                <tr>
-                    <td>
-                        ชื่อ
-                    </td>
-                    <td>
-                        นามสกุล
-                    </td>
+                    <td colspan="2">${user.idenNum == 0? "-" : user.idenNum}</td>
                 </tr>
                 <tr>
                     <td>
-                        Abc
+                        First Name
                     </td>
                     <td>
-                        Cde
+                        Last Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${user.firstName == null? "-" : user.firstName}
+                    </td>
+                    <td>
+                        ${user.lastName == null? "-" : user.lastName}
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">Email</td>
                 </tr>
                 <tr>
-                    <td colspan="2">abc@mail.com</td>
+                    <td colspan="2">${user.email == null? "-" : user.email}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">เบอร์โทรศัพท์</td>
+                    <td colspan="2">Mobile Number</td>
                 </tr>
                 <tr>
-                    <td colspan="2">xxx-xxxxxx</td>
+                    <td colspan="2">${user.tel == null? "-" : user.tel}</td>
                 </tr>
                 <tr>
                     <td>
