@@ -27,6 +27,15 @@ public class Cart implements Serializable {
         return count;
     }
 
+    public double getPrice(){
+        double price = 0;
+        for(LineItem item : items){
+            price += item.getP().getPrice();
+        }
+        
+        return price;
+    }
+    
     public List<LineItem> getItems() {
         return items;
     }
