@@ -49,7 +49,7 @@
                         <div class="col-md-6">
                             <h2>PURCHASE</h2>
                             <h3>Total: &nbsp <fmt:formatNumber pattern="#,###,##0.00" value="${cart.price}"/></h3>
-                            <button type="submit" class="btn btn-primary btn-block" value="submit" name="#">Proceed to Checkout</button>
+                            <button type="submit" class="btn btn-primary btn-block" value="submit" name="#">Proceed to Check Out</button>
                         </div>
                     </div>
                 </div>

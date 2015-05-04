@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="col-md-offset-8">
-                                <a href="<%=response.encodeURL("Checkout")%>"><button class="btn btn-success" value="checkout">Checkout</button></a>
+                                <a href="<%=response.encodeURL("Checkout")%>"><button class="btn btn-success" value="checkout">Check Out</button></a>
                             </div>
                         </div>
                     </div>
