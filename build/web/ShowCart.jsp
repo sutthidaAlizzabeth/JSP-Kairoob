@@ -36,28 +36,28 @@
                     <c:when test="${! empty cart}">
                         <table class="table table-bordered">
                             <tr>
-                                <td>No</td>
-                                <td>Preview</td>
-                                <td>Caption</td>
-                                <td>Category</td>
-                                <td>Resolution</td>
-                                <td>Price</td>
-                                <td>Delete</td>
+                                <td class="text-center">No</td>
+                                <td class="text-center">Preview</td>
+                                <td class="text-center">Caption</td>
+                                <td class="text-center">Category</td>
+                                <td class="text-center">Resolution</td>
+                                <td class="text-center">Price</td>
+                                <td class="text-center">Delete</td>
                             </tr>
                             <!--coding -->
                             <c:forEach items="${cart.items}" var="item" varStatus="no">
                                 <tr>
-                                    <td>${no.index+1}</td>
-                                    <td><img width="50px" height="50px" src="${item.p.path}" /></td>
-                                    <td>${item.p.caption}</td>
-                                    <td>${item.p.categoryName}</td>
-                                    <td>${item.p.resolution}</td>
-                                    <td>${item.p.price}</td>
-                                    <td>
+                                    <td class="text-center">${no.index+1}</td>
+                                    <td class="text-center"><img width="50px" height="50px" src="${item.p.path}" /></td>
+                                    <td class="text-center">${item.p.caption}</td>
+                                    <td class="text-center">${item.p.categoryName}</td>
+                                    <td class="text-center">${item.p.resolution}</td>
+                                    <td class="text-center">${item.p.price}</td>
+                                    <td class="text-center">
                                         <form action="<%= response.encodeURL("RemoveFormCart")%>" method="post">
                                             <input type="hidden" name="pid" value="${item.p.id}" />
-                                            <button type="submit">
-                                                <i class='glyphicon glyphicon-trash'></i>
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa fa-times"></i>
                                             </button>
                                         </form>
                                     </td>

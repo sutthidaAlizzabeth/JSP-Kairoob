@@ -11,10 +11,26 @@ public final class PhotoDetails_jsp extends org.apache.jasper.runtime.HttpJspBas
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_when_test.release();
+    _jspx_tagPool_c_choose.release();
+    _jspx_tagPool_c_otherwise.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -61,106 +77,87 @@ public final class PhotoDetails_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("    <navbar class=\"navbar navbar-kairoob navbar-inverse navbar-fixed-top\" role=\"nav\">\n");
+      out.write("        ");
+      if (_jspx_meth_c_choose_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("\n");
       out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"navbar-header\">\n");
-      out.write("                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n");
-      out.write("                    <span class=\"icon-bar\"></span>\n");
-      out.write("                    <span class=\"icon-bar\"></span>\n");
-      out.write("                    <span class=\"icon-bar\"></span>\n");
-      out.write("                </button>\n");
-      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\"><span class=\"glyphicon glyphicon-picture\"></span> Kairoob</a>\n");
-      out.write("                <form action=\"\" method=\"\" class=\"navbar-form navbar-left\" role=\"search\">\n");
-      out.write("                    <div class=\"form-group\">\n");
-      out.write("                        <input type=\"text\" id=\"form-search\" class=\"form-control\" placeholder=\"Search\">\n");
-      out.write("                    </div>\n");
-      out.write("                    <button type=\"submit\" class=\"btn btn-default\"><span class=\"fa fa-search\"</button>\n");
-      out.write("                </form>\n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n");
-      out.write("                <ul class=\"nav navbar-nav navbar-right\">\n");
-      out.write("                    <li><a href=\"Register.jsp\"><span class=\"glyphicon glyphicon-user\"></span> <span> Sign up</span></a></li>\n");
-      out.write("                    <li><a href=\"Login.jsp\"><span class=\"glyphicon glyphicon-lock\"></span> <span> Login</span></a></li>\n");
-      out.write("                </ul>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </navbar>\n");
-      out.write("    <div class=\"container\">\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col-lg-12\">\n");
-      out.write("                    <h1 class=\"text-center\">Caption</h1> <!--caption-->\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("        <!--photo very big-->\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col-lg-12\">\n");
-      out.write("                    <img class=\"img-responsive\" src=\"Assets/photo/blackandwhite/blackandwhite.jpg\">\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("        <!--details photo-->\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col-lg-12\">\n");
-      out.write("                    <h3>Resolution</h3>\n");
-      out.write("                    <h3>Kind</h3>\n");
-      out.write("                    <h3>Tag</h3>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("        <!--ปุ่ม add to cart-->\n");
-      out.write("        <div class=\" container\">\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col-lg-12 cart-right\">\n");
-      out.write("                    <button class=\"btn btn-success\"><span class=\"glyphicon glyphicon-shopping-cart \"/> Add To Cart</button>\n");
-      out.write("               </div>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("    </div>\n");
-      out.write("    <section class=\"section-page\">\n");
-      out.write("        <footer>\n");
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"row\">\n");
       out.write("                    <div class=\"col-lg-12\">\n");
-      out.write("                        <div class=\"col-md-3\">\n");
-      out.write("                            <h4>Contact Us</h4>\n");
-      out.write("                            <p>Kairoob (ขายรูป)</p>\n");
-      out.write("                            <p>126 ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>\n");
-      out.write("                            <br>\n");
-      out.write("                            <a href=\"mailto:Kairoob@gmail.com\">Kairoob@gmail.com</a>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"col-md-3\">\n");
-      out.write("                            <h4>Creator</h4>\n");
-      out.write("                            <p>Nattha Boonnumchai</p>\n");
-      out.write("                            <p>Boom Pongtorn</p>\n");
-      out.write("                            <p>Sumet Benjawan</p>\n");
-      out.write("                            <p>Alizzabeth Carry</p>\n");
-      out.write("                            <p>Earth's Eternity</p>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"col-md-3\">\n");
-      out.write("                            <h4>Follow Us</h4>\n");
-      out.write("                            <a href=\"#\">Facebook</a>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"col-md-3\">\n");
-      out.write("                            <h4>Sponsor</h4>\n");
-      out.write("                            <a href=\"https://www.facebook.com/iamfuphotography\">Iamfu Studio</a>\n");
-      out.write("                            <br>\n");
-      out.write("                            <br>\n");
-      out.write("                            <a href=\"https://www4.sit.kmutt.ac.th\">SIT KMUTT</a>\n");
-      out.write("                        </div>\n");
+      out.write("                        <h1 class=\"text-center\">Caption</h1> <!--caption-->\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <hr>\n");
-      out.write("                <div class=\"col-lg-12\">\n");
-      out.write("                    <p>Copyright © By <span class=\"glyphicon glyphicon-picture\"></span>  Kairoob 2015</p> \n");
+      out.write("            </div>\n");
+      out.write("            <!--photo very big-->\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <div class=\"row\">\n");
+      out.write("                    <div class=\"col-lg-12\">\n");
+      out.write("                        <img class=\"img-responsive\" src=\"Assets/photo/blackandwhite/blackandwhite.jpg\">\n");
+      out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </footer>\n");
-      out.write("    </section>\n");
-      out.write("</body>\n");
+      out.write("            <!--details photo-->\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <div class=\"row\">\n");
+      out.write("                    <div class=\"col-lg-12\">\n");
+      out.write("                        <h3>Resolution</h3>\n");
+      out.write("                        <h3>Kind</h3>\n");
+      out.write("                        <h3>Tag</h3>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <!--ปุ่ม add to cart-->\n");
+      out.write("            <div class=\" container\">\n");
+      out.write("                <div class=\"row\">\n");
+      out.write("                    <div class=\"col-lg-12 cart-right\">\n");
+      out.write("                        <button class=\"btn btn-success\"><span class=\"glyphicon glyphicon-shopping-cart \"/> Add To Cart</button>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("        <section class=\"section-page\">\n");
+      out.write("            <footer>\n");
+      out.write("                <div class=\"container\">\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("                        <div class=\"col-lg-12\">\n");
+      out.write("                            <div class=\"col-md-3\">\n");
+      out.write("                                <h4>Contact Us</h4>\n");
+      out.write("                                <p>Kairoob (ขายรูป)</p>\n");
+      out.write("                                <p>126 ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>\n");
+      out.write("                                <br>\n");
+      out.write("                                <a href=\"mailto:Kairoob@gmail.com\">Kairoob@gmail.com</a>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"col-md-3\">\n");
+      out.write("                                <h4>Creator</h4>\n");
+      out.write("                                <p>Nattha Boonnumchai</p>\n");
+      out.write("                                <p>Boom Pongtorn</p>\n");
+      out.write("                                <p>Sumet Benjawan</p>\n");
+      out.write("                                <p>Alizzabeth Carry</p>\n");
+      out.write("                                <p>Earth's Eternity</p>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"col-md-3\">\n");
+      out.write("                                <h4>Follow Us</h4>\n");
+      out.write("                                <a href=\"#\">Facebook</a>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"col-md-3\">\n");
+      out.write("                                <h4>Sponsor</h4>\n");
+      out.write("                                <a href=\"https://www.facebook.com/iamfuphotography\">Iamfu Studio</a>\n");
+      out.write("                                <br>\n");
+      out.write("                                <br>\n");
+      out.write("                                <a href=\"https://www4.sit.kmutt.ac.th\">SIT KMUTT</a>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <hr>\n");
+      out.write("                    <div class=\"col-lg-12\">\n");
+      out.write("                        <p>Copyright © By <span class=\"glyphicon glyphicon-picture\"></span>  Kairoob 2015</p> \n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </footer>\n");
+      out.write("        </section>\n");
+      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -173,5 +170,104 @@ public final class PhotoDetails_jsp extends org.apache.jasper.runtime.HttpJspBas
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    HttpServletRequest request = (HttpServletRequest)_jspx_page_context.getRequest();
+    HttpServletResponse response = (HttpServletResponse)_jspx_page_context.getResponse();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent(null);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("            ");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("            ");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("        ");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    HttpServletRequest request = (HttpServletRequest)_jspx_page_context.getRequest();
+    HttpServletResponse response = (HttpServletResponse)_jspx_page_context.getResponse();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${! empty user}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                ");
+        org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "WEB-INF/include/header_login.jsp", out, false);
+        out.write("\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    HttpServletRequest request = (HttpServletRequest)_jspx_page_context.getRequest();
+    HttpServletResponse response = (HttpServletResponse)_jspx_page_context.getResponse();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                ");
+        org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "WEB-INF/include/header.jsp", out, false);
+        out.write("\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    return false;
   }
 }

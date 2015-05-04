@@ -41,7 +41,7 @@
                             <form action="<%= response.encodeURL("Login")%>" method="post">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="email" class="form-control" name="username" placeholder="E-mail" required>
+                                    <input type="email" class="form-control" name="username" placeholder="E-mail" value="${param.username}" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>

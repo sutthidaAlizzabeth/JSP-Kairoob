@@ -40,13 +40,13 @@ public class LoginServlet extends HttpServlet {
             Member member = Member.login(email, password);
             if (member == null) {
                 message = "email or password is wrong";
+                request.setAttribute("message", message);
+                getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", member);
                 session.setMaxInactiveInterval(60 * 60);
 
-                message = "success";
-                
                 //Cookie user = new Cookie("user", member.getEmail());
                 //user.setMaxAge(30 * 60);
                 //response.addCookie(user);
@@ -55,9 +55,7 @@ public class LoginServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
 
-        request.setAttribute("message", message);
-
-        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
