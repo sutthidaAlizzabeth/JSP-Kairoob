@@ -35,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="text-center">Caption</h1> <!--caption-->
+                        <h1 class="text-center">${photo.caption}</h1> <!--caption-->
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <img class="img-responsive" src="Assets/photo/blackandwhite/blackandwhite.jpg">
+                        <img class="img-responsive" src="${photo.path}">
                     </div>
                 </div>
             </div>
@@ -51,20 +51,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3>Resolution</h3>
-                        <h3>Kind</h3>
-                        <h3>Tag</h3>
+                        <h3>Resolution: ${photo.resolution}</h3>
+                        <h3>Category: ${photo.categoryName}</h3>
+                        <h3>Tag: ${photo.tag}</h3>
                     </div>
                 </div>
             </div>
             <!--ปุ่ม add to cart-->
+            <form action="<%= response.encodeURL("AddToCart") %>">
             <div class=" container">
                 <div class="row">
                     <div class="col-lg-12 cart-right">
-                        <button class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart "/> Add To Cart</button>
+                        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart "/> Add To Cart</button>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
         <section class="section-page">
             <footer>
