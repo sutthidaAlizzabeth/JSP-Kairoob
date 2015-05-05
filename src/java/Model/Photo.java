@@ -5,20 +5,24 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  *
  * @author Alizzabeth
  */
-public class Photo {
+public class Photo implements Serializable, Comparable<Photo>{
 
     private int id = 0;//PK
     private String path = null;
@@ -137,8 +141,8 @@ public class Photo {
     }
 
     //method สำหรับค้นหา/ดึงรูปภาพขึ้นมาจาก database
-    public static List<Photo> searchPhoto(String tag, int kind) throws ClassNotFoundException, SQLException {
-        List<Photo> photoList = null;
+    public static Collection<Photo> searchPhoto(String tag, int kind) throws ClassNotFoundException, SQLException {
+        Collection<Photo> photoList = null;
 
         try {
             Connection con = ConnectDB.db();
@@ -151,23 +155,22 @@ public class Photo {
             //ถ้า kind = 0 หมายถึงให้ค้นหาจากทุกประเภท
             if (kind != 0) {
                 //limt 0,12 ในคำสั่ง sql หมายถึงเมื่อ query ข้อมูลมาแล้ว ให้ดึงข้อมูลออกมาตั้งแต่ record ที่ 0 ถึง 12 เท่านั้น
-                sql = "select * from Photo where category_id = ? and tag like ? limit 0,9;";
+                sql = "select * from Photo where category_id = ? and tag like ? ;";
                 pstm = con.prepareStatement(sql);
                 pstm.setInt(1, kind);
                 pstm.setString(2, tag);
             } else {
-                sql = "select * from Photo where tag like ? limit 0,9;";
+                sql = "select * from Photo where tag like ? ;";
                 pstm = con.prepareStatement(sql);
                 pstm.setString(1, tag);
             }
             //เก็บผลลัพธ์จาก database ไว้ใน "result"
             ResultSet result = pstm.executeQuery();
-
             //เอา result มาเช็คว่ามีข้อมูลหรือไม่
             while (result.next()) {
                 //ถ้าเป็นครั้งแรกของ loop ให้ new ArrayList
                 if (photoList == null) {
-                    photoList = new ArrayList<Photo>();
+                    photoList = new TreeSet<Photo>() {};
                 }
                 Photo p = new Photo();
                 //เอาข้อมูลที่ได้จาก database (ใน result) ไปยัดใส่ object ของ photo (ตัวแปร p) ด้วย method setPhoto
@@ -182,5 +185,17 @@ public class Photo {
         return photoList;
     }
 
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Collection<Photo> test = Photo.searchPhoto("%food%", 0);
+        
+        for(Photo p : test){
+            System.out.println(p.getCaption());
+        }
+    }
+
+    @Override
+    public int compareTo(Photo o) {
+        return this.getId() - o.getId();
+    }
 
 }

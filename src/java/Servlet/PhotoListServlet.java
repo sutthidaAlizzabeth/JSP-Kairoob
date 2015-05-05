@@ -9,7 +9,8 @@ import Model.Photo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.TreeSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +37,15 @@ public class PhotoListServlet extends HttpServlet {
         String search = request.getParameter("photosearchkey");
         String kindPhoto = request.getParameter("kind");
         int kind = 0;
-        String key = null;
-        String msg = null;
+        String keys[] = null;
 
         //ถ้าไม่ได้ใส่ key ในการค้นหา ให้ดึงข้อมูลทุกอย่างออกมา
         if (search == null || search.length() == 0 || search.equals("")) {
-            key = "%";
+            keys = new String[1];
+            keys[0] = "%";
+            
         } else {
-            key = "%" + search + "%";
+            keys = search.split(" ");
         }
         
         if(kindPhoto == null || kindPhoto.length() == 0){
@@ -74,9 +76,15 @@ public class PhotoListServlet extends HttpServlet {
         }
 
         //เรียกใช้ method searchPhoto ใน Photo Model เพื่อค้นหา/ดึงรูปภาพจาก database
-        List<Photo> photoList = null;
+        TreeSet<Photo> photoList = null;
         try {
-            photoList = Photo.searchPhoto(key, kind);
+            for(String key : keys){
+                if(photoList == null){
+                    photoList = new TreeSet<Photo>();
+                }
+                photoList.addAll(Photo.searchPhoto("%"+key+"%", kind));
+                String breaks = null;
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
