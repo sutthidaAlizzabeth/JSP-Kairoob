@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section class="section-page">
     <div class="container">
         <footer>
@@ -5,8 +6,8 @@
                 <div class="col-lg-12">
                     <div class="col-md-3">
                         <h4>Contact Us</h4>
-                        <p>Kairoob (??????)</p>
-                        <p>126 ??????????ddddddd?????????40</p>
+                        <p>Kairoob (ขายรูป)</p>
+                        <p>ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>
                         <br>
                         <a href="mailto:Kairoob@gmail.com">Kairoob@gmail.com</a>
                     </div>
@@ -33,7 +34,7 @@
             </div>
             <hr>
             <div class="col-lg-12">
-                <p>Copyright � By <span class="glyphicon glyphicon-picture"></span>  Kairoob 2015</p> 
+                <p>Copyright © By <span class="glyphicon glyphicon-picture"></span>  Kairoob 2015</p> 
             </div>
         </footer>
     </div>
