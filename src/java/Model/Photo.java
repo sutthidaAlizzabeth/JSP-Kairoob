@@ -141,7 +141,7 @@ public class Photo implements Serializable, Comparable<Photo>{
     }
 
     //method สำหรับค้นหา/ดึงรูปภาพขึ้นมาจาก database
-    public static Collection<Photo> searchPhoto(String tag, int kind) throws ClassNotFoundException, SQLException {
+    public static Collection<Photo> searchPhoto(String tag, int kind,String price, String res) throws ClassNotFoundException, SQLException {
         Collection<Photo> photoList = null;
 
         try {
@@ -153,13 +153,38 @@ public class Photo implements Serializable, Comparable<Photo>{
 
             //ถ้าเป็นการค้นหาแยกตามประเภทของรูปภาพ
             //ถ้า kind = 0 หมายถึงให้ค้นหาจากทุกประเภท
-            if (kind != 0) {
-                //limt 0,12 ในคำสั่ง sql หมายถึงเมื่อ query ข้อมูลมาแล้ว ให้ดึงข้อมูลออกมาตั้งแต่ record ที่ 0 ถึง 12 เท่านั้น
+            if (kind != 0 && price.equals("all") && res.equals("all")) {
                 sql = "select * from Photo where category_id = ? and tag like ? ;";
                 pstm = con.prepareStatement(sql);
                 pstm.setInt(1, kind);
                 pstm.setString(2, tag);
-            } else {
+            }else if(kind != 0 && price.equals("less500") && res.equals("all")){
+                sql = "select * from Photo where price < 500 and category_id = ? and tag like ? ;";
+                pstm = con.prepareStatement(sql);
+                pstm.setInt(1, kind);
+                pstm.setString(2, tag);
+            }else if(kind != 0 && price.equals("500-1,000") && res.equals("all")){
+                sql = "select * from Photo where price between 500 and 1000 and category_id = ? and tag like ? ;";
+                pstm = con.prepareStatement(sql);
+                pstm.setInt(1, kind);
+                pstm.setString(2, tag);
+            }else if(kind != 0 && price.equals("1,000-1,500") && res.equals("all")){
+                sql = "select * from Photo where price between 1000 and 1500 and category_id = ? and tag like ? ;";
+                pstm = con.prepareStatement(sql);
+                pstm.setInt(1, kind);
+                pstm.setString(2, tag);
+            }else if(kind != 0 && price.equals("1,500-2,000") && res.equals("all")){
+                sql = "select * from Photo where price between 1500 and 2000 and category_id = ? and tag like ? ;";
+                pstm = con.prepareStatement(sql);
+                pstm.setInt(1, kind);
+                pstm.setString(2, tag);
+            }else if(kind != 0 && price.equals("more2,000") && res.equals("all")){
+                sql = "select * from Photo where price > 2000 and category_id = ? and tag like ? ;";
+                pstm = con.prepareStatement(sql);
+                pstm.setInt(1, kind);
+                pstm.setString(2, tag);
+            }
+            else {
                 sql = "select * from Photo where tag like ? ;";
                 pstm = con.prepareStatement(sql);
                 pstm.setString(1, tag);
@@ -185,13 +210,7 @@ public class Photo implements Serializable, Comparable<Photo>{
         return photoList;
     }
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Collection<Photo> test = Photo.searchPhoto("%food%", 0);
-        
-        for(Photo p : test){
-            System.out.println(p.getCaption());
-        }
-    }
+    
 
     @Override
     public int compareTo(Photo o) {

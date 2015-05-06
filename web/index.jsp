@@ -87,7 +87,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=animals") %>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=animals&price=all&res=all") %>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/animals/icons_animals.jpg" alt="animals">
                                     <div class="caption">
@@ -97,7 +97,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=blackandwhite") %>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=blackandwhite&price=all&res=all") %>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/blackandwhite/blackandwhite-city.jpg" alt="black and white">
                                     <div class="caption">
@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=cityscape")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=cityscape&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/cityscape/cityscape.jpg" alt="cityscape">
                                     <div class="caption">
@@ -118,7 +118,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=food")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=food&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/food/noodle.JPG" alt="food">
                                     <div class="caption">
@@ -128,7 +128,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=landscape")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=landscape&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/landscape/landscape.jpg" alt="landscape">
                                     <div class="caption">
@@ -138,7 +138,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=nature")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=nature&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/nature/sunflower-2.jpg" alt="nature">
                                     <div class="caption">
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=people")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=people&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/people/people-3.jpg" alt="people">
                                     <div class="caption">
@@ -159,7 +159,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=toy")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=toy&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/toy/Lego-2.JPG" alt="toy">
                                     <div class="caption">
@@ -169,7 +169,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <a href="<%= response.encodeURL("PhotoList?kind=transportation")%>">
+                            <a href="<%= response.encodeURL("PhotoList?kind=transportation&price=all&res=all")%>">
                                 <div class="thumbnail">
                                     <img src="Assets/photo/transportation/BTS-1.JPG" alt="transportation">
                                     <div class="caption">

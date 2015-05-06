@@ -325,51 +325,51 @@ Author     : nattha
                                 <p><span class="fa fa-money"></span> Price</p>
                                 <select name="price" class="form-control">
                                     <c:choose>
-                                        <c:when test="${price == 'all price'}">
-                                            <option value="all price" selected>All Price</option>
+                                        <c:when test="${price == 'all'}">
+                                            <option value="all" selected>All Price</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="all price">All Price</option>
+                                            <option value="all">All Price</option>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
-                                        <c:when test="${price == 'less than 500'}">
-                                            <option value="less than 500" selected>Less Than 500</option>
+                                        <c:when test="${price == 'less500'}">
+                                            <option value="less500" selected>Less Than 500</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="less than 500">Less Than 500</option>
+                                            <option value="less500">Less Than 500</option>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
-                                        <c:when test="${price == '500 - 1,000'}">
-                                            <option value="500 - 1,000" selected>500 - 1,000</option>
+                                        <c:when test="${price == '500-1,000'}">
+                                            <option value="500-1,000" selected>500 - 1,000</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="500 - 1,000">500 - 1,000</option>
+                                            <option value="500-1,000">500 - 1,000</option>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
-                                        <c:when test="${price == '1,000 - 1,500'}">
-                                            <option value="1,000 - 1,500" selected>1,000 - 1,500</option>
+                                        <c:when test="${price == '1,000-1,500'}">
+                                            <option value="1,000-1,500" selected>1,000 - 1,500</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="1,000 - 1,500">1,000 - 1,500</option>
+                                            <option value="1,000-1,500">1,000 - 1,500</option>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
-                                        <c:when test="${price == '1,500 - 2,000 '}">
-                                            <option value="1,500 - 2,000 " selected>1,500 - 2,000</option>
+                                        <c:when test="${price == '1,500-2,000'}">
+                                            <option value="1,500-2,000" selected>1,500 - 2,000</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="1,500 - 2,000 ">1,500 - 2,000 </option>
+                                            <option value="1,500-2,000">1,500 - 2,000 </option>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
-                                        <c:when test="${price == 'more than 2,000'}">
-                                            <option value="more than 2,000" selected>More Than 2,000</option>
+                                        <c:when test="${price == 'more2,000'}">
+                                            <option value="more2,000" selected>More Than 2,000</option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option value="more than 2,000">More Than 2,000</option>
+                                            <option value="more2,000">More Than 2,000</option>
                                         </c:otherwise>
                                     </c:choose> 
                                 </select>
