@@ -42,24 +42,24 @@
                     <input type="text" style="width: 200px" placeholder="name">
                 </td>
                 <td>
-                    <input type="text" style="width: 200px" placeholder="surname">
+                    <input  type="text" style="width: 200px" placeholder="surname">
                 </td>
             </tr>
             <tr>
                 <td colspan="2">E-mail</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" style="width: 450px" placeholder="xxx@xxx"></td>
+                <td colspan="2"><input  type="text" style="width: 450px" placeholder="xxx@xxx"></td>
             </tr>
             <tr>
                 <td colspan="2">เบอร์โทรศัพท์</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" style="width: 450px" placeholder="xxx-xxxxxxx"></td>
+                <td colspan="2"><input  type="text" style="width: 450px" placeholder="xxx-xxxxxxx"></td>
             </tr>
             <tr>
                 <td>
-                    <a href="#"><input type="button" value="ยืนยันข้อมูล"></a>
+                    <a href="#"><input class="btn btn-default" type="button" value="ยืนยันข้อมูล"></a>
                 </td>
             </tr>
         </table>

@@ -31,7 +31,7 @@ and open the template in the editor.
 
 #bg-aboutus{
     background-color:#FFFFFF;
-    
+
 }
 
 #bg-service{
@@ -85,104 +85,255 @@ and open the template in the editor.
 
 //วิธีแก้ไขนะ ฟูสร้าง class ที่ชื่อว่า navbar-kairoob ใน css ขึ้นมาใหม่เลยอ่ะ ถ้าเรียกใช้ก็ พิมพ์ว่า navbar-kairoob///
 .navbar-kairoob {
-  background-color: #222;
-  border-color: #080808;
+    background-color: #222;
+    border-color: #080808;
 }
 .navbar-kairoob .navbar-brand {
-color: #FFFFFF;
+    color: #FFFFFF;
 }
 .navbar-kairoob  .navbar-brand:hover,
 .navbar-kairoob  .navbar-brand:focus {
-color: #9d9d9d;
-background-color: transparent;
+    color: #9d9d9d;
+    background-color: transparent;
 }
 .navbar-kairoob  .navbar-text {
-color: #fff;
+    color: #fff;
 }
 .navbar-kairoob  .navbar-nav > li > a {
-color: #fff;
+    color: #fff;
 }
 .navbar-kairoob  .navbar-nav > li > a:hover,
 .navbar-kairoob  .navbar-nav > li > a:focus {
-color: #9D9D9D;
-background-color: transparent;
+    color: #9D9D9D;
+    background-color: transparent;
 }
 .navbar-kairoob  .navbar-nav > .active > a,
 .navbar-kairoob.navbar-nav > .active > a:hover,
 .navbar-kairoob .navbar-nav > .active > a:focus {
-color: #fff;
-background-color: #080808;
+    color: #fff;
+    background-color: #080808;
 }
 .navbar-kairoob .navbar-nav > .disabled > a,
 .navbar-kairoob .navbar-nav > .disabled > a:hover,
 .navbar-kairoob .navbar-nav > .disabled > a:focus {
-color: #444;
-background-color: transparent;
+    color: #444;
+    background-color: transparent;
 }
 .navbar-kairoob  .navbar-toggle {
-border-color: #333;
+    border-color: #333;
 }
 .navbar-kairoob  .navbar-toggle:hover,
 .navbar-kairoob .navbar-toggle:focus {
-background-color: #333;
+    background-color: #333;
 }
 .navbar-kairoob  .navbar-toggle .icon-bar {
-background-color: #fff;
+    background-color: #fff;
 }
 .navbar-kairoob .navbar-collapse,
 .navbar-inverse .navbar-form {
-border-color: #101010;
+    border-color: #101010;
 }
 .navbar-kairoob  .navbar-nav > .open > a,
 .navbar-kairoob  .navbar-nav > .open > a:hover,
 .navbar-kairoob .navbar-nav > .open > a:focus {
-color: #fff;
-background-color: #080808;
+    color: #fff;
+    background-color: #080808;
 }
 @media (max-width: 767px) {
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .dropdown-header {
-border-color: #080808;
-}
-.navbar-kairoob  .navbar-nav .open .dropdown-menu .divider {
-background-color: #080808;
-}
-.navbar-kairoob  .navbar-nav .open .dropdown-menu > li > a {
-color: #fff;
-}
-.navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:hover,
-.navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:focus {
-color: #9d9d9d;
-background-color: transparent;
-}
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a,
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a:hover,
-.navbar-kairoob  .navbar-nav .open .dropdown-menu > .active > a:focus {
-color: #9d9d9d;
-background-color: #080808;
-}
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a,
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:hover,
-.navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-color: #9d9d9d;
-background-color: transparent;
-}
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .dropdown-header {
+        border-color: #080808;
+    }
+    .navbar-kairoob  .navbar-nav .open .dropdown-menu .divider {
+        background-color: #080808;
+    }
+    .navbar-kairoob  .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #9d9d9d;
+        background-color: transparent;
+    }
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-kairoob  .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #9d9d9d;
+        background-color: #080808;
+    }
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-kairoob .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #9d9d9d;
+        background-color: transparent;
+    }
 }
 .navbar-kairoob .navbar-link {
-color: #fff;
+    color: #fff;
 }
 .navbar-kairoob .navbar-link:hover {
-color: #9d9d9d;
+    color: #9d9d9d;
 }
 .navbar-kairoob .btn-link {
-color: #fff;
+    color: #fff;
 }
 .navbar-kairoob .btn-link:hover,
 .navbar-kairoob .btn-link:focus {
-color: #9d9d9d;
+    color: #9d9d9d;
 }
 .navbar-kairoob .btn-link[disabled]:hover,
 fieldset[disabled] .btn-link:hover,
 .navbar-kairoob .btn-link[disabled]:focus,
 fieldset[disabled] .btn-link:focus {
-color: #444;
+    color: #444;
+}
+
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green > .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green > a {
+    color: #5cb85c;
+}
+
+.panel-green > a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red > .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red > a {
+    color: #d9534f;
+}
+
+.panel-red > a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow > a {
+    color: #f0ad4e;
+}
+
+.panel-yellow > a:hover {
+    color: #df8a13;
+}
+
+.huge {
+    font-size: 40px;
+}
+
+
+.panel-violet{
+    border-color: #A95DF0;
+}
+
+.panel-violet > .panel-heading {
+    background-color: #A95DF0;
+    color: #fff;
+    border-color: #A95DF0;
+}
+
+.panel-violet > a {
+    color: #A95DF0;
+
+}
+
+#box{
+    margin-left: 15px; 
+}
+
+
+#page-Authentication{
+    margin-top: 100px;
+}
+
+.carousel{
+  max-height: 700px;
+  overflow: hidden;
+}
+.photoCarouselImg img {
+  width: auto;
+  height: 225px;
+  max-height: 225px;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+}
+
+
+.display-payment{
+   display: block;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right{
+  float: right !important;
+}
+
+
+.payment-methods{
+  margin-top: 10px;
+  padding: 0;
+}
+
+.payment-method{
+    list-style: none;
+}
+
+.control-radio{
+    line-height:50px;
+}
+
+
+.payment-icon{
+  display: inline-block;
+  width: 75px;
+  min-height: 35px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.cancel-btn{
+    display: none;
+}
+
+.wrapper-month-year {
+    width:30%;
+}
+
+.wrapper-payment{
+    display: inline-block;
+}
+
+.btn-cancel{
+    display: none;
 }

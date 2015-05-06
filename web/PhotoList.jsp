@@ -224,15 +224,14 @@
         </c:choose>
         
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="<%=response.encodeURL("PhotoList")%>" method="post">
-                        <h1>Photo Search</h1>
-                        <div class="container">
-                            <div class="col-md-1 search-photo">
-                                <h4>Search</h4>
-                            </div>
-                            <div class="col-md-2 search-photo">
+            <div class="col-lg-12">
+                <form action="<%=response.encodeURL("PhotoList")%>" method="post">
+                    <!--search side -->
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <p class="panel-heading">Search Photo</p>
+                            <div class="panel-body">
+                                <p><span class="glyphicon glyphicon-th "></span> Category</p>
                                 <select name="kind" class="form-control">
                                     <c:choose>
                                         <c:when test="${kind == 'all'}">
@@ -314,66 +313,242 @@
                                             <option value="transportation">Transportation</option>
                                         </c:otherwise>
                                     </c:choose> 
-
                                 </select>
                             </div>
-                            <div class="col-md-8 search-photo">
-                                <input type="text" class="form-control" name="photosearchkey" value="${param.photosearchkey}">
+                            <!--/ End search side CATEGORY-->
+                            <!--start price search -->
+                            <hr>
+                            <div class="panel-body">
+                                <p><span class="fa fa-money"></span> Price</p>
+                                <select name="price" class="form-control">
+                                    <c:choose>
+                                        <c:when test="${kind == 'all price'}">
+                                            <option value="all price" selected>All Price</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="all price">All Price</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'less than 500'}">
+                                            <option value="less than 500" selected>Less Than 500</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="less than 500">Less Than 500</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '500 - 1,000'}">
+                                            <option value="500 - 1,000" selected>500 - 1,000</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="500 - 1,000">500 - 1,000</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '1,000 - 1,500'}">
+                                            <option value="1,000 - 1,500" selected>1,000 - 1,500</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="1,000 - 1,500">1,000 - 1,500</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '1,500 - 2,000 '}">
+                                            <option value="1,500 - 2,000 " selected>1,500 - 2,000</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="1,500 - 2,000 ">1,500 - 2,000 </option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == 'more than 2,000'}">
+                                            <option value="more than 2,000" selected>More Than 2,000</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="more than 2,000">More Than 2,000</option>
+                                        </c:otherwise>
+                                    </c:choose> 
+                                </select>
                             </div>
-                            <div class="col-md-1 search-photo">
+                            <!--End price search -->
+                            <!--Start resolution search-->
+                            <hr>
+                            <div class="panel-body">
+                                <p><span class="fa fa-image"></span> Resolution</p>
+                                <select name="price" class="form-control">
+                                    <c:choose>
+                                        <c:when test="${kind == 'all resolution'}">
+                                            <option value="all resolution" selected>All Resolution</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="all resolution">All Resolution</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '612x612'}">
+                                            <option value="612x612" selected>612x612</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="612x612">612x612</option>
+                                        </c:otherwise>
+                                    </c:choose> 
+                                    <c:choose>
+                                        <c:when test="${kind == '640x640'}">
+                                            <option value="640x640" selected>640x640</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="640x640">640x640</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '900x595'}">
+                                            <option value="900x595" selected>900x595</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="900x595">900x595</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '900x601'}">
+                                            <option value="900x601" selected>900x601</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="900x601">900x601</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '900x604'}">
+                                            <option value="900x604" selected>900x604</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="900x604">900x604</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${kind == '900x619'}">
+                                            <option value="900x619" selected>900x619</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="900x619">900x619</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </select>
+                            </div>
+                            <!--search button-->
+                            <div class="panel-body">
                                 <button type="submit" class="btn btn-default">Search</button>
                             </div>
+                            <!--start price search -->
                         </div>
-                    </form>
-                    <br/>
-                    <c:choose>
-                        <c:when test="${! empty photoList}">
-                            <section class="section-page">
-                                <div class="container">
-                                    <div class="container">
-                                        <div class="row">
-                                            <c:forEach items="${photoList}" var="p" varStatus="count">
-                                                <form action="<%=response.encodeURL("AddToCart")%>" method="post">
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="thumbnail">
-                                                            <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
-                                                                <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
-                                                            </a>
-                                                            <div class="caption">
-                                                                <table style="width: 100%;">
-                                                                    <tr>
-                                                                        <td><h3>${p.getCaption()}</h3></td>
-                                                                        <td style="float: right;">
-                                                                            <a>
-                                                                                <input type="hidden" name="id" value="${p.getId()}">
-                                                                                <input type="hidden" name="kind" value="${kind}">
-                                                                                <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
-                                                                                <div>
-                                                                                    <button onclick='addtocart()'>
-                                                                                        <i class='fa fa-cart-plus'> add to cart</i>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </c:forEach>
+                    </div>
+                </form>
+                <!--search side -->
+                <!--photo side-->
+                <!--เฉพาะสองแถวแรก-->
+                <c:choose>
+                    <c:when test="${! empty photoList}">
+                        <div class=" col-md-8">
+                            <div class="row">
+                                <c:forEach items="${photoList}" var="p" varStatus="count">
+                                    <form action="<%=response.encodeURL("AddToCart")%>" method="post">
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="thumbnail">
+                                                <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
+                                                    <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                                </a>
+                                                <div class="caption">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                            <td style="float:right;">
+                                                                <a>
+                                                                    <input type="hidden" name="id" value="${p.getId()}">
+                                                                    <input type="hidden" name="kind" value="${kind}">
+                                                                    <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
+                                                                    <div>
+                                                                        <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
+                                                                            <i class='fa fa-cart-plus'> add to cart</i>
+                                                                        </button>
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </c:when>
-                        <c:otherwise>
-                            <h3 style="color:red; text-align: center;">Not Found</h3>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
+                                    </form>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <!--จบ เฉพาะสองแถวแรก-->
+                        <!--แถวที่สามเป็นต้นไป-->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <c:forEach items="${photoList}" var="p" varStatus="count">
+                                    <form action="<%=response.encodeURL("AddToCart")%>" method="post">
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                                <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
+                                                    <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                                </a>
+                                                <div class="caption">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                            <td style="float:right;">
+                                                                <a>
+                                                                    <input type="hidden" name="id" value="${p.getId()}">
+                                                                    <input type="hidden" name="kind" value="${kind}">
+                                                                    <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
+                                                                    <div>
+                                                                        <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
+                                                                            <i class='fa fa-cart-plus'> add to cart</i>
+                                                                        </button>
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <!--จบ แถวที่สามเป็นต้นไป-->
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-md-8">
+                            <div class="alert alert-danger" role="alert">
+                                <h3 style="text-align: center"> 
+                                    <span class="glyphicon glyphicon-exclamation-sign"></span> 
+                                    Not Found
+                                </h3>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                <!--End photo side-->
             </div>
         </div>
+        <!--pagination-->
+        <div class="text-center"><!-- ทำให้ pagination อยู่ center-->
+            <nav>
+                <ul class="pagination">
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                    <li><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true"></span>&raquo;</a></li>
+                </ul>
+            </nav>
+        </div>
+         <!--End pagination-->
+         
         <jsp:include page="WEB-INF/include/footer.jsp"/>
     </body>
 </html>

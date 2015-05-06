@@ -23,17 +23,17 @@
             <h1>Account</h1>
             <table class="accountedit">
                 <tr>
-                    <td colspan="2" rowspan="9">picture</td>
-                    <td colspan="2">Identity Card <font style="color: red;">** require</font></td>
+                    <td style="font-weight: bold" colspan="2" rowspan="9">picture<br><span style="font-size:9em; margin-left: -30px;" class="fa fa-user fa-5x"></span></td>
+                    <td style="font-weight: bold" colspan="2">Identity Card <font style="opacity: 0.6;font-weight: lighter ;color:gray;font-size:13pt">** require</font></td>
                 </tr>
                 <tr>
                     <td colspan="2">${user.idenNum == 0? "-" : user.idenNum}</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="font-weight: bold" >
                         First Name
                     </td>
-                    <td>
+                    <td style="font-weight: bold" >
                         Last Name
                     </td>
                 </tr>
@@ -46,20 +46,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">Email</td>
+                    <td style="font-weight: bold"  colspan="2">Email</td>
                 </tr>
                 <tr>
                     <td colspan="2">${user.email == null? "-" : user.email}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Mobile Number</td>
+                    <td style="font-weight: bold" colspan="2">Mobile Number</td>
                 </tr>
                 <tr>
                     <td colspan="2">${user.tel == null? "-" : user.tel}</td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="AccountEdit.jsp"><input type="button" value="แก้ไขข้อมูล"></a>
+                        <a href="AccountEdit.jsp"><input class="btn btn-default" type="button" value="แก้ไขข้อมูล"></a>
                     </td>
                 </tr>
             </table>

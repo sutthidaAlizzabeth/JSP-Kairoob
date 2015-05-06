@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
         <script type="text/javascript" src="Assets/js/jquery.js"></script>
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="Assets/js/jquery-1.10.1.min.js"></script>
     </head>
     <body>
         <c:choose>
@@ -30,70 +31,180 @@
                 <jsp:include page="WEB-INF/include/header.jsp"/>
             </c:otherwise>
         </c:choose>
-
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#visa-method").hide();/*เริ่มต้นด้วย ให้ visa method หายไป */
+                /*ปุ่มนี้คลิกให้ show visa method ขึ้นมา */
+                $("#addpayment").click(function () {
+                    $(".payment").hide();
+                    $("#addpayment").hide();
+                    $("#cancelpayment").show();
+                    $("#visa-method").appendTo(".panel-body");
+                    $("#visa-method").show();
+                });
+                /*ปุ่มนี้คลิกให้ radiobutton visa show visa method ขึ้นมา */
+                $("#visa").click(function () {
+                    $(".payment").hide();
+                    $("#addpayment").hide();
+                    $("#cancelpayment").show();
+                    $("#visa-method").appendTo(".panel-body");
+                    $("#visa-method").show();
+                    $("#checkout").text("Checkout");
+                });
+                /*ปุ่มนี้คลิกให้ cancel จะกลับหน้าเลือกวิธีการจ่ายตังค์ */
+                $("#cancelpayment").click(function () {
+                    $("#cancelpayment").hide();
+                    $("#addpayment").show();
+                    $("#payments-method").show();
+                    $("#visa-method").hide();
+                    /*ปุ่มนี้คลิกให้ เมื่อคลิก radio button ยกเลิก ให้ขึ้นคำว่า Proceed to Checkout */
+                    $("#checkout").text("Proceed to Checkout");
+                    $('input[name="payment"]').attr('checked',false);/*reset radio button*/
+                });
+                 /*ปุ่มนี้คลิกให้ เมื่อคลิก radio button paypal ให้ขึ้นคำว่า Check out With PayPal */
+                $("#paypals").click(function (){
+                    $("#checkout").text("Check out With PayPal");
+                });
+                /*ปุ่มนี้คลิกให้ เมื่อคลิก radio button โอนตังค์ ให้ขึ้นคำว่า Check out  */
+                $("#transfermoney").click(function (){
+                   $("#checkout").text("Checkout");
+                });
+            });
+        </script>
         <section class="section-page">
             <div class="container">
                 <div class="row group-all" >
                     <div class="col-lg-12" >
+                        <!--left-->
                         <div class="col-md-6">
-                            <div class="col-sm-2">
-                                <!--photo-->
-                            </div>
-                            <div class="col-sm-2">
-                                <!--Detail-->
-                            </div>
-                            <div class="col-sm-2">
-                                <!--button remove-->
+                            <!--slide-->
+                            <div class="col-sm-12">
+                                <h1>Cart</h1>
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                            <img class="img-thumbnail" style="width:auto; height:300px; margin: 0 auto;" src="Assets/photo/food/milktea.jpg" alt="milktea" >
+                                            <div class="carousel-caption"><!--ที่ใส่ caption-->
+
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-thumbnail " style=" width:auto; height:300px; margin: 0 auto;" src="Assets/photo/landscape/landscape.jpg" alt="landscape">
+                                            <div class="carousel-caption"><!--ที่ใส่ caption-->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <!--right-->
                         <div class="col-md-6">
                             <h2>PURCHASE</h2>
                             <h3>Total: &nbsp <fmt:formatNumber pattern="#,###,##0.00" value="${cart.price}"/></h3>
-                            <button type="submit" class="btn btn-primary btn-block" value="submit" name="#">Proceed to Check Out</button>
+                            <h3>Profile : </h3><!--โชว์ USER ว่าใครซื้อ-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading"style="font-weight: bold; font-size:16pt;">
+                                    <button id="addpayment" class="btn btn-sm btn-info pull-right">Add</button>
+                                    <button id="cancelpayment" style="display: none;" class="btn btn-sm btn-danger pull-right">Cancel</button>
+                                    Payment
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="panel-body">
+                                    <!--อย่าลบนะจ๊ะ ไม่งั้นเละ การทำ clearfix ก็คือการทำให้ block element สามารถครอบ element ข้างในที่ float อยู่ เครดิต siamhtml -->
+                                    <div class="clearfix"></div>
+                                    <!--กล่องให้เลือกวิธีการจ่ายตังค์-->
+                                    <div id="payments-method" class="payment">
+                                        <!--เมนูให้เลือกวิธีการจ่ายตังค์-->
+                                        <ul class="payment-methods"> 
+                                            <li class="payment-method">
+                                                <span class="pull-left"style="font-size: 13pt;" >
+                                                    <i class="payment-icon fa fa-money fa-2x "></i>
+                                                    Pay with Transfer money
+                                                </span>
+                                                <span class="control-radio pull-right">
+                                                    <input type="radio" id="transfermoney" name="payment" value="transfermoney">
+                                                </span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <!--เมนูให้เลือกวิธีการจ่ายตังค์แบบ VISA -->
+                                            <li class="payment-method">
+                                                <span class="pull-left"style="font-size: 13pt;" >
+                                                    <i class="payment-icon fa fa-cc-visa fa-2x "></i>
+                                                    Pay with Visa 
+                                                </span>
+                                                <span class="control-radio pull-right">
+                                                    <input type="radio" name="payment" value="visa" id="visa">
+                                                </span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <!--เมนูให้เลือกวิธีการจ่ายตังค์แบบ Paypal -->
+                                            <li class="payment-method">
+                                                <span class=" pull-left" style="font-size: 13pt;" >
+                                                    <i class="payment-icon fa fa-cc-paypal fa-2x"></i> 
+                                                    Pay with PayPal 
+                                                </span>
+                                                <span class="control-radio pull-right">
+                                                    <input id="paypals" type="radio" name="payment" value="paypal">
+                                                </span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--visa form-->
+                            <form id="visa-method" class="form-group" action="#" method="post">
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input type="text" data-stripe="number" maxlength="16" size="20" tabindex="1"class="form-control"/>
+                                </div>
+                                <div class="wrapper-payment wrapper-month-year">
+                                    <label>Expiry Date</label>
+                                    <input data-stripe="exp-month" maxlength="2" placeholder="MM" size="2" tabindex="2" type="text" class="form-control"/>
+                                </div>
+                                <div class="wrapper-payment wrapper-month-year">
+                                    <input data-stripe="exp-year" maxlength="4" placeholder="YYYY" size="4" tabindex="3" type="text" class="form-control"/>
+                                </div>
+                                <div class="wrapper-payment wrapper-month-year">
+                                    <label>CVC</label>
+                                    <input class="form-control" data-stripe="cvc" maxlength="4" size="4" tabindex="4" type="text"/>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember this card
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--button submit-->
+                            <div class="form-group">
+                                <form action="#" method="post">
+                                    <button type="submit" class="btn btn-primary btn-block" value="submit" id="checkout" name="#">Proceed to Check Out</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-page">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-md-3">
-                                <h4>Contact Us</h4>
-                                <p>Kairoob (ขายรูป)</p>
-                                <p>126 ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>
-                                <br>
-                                <a href="mailto:Kairoob@gmail.com">Kairoob@gmail.com</a>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Creator</h4>
-                                <p>Nattha Boonnumchai</p>
-                                <p>Boom Pongtorn</p>
-                                <p>Sumet Benjawan</p>
-                                <p>Alizzabeth Carry</p>
-                                <p>Earth's Eternity</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Follow Us</h4>
-                                <a href="#">Facebook</a>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Sponsor</h4>
-                                <a href="https://www.facebook.com/iamfuphotography">Iamfu Studio</a>
-                                <br>
-                                <br>
-                                <a href="https://www4.sit.kmutt.ac.th">SIT KMUTT</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="col-lg-12">
-                        <p>Copyright © By <span class="glyphicon glyphicon-picture"></span>  Kairoob 2015</p> 
-                    </div>
-                </div>
-            </footer>
-        </section>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
     </body>
 </html>
