@@ -102,11 +102,12 @@ public class PhotoListServlet extends HttpServlet {
             System.out.println(e);
         }
         
-        request.setAttribute("size", photoList.size());
-        request.setAttribute("kind", kindPhoto);
-        request.setAttribute("price", priceRage);
-        request.setAttribute("res", res);
-        request.setAttribute("photoList", photoList);
+        request.getSession().setAttribute("search", search);
+        request.getSession().setAttribute("size", photoList.size());
+        request.getSession().setAttribute("kind", kindPhoto);
+        request.getSession().setAttribute("price", priceRage);
+        request.getSession().setAttribute("res", res);
+        request.getSession().setAttribute("photoList", photoList);
         
         getServletContext().getRequestDispatcher("/PhotoList.jsp").forward(request, response);
 

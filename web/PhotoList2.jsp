@@ -453,7 +453,7 @@ Author     : nattha
                     <c:when test="${! empty photoList}">
                         <div class=" col-md-8">
                             <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="0" end="3">
+                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="13" end="16">
                                     <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                         <div class="col-sm-6 col-md-6">
                                             <div class="thumbnail">
@@ -489,7 +489,7 @@ Author     : nattha
                         <!--แถวที่สามเป็นต้นไป-->
                         <div class="col-md-12">
                             <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="4" end="12">
+                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="17" end="25">
                                     <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                         <div class="col-sm-6 col-md-4">
                                             <div class="thumbnail">
@@ -542,14 +542,14 @@ Author     : nattha
             <nav>
                 <ul class="pagination">
                     <c:if test="${size > 14}">
-                        <li><a href="">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="PhotoList2.jsp">2 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="PhotoList.jsp">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="">2 <span class="sr-only">(current)</span></a></li>
                         </c:if>
                         <c:if test="${size > 27}">
-                        <li><a href="PhotoList3.jsp">3 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
                         </c:if>
                         <c:if test="${size > 40}">
-                        <li><a href="PhotoList4.jsp">4 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
                         </c:if>
                 </ul>
             </nav>

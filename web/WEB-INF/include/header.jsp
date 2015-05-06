@@ -9,7 +9,7 @@
             <a class="navbar-brand" href="<%=response.encodeURL("index.jsp")%>"><span class="glyphicon glyphicon-picture"></span> Kairoob</a>
             <form action="<%= response.encodeURL("PhotoList") %>" method="post" class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" name="photosearchkey" id="form-search" class="form-control" placeholder="Search" value="${param.photosearchkey}" required>
+                    <input type="text" name="photosearchkey" id="form-search" class="form-control" placeholder="Search" value="${search}" required>
                 </div>
                 <button type="submit" class="btn btn-default"><span class="fa fa-search"</button>
             </form>
