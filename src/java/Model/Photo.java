@@ -22,7 +22,7 @@ import java.util.TreeSet;
  *
  * @author Alizzabeth
  */
-public class Photo implements Serializable, Comparable<Photo>{
+public class Photo implements Serializable, Comparable<Photo> {
 
     private int id = 0;//PK
     private String path = null;
@@ -87,8 +87,8 @@ public class Photo implements Serializable, Comparable<Photo>{
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-    
-    public String getCategoryName(){
+
+    public String getCategoryName() {
         String categoryName = null;
         String sql = "select category_name from Categories where id = ?";
         try {
@@ -96,10 +96,10 @@ public class Photo implements Serializable, Comparable<Photo>{
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1, this.categoryId);
             ResultSet result = pstm.executeQuery();
-            if(result.next()){
+            if (result.next()) {
                 categoryName = result.getString("category_name");
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -141,7 +141,7 @@ public class Photo implements Serializable, Comparable<Photo>{
     }
 
     //method สำหรับค้นหา/ดึงรูปภาพขึ้นมาจาก database
-    public static Collection<Photo> searchPhoto(String tag, int kind) throws ClassNotFoundException, SQLException {
+    public static Collection<Photo> searchPhoto(String tag) throws ClassNotFoundException, SQLException {
         Collection<Photo> photoList = null;
 
         try {
@@ -151,26 +151,17 @@ public class Photo implements Serializable, Comparable<Photo>{
             String sql = null;
             PreparedStatement pstm = null;
 
-            //ถ้าเป็นการค้นหาแยกตามประเภทของรูปภาพ
-            //ถ้า kind = 0 หมายถึงให้ค้นหาจากทุกประเภท
-            if (kind != 0) {
-                //limt 0,12 ในคำสั่ง sql หมายถึงเมื่อ query ข้อมูลมาแล้ว ให้ดึงข้อมูลออกมาตั้งแต่ record ที่ 0 ถึง 12 เท่านั้น
-                sql = "select * from Photo where category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            } else {
-                sql = "select * from Photo where tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setString(1, tag);
-            }
+            sql = "select * from Photo where tag like ? ;";
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, tag);
             //เก็บผลลัพธ์จาก database ไว้ใน "result"
             ResultSet result = pstm.executeQuery();
             //เอา result มาเช็คว่ามีข้อมูลหรือไม่
             while (result.next()) {
                 //ถ้าเป็นครั้งแรกของ loop ให้ new ArrayList
                 if (photoList == null) {
-                    photoList = new TreeSet<Photo>() {};
+                    photoList = new TreeSet<Photo>() {
+                    };
                 }
                 Photo p = new Photo();
                 //เอาข้อมูลที่ได้จาก database (ใน result) ไปยัดใส่ object ของ photo (ตัวแปร p) ด้วย method setPhoto
@@ -183,14 +174,6 @@ public class Photo implements Serializable, Comparable<Photo>{
         }
 
         return photoList;
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Collection<Photo> test = Photo.searchPhoto("%food%", 0);
-        
-        for(Photo p : test){
-            System.out.println(p.getCaption());
-        }
     }
 
     @Override

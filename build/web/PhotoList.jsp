@@ -1,7 +1,7 @@
-    <%-- 
-    Document   : PhotoList
-    Created on : Apr 2, 2015, 10:36:16 PM
-    Author     : nattha
+<%-- 
+Document   : PhotoList
+Created on : Apr 2, 2015, 10:36:16 PM
+Author     : nattha
 --%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -45,7 +45,7 @@
         <script type="text/javascript" src="Assets/js/jquery.fancybox-media.js?v=1.0.6"></script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 /*
                  *  Simple image gallery. Uses default settings
                  */
@@ -125,7 +125,7 @@
                         },
                         buttons: {}
                     },
-                    afterLoad: function() {
+                    afterLoad: function () {
                         this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
                     }
                 });
@@ -170,11 +170,11 @@
                  *  Open manually
                  */
 
-                $("#fancybox-manual-a").click(function() {
+                $("#fancybox-manual-a").click(function () {
                     $.fancybox.open('1_b.jpg');
                 });
 
-                $("#fancybox-manual-b").click(function() {
+                $("#fancybox-manual-b").click(function () {
                     $.fancybox.open({
                         href: 'iframe.html',
                         type: 'iframe',
@@ -182,7 +182,7 @@
                     });
                 });
 
-                $("#fancybox-manual-c").click(function() {
+                $("#fancybox-manual-c").click(function () {
                     $.fancybox.open([
                         {
                             href: '1_b.jpg',
@@ -222,7 +222,7 @@
                 <jsp:include page="WEB-INF/include/header.jsp"/>
             </c:otherwise>
         </c:choose>
-        
+
         <div class="container">
             <div class="col-lg-12">
                 <form action="<%=response.encodeURL("PhotoList")%>" method="post">
@@ -450,7 +450,7 @@
                     <c:when test="${! empty photoList}">
                         <div class=" col-md-8">
                             <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count">
+                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="0" end="3">
                                     <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                         <div class="col-sm-6 col-md-6">
                                             <div class="thumbnail">
@@ -486,7 +486,7 @@
                         <!--แถวที่สามเป็นต้นไป-->
                         <div class="col-md-12">
                             <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count">
+                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="4" end="12">
                                     <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                         <div class="col-sm-6 col-md-4">
                                             <div class="thumbnail">
@@ -539,7 +539,8 @@
             <nav>
                 <ul class="pagination">
                     <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                    <li><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="">1 <span class="sr-only">(current)</span></a></li>
+                   
                     <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
@@ -547,8 +548,8 @@
                 </ul>
             </nav>
         </div>
-         <!--End pagination-->
-         
+        <!--End pagination-->
+
         <jsp:include page="WEB-INF/include/footer.jsp"/>
     </body>
 </html>
