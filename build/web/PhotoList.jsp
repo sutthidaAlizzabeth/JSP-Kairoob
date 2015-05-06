@@ -225,6 +225,9 @@ Author     : nattha
 
         <div class="container">
             <div class="col-lg-12">
+                <div align="right" style="margin-right: 20px;">
+                    <font style="opacity: 0.5;font-weight: lighter ;color:gray;">${size} Results</font>
+            </div>
                 <form action="<%=response.encodeURL("PhotoList")%>" method="post">
                     <!--search side -->
                     <div class="col-md-4">
@@ -539,15 +542,15 @@ Author     : nattha
             <nav>
                 <ul class="pagination">
                     <c:if test="${size > 14}">
-                    <li><a href="">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                    </c:if>
-                    <c:if test="${size > 27}">
-                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                    </c:if>
-                    <c:if test="${size > 40}">
-                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                    </c:if>
+                        <li><a href="">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                        </c:if>
+                        <c:if test="${size > 27}">
+                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        </c:if>
+                        <c:if test="${size > 40}">
+                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                        </c:if>
                 </ul>
             </nav>
         </div>

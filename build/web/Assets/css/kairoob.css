@@ -326,9 +326,18 @@ fieldset[disabled] .btn-link:focus {
     display: none;
 }
 
-.wrapper-month-year {
-    width:30%;
+.wrapper-month{
+    width:5%;
 }
+
+.wrapper-year{
+    width:5%;
+}
+
+.wrapper-cvc{
+    width:5%;
+}
+
 
 .wrapper-payment{
     display: inline-block;
@@ -337,3 +346,5 @@ fieldset[disabled] .btn-link:focus {
 .btn-cancel{
     display: none;
 }
+
+

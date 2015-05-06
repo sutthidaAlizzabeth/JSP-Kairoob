@@ -121,8 +121,6 @@
                             <h3>Profile : </h3><!--โชว์ USER ว่าใครซื้อ-->
                             <div class="panel panel-default">
                                 <div class="panel-heading"style="font-weight: bold; font-size:16pt;">
-                                    <button id="addpayment" class="btn btn-sm btn-info pull-right">Add</button>
-                                    <button id="cancelpayment" style="display: none;" class="btn btn-sm btn-danger pull-right">Cancel</button>
                                     Payment
                                 </div>
                                 <div class="clearfix"></div>
@@ -175,14 +173,14 @@
                                     <label>Card Number</label>
                                     <input type="text" data-stripe="number" maxlength="16" size="20" tabindex="1"class="form-control"/>
                                 </div>
-                                <div class="wrapper-payment wrapper-month-year">
+                                <div class="wrapper-payment wrapper-month">
                                     <label>Expiry Date</label>
                                     <input data-stripe="exp-month" maxlength="2" placeholder="MM" size="2" tabindex="2" type="text" class="form-control"/>
                                 </div>
-                                <div class="wrapper-payment wrapper-month-year">
+                                <div class="wrapper-payment wrapper-year">
                                     <input data-stripe="exp-year" maxlength="4" placeholder="YYYY" size="4" tabindex="3" type="text" class="form-control"/>
                                 </div>
-                                <div class="wrapper-payment wrapper-month-year">
+                                <div class="wrapper-payment wrapper-cvc">
                                     <label>CVC</label>
                                     <input class="form-control" data-stripe="cvc" maxlength="4" size="4" tabindex="4" type="text"/>
                                 </div>
