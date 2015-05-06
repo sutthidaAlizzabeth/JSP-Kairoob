@@ -543,7 +543,7 @@ Author     : nattha
                 <ul class="pagination">
                     <c:if test="${size > 14}">
                         <li><a href="PhotoList.jsp">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="">2 <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="">2 <span class="sr-only">(current)</span></a></li>
                         </c:if>
                         <c:if test="${size > 27}">
                         <li><a href="PhotoList3.jsp">3 <span class="sr-only">(current)</span></a></li>
