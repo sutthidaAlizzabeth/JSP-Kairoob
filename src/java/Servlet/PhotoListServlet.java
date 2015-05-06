@@ -35,6 +35,8 @@ public class PhotoListServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String search = request.getParameter("photosearchkey");
+        String kindPhoto = request.getParameter("kind");
+        int kind = 0;
         String keys[] = null;
 
         //ถ้าไม่ได้ใส่ key ในการค้นหา ให้ดึงข้อมูลทุกอย่างออกมา
@@ -46,6 +48,32 @@ public class PhotoListServlet extends HttpServlet {
             keys = search.split(" ");
         }
         
+        if(kindPhoto == null || kindPhoto.length() == 0){
+            kindPhoto = "all";
+        }
+
+        //แปลงชื่อประเภทของรูป ให้กลายเป็น id ของประเภทนั้นๆ ใน database
+        if (kindPhoto.equalsIgnoreCase("animals")) {
+            kind = 9;
+        } else if (kindPhoto.equalsIgnoreCase("blackandwhite")) {
+            kind = 1;
+        } else if (kindPhoto.equalsIgnoreCase("cityscape")) {
+            kind = 2;
+        } else if (kindPhoto.equalsIgnoreCase("food")) {
+            kind = 3;
+        } else if (kindPhoto.equalsIgnoreCase("landscape")) {
+            kind = 4;
+        } else if (kindPhoto.equalsIgnoreCase("nature")) {
+            kind = 5;
+        } else if (kindPhoto.equalsIgnoreCase("people")) {
+            kind = 6;
+        } else if (kindPhoto.equalsIgnoreCase("toy")) {
+            kind = 7;
+        } else if (kindPhoto.equalsIgnoreCase("transportation")) {
+            kind = 8;
+        } else {
+            kind = 0;
+        }
 
         //เรียกใช้ method searchPhoto ใน Photo Model เพื่อค้นหา/ดึงรูปภาพจาก database
         TreeSet<Photo> photoList = null;
@@ -54,12 +82,15 @@ public class PhotoListServlet extends HttpServlet {
                 if(photoList == null){
                     photoList = new TreeSet<Photo>();
                 }
-                photoList.addAll(Photo.searchPhoto("%"+key+"%"));
+                photoList.addAll(Photo.searchPhoto("%"+key+"%", kind));
+
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         
+        request.setAttribute("size", photoList.size());
+        request.setAttribute("kind", kindPhoto);
         request.setAttribute("photoList", photoList);
         
         getServletContext().getRequestDispatcher("/PhotoList.jsp").forward(request, response);
