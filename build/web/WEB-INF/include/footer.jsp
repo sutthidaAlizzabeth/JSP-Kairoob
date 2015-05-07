@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-md-3">
-                        <h4>Contact Us</h4>
+                        <a href="Contact.jsp"><h4>Contact Us</h4></a>
                         <p>Kairoob (ขายรูป)</p>
                         <p>ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>
                         <br>
@@ -13,11 +13,11 @@
                     </div>
                     <div class="col-md-3">
                         <h4>Creator</h4>
+                        <p>Sutthida Chonpanichakul</p>
                         <p>Nattha Boonnumchai</p>
-                        <p>Boom Pongtorn</p>
+                        <p>Pongtorn Pasuthasathit</p>
+                        <p>Waran Kengwinich</p>
                         <p>Sumet Benjawan</p>
-                        <p>Alizzabeth Carry</p>
-                        <p>Earth's Eternity</p>
                     </div>
                     <div class="col-md-3">
                         <h4>Follow Us</h4>

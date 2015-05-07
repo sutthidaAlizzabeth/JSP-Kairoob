@@ -24,38 +24,38 @@
         <table class="accountedit">
             <tr>
                 <td colspan="2" rowspan="9">picture</td>
-                <td colspan="2">เลขบัตรประจำตัวประชาชน</td>
+                <td colspan="2">Identity Card <font style="opacity: 0.6;font-weight: lighter ;color:gray;font-size:13pt">** require</font></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" style="width: 450px"></td>
+                <td colspan="2"><input class="form-control" type="text" style="width: 450px"></td>
             </tr>
             <tr>
-                <td>
-                    ชื่อ
+                <td style="font-weight: bold" >
+                    First Name
                 </td>
-                <td>
-                    นามสกุล
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" style="width: 200px" placeholder="name">
-                </td>
-                <td>
-                    <input  type="text" style="width: 200px" placeholder="surname">
+                <td style="font-weight: bold" >
+                    Last Name
                 </td>
             </tr>
             <tr>
-                <td colspan="2">E-mail</td>
+                <td>
+                    <input class="form-control" type="text" style="width: 200px" placeholder="name">
+                </td>
+                <td>
+                    <input class="form-control"  type="text" style="width: 200px" placeholder="surname">
+                </td>
             </tr>
             <tr>
-                <td colspan="2"><input  type="text" style="width: 450px" placeholder="xxx@xxx"></td>
+                <td style="font-weight: bold" colspan="2">E-mail</td>
             </tr>
             <tr>
-                <td colspan="2">เบอร์โทรศัพท์</td>
+                <td colspan="2"><input class="form-control"  type="text" style="width: 450px" placeholder="xxx@xxx"></td>
             </tr>
             <tr>
-                <td colspan="2"><input  type="text" style="width: 450px" placeholder="xxx-xxxxxxx"></td>
+                <td style="font-weight: bold" colspan="2">Mobile Phone</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="form-control"  type="text" style="width: 450px" placeholder="xxx-xxxxxxx"></td>
             </tr>
             <tr>
                 <td>

@@ -20,9 +20,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="page-Authentication" class="jumbotron">
-                        <p>คุณได้สมัครสมาชิกเป็นที่เรียบร้อยแล้ว</p>
-                        <p>กรุณา Login อีกครั้งเพื่อเข้าสู่ Web Kairoob</p>
-                        <a href="Login.jsp"><button class="btn btn-lg btn-success">Login</button></a>
+                        <h3>Congratulations !!! You have successfully registered with Kairoob.com</h3>
+                        <p>You will login with this e-mail address</p>
+                        <a href="<%= response.encodeURL("Login") %>"><button class="btn btn-lg btn-success">Login</button></a>
                     </div>
                 </div>
             </div>

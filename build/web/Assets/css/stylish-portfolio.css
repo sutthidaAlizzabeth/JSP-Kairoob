@@ -161,7 +161,17 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
 }
-
+.contactus{
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../bg/bg-contact.png) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 /* About */
 
 .about {

@@ -21,14 +21,14 @@
         </c:choose>
 
         <div class="paymentdiv">
-            <h2>แจ้งการชำระเงิน</h2>
+            <h2>Add Payment</h2>
             <table class="payment">
                 <tr>
-                    <td>รายละเอียดการโอนเงิน</td>
+                    <td>Details Payment</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td rowspan="3"">บัญชีที่โอนเงิน</td>
+                    <td rowspan="3">Account</td>
                     <td><input type="radio" name="bank">1</td>
                 </tr>
                 <tr>
@@ -38,21 +38,21 @@
                     <td><input type="radio" name="bank">3</td>
                 </tr>
                 <tr>
-                    <td>วันที่โอนเงิน</td>
-                    <td><input type="text" id="datepicker" style="width: 300px"></td>
+                    <td>Date Transfer</td>
+                    <td><input class="form-control" type="text" id="datepicker" style="width: 300px"></td>
                 </tr>
                 <tr>
-                    <td>จำนวนเงิน</td>
-                    <td><input type="text" style="width: 300px;" placeholder="xxx.xx"></td>
-                    <td>บาท</td>
+                    <td>Monty</td>
+                    <td><input class="form-control" type="text" style="width: 300px;" placeholder="xxx.xx"></td>
+                    <td>Baht</td>
                 </tr>
                 <tr>
-                    <td>รายละเอียดอื่นๆ</td>
-                    <td><input type="text" style="width: 300px;" placeholder="เวลาที่โอนเงิน"></td>
+                    <td>Details</td>
+                    <td><input type="text" style="width: 300px;" placeholder="Date"></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" value="แจ้งชำระเงิน"></td>
+                    <td><input class="btn btn-default" type="button" value="Add Payment"></td>
                 </tr>
             </table>
         </div>

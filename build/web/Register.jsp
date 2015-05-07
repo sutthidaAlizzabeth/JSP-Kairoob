@@ -44,9 +44,9 @@
                     <div class="col-lg-12">
                         <div class="col-md-6">
                             <h2>Register Free</h2>
-                            <p>สมาชิกแบบธรรมดา อัพโหลดรูปได้ 10 รูป ต่อ สัปดาห์</p>
-                            <p>สมัครวันนี้ทดลองแบบ VIP 14 วัน</p>
-                            <p>สมาชิก VIP เดือนละ 350 บาท</p>
+                            <p> - Simple pricing</p>
+                            <p> - Easy to buy Everywhere Every time</p>
+                            <span> - Already a member?<a href="<%= response.encodeURL("Login") %>" style="color: #22A7F0;"> Login</a></span>
                         </div>
                         <div class="col-md-6 group-all">
                             <form id="regis" name='regis' action="<%=response.encodeURL("Register")%>" method="post"> 

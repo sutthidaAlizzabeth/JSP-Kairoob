@@ -31,16 +31,16 @@
         </c:choose>
         <div align="center" class='divcen'>
             <div align="center">
-                <h2>ประวัติการซื้อสินค้า</h2>
+                <h2>History of Shopping</h2>
             </div>
             <table class="history">
                 <tr>
-                    <td>ลำดับ</td>
-                    <td>รายการ</td>
-                    <td>ราคา</td>
-                    <td>สถานะ</td>
-                    <td>รายละเอียด</td>
-                    <td>แจ้งการชำระเงิน</td>
+                    <td>No</td>
+                    <td>Order</td>
+                    <td>Price</td>
+                    <td>Status</td>
+                    <td>Details</td>
+                    <td>Add Payment</td>
                 </tr>
                 <tr>
                     <td colspan='6'>

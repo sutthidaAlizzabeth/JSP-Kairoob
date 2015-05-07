@@ -52,8 +52,7 @@
                         </div>
                         <div class="col-md-6">
                             <h2>Need an account</h2>
-                            <p>สมัครสมาชิกวันนี้ ทดลองใช้ VIP ฟรี 14 วัน</p>
-                            <a href="Register.jsp" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
+                            <a href="<%= response.encodeURL("Register") %>" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
                         </div>
                     </div>
                 </div>
