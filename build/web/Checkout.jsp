@@ -118,10 +118,11 @@
                         <div class="col-md-6">
                             <h2>PURCHASE</h2>
                             <h3>Total: &nbsp <fmt:formatNumber pattern="#,###,##0.00" value="${cart.price}"/></h3>
-                            <h3>Profile : </h3><!--โชว์ USER ว่าใครซื้อ-->
+                            <h3>E-mail : ${user.email}</h3> 
                             <div class="panel panel-default">
                                 <div class="panel-heading"style="font-weight: bold; font-size:16pt;">
                                     Payment
+                                    <button id="cancelpayment" class="btn-cancel btn btn-sm btn-danger pull-right">Cancel</button>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body">
