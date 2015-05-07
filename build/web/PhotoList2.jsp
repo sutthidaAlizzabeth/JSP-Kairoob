@@ -468,7 +468,8 @@ Author     : nattha
                                                                 <a>
                                                                     <input type="hidden" name="id" value="${p.getId()}">
                                                                     <input type="hidden" name="kind" value="${kind}">
-                                                                    <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
+                                                                    <input type="hidden" name="photosearchkey" value="${search}">
+                                                                    <input type="hidden" name="page" value="2">
                                                                     <div>
                                                                         <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
                                                                             <i class='fa fa-cart-plus'> add to cart</i>
@@ -504,7 +505,8 @@ Author     : nattha
                                                                 <a>
                                                                     <input type="hidden" name="id" value="${p.getId()}">
                                                                     <input type="hidden" name="kind" value="${kind}">
-                                                                    <input type="hidden" name="photosearchkey" value="${param.photosearchkey}">
+                                                                    <input type="hidden" name="photosearchkey" value="${search}">
+                                                                    <input type="hidden" name="page" value="2">
                                                                     <div>
                                                                         <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
                                                                             <i class='fa fa-cart-plus'> add to cart</i>

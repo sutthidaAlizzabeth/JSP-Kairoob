@@ -38,6 +38,7 @@ public class PhotoListServlet extends HttpServlet {
         String kindPhoto = request.getParameter("kind");
         String priceRage = request.getParameter("price");
         String res = request.getParameter("res");
+        String page = request.getParameter("page"); //number of page
         int kind = 0;
         String keys[] = null;
 
@@ -109,7 +110,11 @@ public class PhotoListServlet extends HttpServlet {
         request.getSession().setAttribute("res", res);
         request.getSession().setAttribute("photoList", photoList);
         
-        getServletContext().getRequestDispatcher("/PhotoList.jsp").forward(request, response);
+        if(page == null || page.length() == 0){
+            page = "";
+        }
+        
+        getServletContext().getRequestDispatcher("/PhotoList"+page+".jsp").forward(request, response);
 
     }
 
