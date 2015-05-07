@@ -90,14 +90,14 @@
                 <td colspan="2">${user.email == null? "-" : user.email}</td>
             </tr>
             <tr>
-                <td style="font-weight: bold" colspan="2">Mobile Number</td>
+                <td style="font-weight: bold" colspan="2">Mobile Phone</td>
             </tr>
             <tr>
                 <td colspan="2">${user.tel == null? "-" : user.tel}</td>
             </tr>
             <tr>
                 <td>
-                    <a href="AccountEdit.jsp"><input class="btn btn-default" type="button" value="แก้ไขข้อมูล"></a>
+                    <a href="<%= response.encodeURL("AccountEditShow") %>"><input class="btn btn-default" type="button" value="Edit"></a>
                 </td>
             </tr>
         </table>

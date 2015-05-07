@@ -59,48 +59,70 @@
 
     <div class="divcen" align="center">
         <h1>Account</h1>
-        <table class="accountedit">
-            <tr>
-                <td colspan="2" rowspan="9">picture</td>
-                <td colspan="2">Identity Card <font style="opacity: 0.6;font-weight: lighter ;color:gray;font-size:13pt">** require</font></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="form-control" type="text" style="width: 450px"></td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold" >
-                    First Name
-                </td>
-                <td style="font-weight: bold" >
-                    Last Name
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input class="form-control" type="text" style="width: 200px" placeholder="name">
-                </td>
-                <td>
-                    <input class="form-control"  type="text" style="width: 200px" placeholder="surname">
-                </td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold" colspan="2">E-mail</td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="form-control"  type="text" style="width: 450px" placeholder="xxx@xxx"></td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold" colspan="2">Mobile Phone</td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="form-control"  type="text" style="width: 450px" placeholder="xxx-xxxxxxx"></td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#"><input class="btn btn-default" type="button" value="ยืนยันข้อมูล"></a>
-                </td>
-            </tr>
-        </table>
+        <form action="<%= response.encodeURL("AccountEdit")%>" method="post">
+            <input type="hidden" name="id" value="${user.id}">
+            <table class="accountedit">
+                <tr>
+                    <td style="font-weight: bold" colspan="2" rowspan="9">picture<br><span style="font-size:9em; margin-left: -30px;" class="fa fa-user fa-5x"></span></td>
+                    <td colspan="2">Identity Card <font style="opacity: 0.6;font-weight: lighter ;color:gray;font-size:13pt">** require</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="idenNum" class="form-control" type="text" style="width: 450px" value="${user.idenNum == 0? "" : user.idenNum}"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold" >
+                        First Name
+                    </td>
+                    <td style="font-weight: bold" >
+                        Last Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="firstName" class="form-control" type="text" style="width: 200px" placeholder="name" value="${user.firstName == null? "" : user.firstName}">
+                    </td>
+                    <td>
+                        <input name="lastName" class="form-control"  type="text" style="width: 200px" placeholder="surname" value="${user.lastName == null? "" : user.lastName}">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold" colspan="2">E-mail</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="email" class="form-control"  type="text" style="width: 450px" placeholder="xxx@xxx" value="${user.email == null? "" : user.email}" readonly></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold" colspan="2">Mobile Phone</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="tel" class="form-control"  type="text" style="width: 450px" placeholder="xxx-xxxxxxx" value="${user.tel == null? "" : user.tel}"></td>
+                </tr>
+                <hr/>
+                <tr>
+                    <td style="font-weight: bold" colspan="2">New Password</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="newPass" class="form-control"  type="text" style="width: 450px" placeholder="New Password" ></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold" colspan="2">Re-New Password</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="reNewPass" class="form-control"  type="text" style="width: 450px" placeholder="Re-New Password" ></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold" colspan="2">Old Password</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="oldNewPass" class="form-control"  type="text" style="width: 450px" placeholder="Old Password" ></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="btn btn-default" type="submit" value="Update">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
     <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>

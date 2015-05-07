@@ -40,6 +40,14 @@
         <servlet-name>AccountShowServlet</servlet-name>
         <servlet-class>Servlet.AccountShowServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountEditServlet</servlet-name>
+        <servlet-class>Servlet.AccountEditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountEditShowServlet</servlet-name>
+        <servlet-class>Servlet.AccountEditShowServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PhotoListServlet</servlet-name>
         <url-pattern>/PhotoList</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>AccountShowServlet</servlet-name>
         <url-pattern>/AccountShow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountEditServlet</servlet-name>
+        <url-pattern>/AccountEdit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountEditShowServlet</servlet-name>
+        <url-pattern>/AccountEditShow</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
