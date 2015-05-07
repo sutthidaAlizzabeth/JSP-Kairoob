@@ -57,13 +57,13 @@
         </div>
     </navbar>
 
-    <div class="divcen" align="center">
+    <div class="divcene" align="center">
         <h1>Account</h1>
         <form action="<%= response.encodeURL("AccountEdit")%>" method="post">
             <input type="hidden" name="id" value="${user.id}">
             <table class="accountedit">
                 <tr>
-                    <td style="font-weight: bold" colspan="2" rowspan="9">picture<br><span style="font-size:9em; margin-left: -30px;" class="fa fa-user fa-5x"></span></td>
+                    <td style="font-weight: bold" colspan="2" rowspan="15">picture<br><span style="font-size:9em; margin-left: -30px;" class="fa fa-user fa-5x"></span></td>
                     <td colspan="2">Identity Card <font style="opacity: 0.6;font-weight: lighter ;color:gray;font-size:13pt">** require</font></td>
                 </tr>
                 <tr>
