@@ -24,7 +24,7 @@
 
     </head>
     <body>
-        <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
+    <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -63,45 +63,46 @@
                             </li>
                             <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
                             </c:otherwise>
-                            </c:choose>
+                        </c:choose>
 
                 </ul>
             </div>
         </div>
-        </navbar>
+    </navbar>
 
-        <section class="section-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="col-md-6">
-                            <form action="<%= response.encodeURL("Login")%>" method="post">
-                                <div class="form-group">
-                                    <label>E-mail</label>
-                                    <input type="email" class="form-control" name="username" placeholder="E-mail" value="${param.username}" required autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="password" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
-                        <div class="col-md-6">
-                            <h2>Need an account</h2>
-                            <a href="<%= response.encodeURL("Register") %>" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
-                        </div>
+    <section class="section-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-6">
+                        <form action="<%= response.encodeURL("Login")%>" method="post">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" class="form-control" name="username" placeholder="E-mail" value="${param.username}" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Need an account</h2>
+                        <a href="<%= response.encodeURL("Register")%>" ><button type="submit" class="btn btn-success btn-lg" name="submit" >Sign Up</button></a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <c:if test="${! empty message}">
-            ${message}
-            <br/>
-            ${user.email}
-        </c:if>
 
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
-    </body>
+    <c:if test="${! empty message}">
+        <script type="text/javascript">
+            alert("${message}");
+        </script>
+    </c:if>
+
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
+</body>
 </html>

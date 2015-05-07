@@ -124,6 +124,11 @@
             </table>
         </form>
     </div>
+    <c:if test="${! empty message}">
+        <script type="text/javascript">
+            alert("${message}");
+        </script>
+    </c:if>
     <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>
 </html>
