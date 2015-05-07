@@ -426,6 +426,14 @@ Author     : nattha
                                     </c:otherwise>
                                 </c:choose>
                                 <c:choose>
+                                    <c:when test="${res =='572×900'}">
+                                        <option value="572×900" selected>572×900</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="572×900">572×900</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
                                     <c:when test="${res == '612x612'}">
                                         <option value="612x612" selected>612x612</option>
                                     </c:when>
@@ -439,6 +447,30 @@ Author     : nattha
                                     </c:when>
                                     <c:otherwise>
                                         <option value="640x640">640x640</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '900x538'}">
+                                        <option value="900x538" selected>900x538</option>
+                                    </c:when>
+                                    <c:choose>
+                                        <option value="900x538">900x538</option>
+                                    </c:choose>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res ='900x550'}" >
+                                        <option value="900x550" selected>900x550</option>
+                                    </c:when>
+                                    <c:choose>
+                                        <option value="900x550"></option>
+                                    </c:choose>
+                                </c:choose>        
+                                <c:choose>
+                                    <c:when test="${res == '900x568'}">
+                                        <option value="900x568" selected>900x568</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="900x568">900x568</option>
                                     </c:otherwise>
                                 </c:choose>
                                 <c:choose>
@@ -473,6 +505,22 @@ Author     : nattha
                                         <option value="900x619">900x619</option>
                                     </c:otherwise>
                                 </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '960x640'}">
+                                        <option value="960x640" selected>960x640</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="960x640">960x640</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '1024x768'}">
+                                        <option value="1024x768" selected>960x640</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="1024x768">960x640</option>
+                                    </c:otherwise>
+                                </c:choose>
                             </select>
                         </div>
                         <hr>
@@ -480,19 +528,19 @@ Author     : nattha
                             <p><span class="fa fa-sort"></span> Sort By</p>
                             <select name="sort" class="form-control">
                                 <c:choose>
-                                    <c:when test="${sort == 'low to high'}">
-                                        <option value="low to high" selected>Sort by price : low to high</option>
+                                    <c:when test="${sort == 'low'}">
+                                        <option value="low" selected>Sort by price : low to high</option>
                                     </c:when>
                                     <c:otherwise>
-                                        <option value="low to high">Sort by price : low to high</option>
+                                        <option value="low">Sort by price : low to high</option>
                                     </c:otherwise>
                                 </c:choose>
                                 <c:choose>
-                                    <c:when test="${sort == 'high to low'}">
-                                        <option value="high to low" selected>Sort by price : high to low</option>
+                                    <c:when test="${sort == 'high'}">
+                                        <option value="high" selected>Sort by price : high to low</option>
                                     </c:when>
                                     <c:otherwise>
-                                        <option value="high to low">Sort by price : high to low</option>
+                                        <option value="high">Sort by price : high to low</option>
                                     </c:otherwise>
                                 </c:choose>
                             </select>
