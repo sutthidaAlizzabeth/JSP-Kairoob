@@ -438,6 +438,28 @@ Author     : nattha
                                     </c:choose>
                                 </select>
                             </div>
+                            <hr>
+                            <div class="panel-body">
+                                <p><span class="fa fa-sort"></span> Sort By</p>
+                                <select name="sort" class="form-control">
+                                    <c:choose>
+                                        <c:when test="${sort == 'low to high'}">
+                                            <option value="low to high" selected>Sort by price : low to high</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="low to high">Sort by price : low to high</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${sort == 'high to low'}">
+                                            <option value="high to low" selected>Sort by price : high to low</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="high to low">Sort by price : high to low</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </select>
+                            </div>
                             <!--search button-->
                             <div class="panel-body">
                                 <button type="submit" class="btn btn-default">Search</button>
