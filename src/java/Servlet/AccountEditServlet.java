@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Model.Member;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -36,11 +37,33 @@ public class AccountEditServlet extends HttpServlet {
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String tel = request.getParameter("tel");
-            
-            
-            
-            
-            getServletContext().getRequestDispatcher("/AccountEdit.jsp").forward(request, response);
+            String newPass = request.getParameter("newPass");
+            String reNewPass = request.getParameter("reNewPass");
+            String oldNewPass = request.getParameter("oldNewPass");
+            Member user = (Member) request.getSession().getAttribute("user");
+            String pass = user.getPassword();
+
+            if (newPass != null && newPass.length() != 0 && reNewPass != null && reNewPass.length() != 0) {
+                if (newPass.equals(reNewPass) && oldNewPass.equals(pass)) {
+                    user = Member.editAccount(id, idenNum, firstName, lastName, tel, user);
+                    user = Member.changePassword(id, newPass ,user);
+                    request.getSession().setAttribute("user", user);
+                    
+                    
+                    request.setAttribute("message", "Password was changed.");
+                    getServletContext().getRequestDispatcher("/AccountShow.jsp").forward(request, response);
+
+                } else {
+                    request.setAttribute("message", "New Password and Re-New Password are not match.");
+                    getServletContext().getRequestDispatcher("/AccountEdit.jsp").forward(request, response);
+                }
+            }else{
+                user = Member.editAccount(id, idenNum, firstName, lastName, tel, user);
+                String test = user.getIdenNum();
+                request.getSession().setAttribute("user", user);
+                getServletContext().getRequestDispatcher("/AccountShow.jsp").forward(request, response);
+            }
+
         } else {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
