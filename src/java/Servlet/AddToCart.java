@@ -42,6 +42,7 @@ public class AddToCart extends HttpServlet {
             String res = request.getParameter("res");
             String photosearchkey = request.getParameter("photosearchkey");
             String page = request.getParameter("page");
+            String message = null;
 
             HttpSession session = request.getSession(true);
             Cart cart = (Cart) session.getAttribute("cart");
@@ -61,6 +62,9 @@ public class AddToCart extends HttpServlet {
                     cart.add(p);
                 }
             }
+            else{
+                message = "Photo was brought";
+            }
 
             if (kind == null || kind.length() == 0) {
                 kind = "all";
@@ -77,7 +81,8 @@ public class AddToCart extends HttpServlet {
             if (page == null || page.length() == 0) {
                 page = "";
             }
-
+            
+            request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/PhotoList?kind=" + kind + "&photosearchkey=" + photosearchkey + "&price=" + price + "&res=" + res + "&page=" + page).forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);

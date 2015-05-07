@@ -615,9 +615,10 @@ Author     : nattha
             </ul>
         </nav>
     </div>
-    <h1>${size}</h1>
     <!--End pagination-->
-
+    <c:if test="${! empty message}">
+        <p onload="Link()"></p>
+    </c:if>
     <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>
 </html>

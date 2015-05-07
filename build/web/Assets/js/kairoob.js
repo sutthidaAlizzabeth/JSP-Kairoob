@@ -57,6 +57,12 @@ function sub() {
     return chksub;
 }
 
-function addtocart(){
+function addtocart() {
     document.getElementById("addcart").submit();
+}
+
+function Link() {
+    if (confirm("This item was Purchased.\n Do you want to Shopping History")) {
+        window.location = 'HistoryShopping';
+    }
 }
