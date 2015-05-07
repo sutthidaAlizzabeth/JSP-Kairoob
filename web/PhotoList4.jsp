@@ -214,373 +214,410 @@ Author     : nattha
 
     </head>
     <body>
-        <c:choose>
-            <c:when test="${! empty user}" >
-                <jsp:include page="WEB-INF/include/header_login.jsp"/>
-            </c:when>
-            <c:otherwise>
-                <jsp:include page="WEB-INF/include/header.jsp"/>
-            </c:otherwise>
-        </c:choose>
-
+    <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
         <div class="container">
-            <div class="col-lg-12">
-                <div align="right" style="margin-right: 20px;">
-                    <font style="opacity: 0.5;font-weight: lighter ;color:gray;">${size} Results</font>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%=response.encodeURL("index.jsp")%>"><span class="glyphicon glyphicon-picture"></span> Kairoob</a>
+                <form action="<%= response.encodeURL("PhotoList")%>" method="post" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" name="photosearchkey" id="form-search" class="form-control" placeholder="Search" value="${search}" required>
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="fa fa-search"</button>
+                </form>
             </div>
-                <form action="<%=response.encodeURL("PhotoList")%>" method="post">
-                    <!--search side -->
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <p class="panel-heading">Search Photo</p>
-                            <div class="panel-body">
-                                <p><span class="glyphicon glyphicon-th "></span> Category</p>
-                                <select name="kind" class="form-control">
-                                    <c:choose>
-                                        <c:when test="${kind == 'all'}">
-                                            <option value="all" selected>All</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="all">All</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${kind == 'animals'}">
-                                            <option value="animals" selected>Animals</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="animals">Animals</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${kind == 'blackandwhite'}">
-                                            <option value="blackandwhite" selected>Black & White</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="blackandwhite">Black & White</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${kind == 'cityscape'}">
-                                            <option value="cityscape" selected>Cityscape</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="cityscape">Cityscape</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${kind == 'food'}">
-                                            <option value="food" selected>Food</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="food">Food</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${kind == 'landscape'}">
-                                            <option value="landscape" selected>Landscape</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="landscape">Landscape</option>
-                                        </c:otherwise>
-                                    </c:choose>  
-                                    <c:choose>
-                                        <c:when test="${kind == 'nature'}">
-                                            <option value="nature" selected>Nature</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="nature">Nature</option>
-                                        </c:otherwise>
-                                    </c:choose>  
-                                    <c:choose>
-                                        <c:when test="${kind == 'people'}">
-                                            <option value="people" selected>People</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="people">People</option>
-                                        </c:otherwise>
-                                    </c:choose>  
-                                    <c:choose>
-                                        <c:when test="${kind == 'toy'}">
-                                            <option value="toy" selected>Toy</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="toy">Toy</option>
-                                        </c:otherwise>
-                                    </c:choose> 
-                                    <c:choose>
-                                        <c:when test="${kind == 'transportation'}">
-                                            <option value="transportation" selected>Transportation</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="transportation">Transportation</option>
-                                        </c:otherwise>
-                                    </c:choose> 
-                                </select>
-                            </div>
-                            <!--/ End search side CATEGORY-->
-                            <!--start price search -->
-                            <hr>
-                            <div class="panel-body">
-                                <p><span class="fa fa-money"></span> Price</p>
-                                <select name="price" class="form-control">
-                                    <c:choose>
-                                        <c:when test="${price == 'all'}">
-                                            <option value="all" selected>All Price</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="all">All Price</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${price == 'less500'}">
-                                            <option value="less500" selected>Less Than 500</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="less500">Less Than 500</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${price == '500-1,000'}">
-                                            <option value="500-1,000" selected>500 - 1,000</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="500-1,000">500 - 1,000</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${price == '1,000-1,500'}">
-                                            <option value="1,000-1,500" selected>1,000 - 1,500</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="1,000-1,500">1,000 - 1,500</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${price == '1,500-2,000'}">
-                                            <option value="1,500-2,000" selected>1,500 - 2,000</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="1,500-2,000">1,500 - 2,000 </option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${price == 'more2,000'}">
-                                            <option value="more2,000" selected>More Than 2,000</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="more2,000">More Than 2,000</option>
-                                        </c:otherwise>
-                                    </c:choose> 
-                                </select>
-                            </div>
-                            <!--End price search -->
-                            <!--Start resolution search-->
-                            <hr>
-                            <div class="panel-body">
-                                <p><span class="fa fa-image"></span> Resolution</p>
-                                <select name="res" class="form-control">
-                                    <c:choose>
-                                        <c:when test="${res == 'all'}">
-                                            <option value="all" selected>All Resolution</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="all">All Resolution</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${res == '612x612'}">
-                                            <option value="612x612" selected>612x612</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="612x612">612x612</option>
-                                        </c:otherwise>
-                                    </c:choose> 
-                                    <c:choose>
-                                        <c:when test="${res == '640x640'}">
-                                            <option value="640x640" selected>640x640</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="640x640">640x640</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${res == '900x595'}">
-                                            <option value="900x595" selected>900x595</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="900x595">900x595</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${res == '900x601'}">
-                                            <option value="900x601" selected>900x601</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="900x601">900x601</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${res == '900x604'}">
-                                            <option value="900x604" selected>900x604</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="900x604">900x604</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${res == '900x619'}">
-                                            <option value="900x619" selected>900x619</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="900x619">900x619</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="panel-body">
-                                <p><span class="fa fa-sort"></span> Sort By</p>
-                                <select name="sort" class="form-control">
-                                    <c:choose>
-                                        <c:when test="${sort == 'low to high'}">
-                                            <option value="low to high" selected>Sort by price : low to high</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="low to high">Sort by price : low to high</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${sort == 'high to low'}">
-                                            <option value="high to low" selected>Sort by price : high to low</option>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <option value="high to low">Sort by price : high to low</option>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </select>
-                            </div>
-                            <!--search button-->
-                            <div class="panel-body">
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </div>
-                            <!--start price search -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="${cart.items == null ? "" : "ShowCart"}">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> 
+                            <span>&nbsp;&nbsp; ${cart.items == null ? 0 : cart.size} </span>
+                        </a>
+                    </li>
+                    <c:choose>
+                        <c:when test="${! empty user}">
+                            <li><a href="<%=response.encodeURL("AccountShow")%>"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
+                            <li><a href="<%=response.encodeURL("Logout")%>"><span class="glyphicon glyphicon-off"></span> <span> Logout</span></a></li>
+                            </c:when>
+                            <c:otherwise>
+                            <li>
+                                <a href="<%=response.encodeURL("Register")%>">
+                                    <span class="glyphicon glyphicon-user"></span> 
+                                    <span> Sign up</span>
+                                </a>
+                            </li>
+                            <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+                </ul>
+            </div>
+        </div>
+    </navbar>
+
+    <div class="container">
+        <div class="col-lg-12">
+            <div align="right" style="margin-right: 20px;">
+                <font style="opacity: 0.5;font-weight: lighter ;color:gray;">${size} Results</font>
+            </div>
+            <form action="<%=response.encodeURL("PhotoList")%>" method="post">
+                <!--search side -->
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <p class="panel-heading">Search Photo</p>
+                        <div class="panel-body">
+                            <p><span class="glyphicon glyphicon-th "></span> Category</p>
+                            <select name="kind" class="form-control">
+                                <c:choose>
+                                    <c:when test="${kind == 'all'}">
+                                        <option value="all" selected>All</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="all">All</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${kind == 'animals'}">
+                                        <option value="animals" selected>Animals</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="animals">Animals</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${kind == 'blackandwhite'}">
+                                        <option value="blackandwhite" selected>Black & White</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="blackandwhite">Black & White</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${kind == 'cityscape'}">
+                                        <option value="cityscape" selected>Cityscape</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="cityscape">Cityscape</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${kind == 'food'}">
+                                        <option value="food" selected>Food</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="food">Food</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${kind == 'landscape'}">
+                                        <option value="landscape" selected>Landscape</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="landscape">Landscape</option>
+                                    </c:otherwise>
+                                </c:choose>  
+                                <c:choose>
+                                    <c:when test="${kind == 'nature'}">
+                                        <option value="nature" selected>Nature</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="nature">Nature</option>
+                                    </c:otherwise>
+                                </c:choose>  
+                                <c:choose>
+                                    <c:when test="${kind == 'people'}">
+                                        <option value="people" selected>People</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="people">People</option>
+                                    </c:otherwise>
+                                </c:choose>  
+                                <c:choose>
+                                    <c:when test="${kind == 'toy'}">
+                                        <option value="toy" selected>Toy</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="toy">Toy</option>
+                                    </c:otherwise>
+                                </c:choose> 
+                                <c:choose>
+                                    <c:when test="${kind == 'transportation'}">
+                                        <option value="transportation" selected>Transportation</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="transportation">Transportation</option>
+                                    </c:otherwise>
+                                </c:choose> 
+                            </select>
+                        </div>
+                        <!--/ End search side CATEGORY-->
+                        <!--start price search -->
+                        <hr>
+                        <div class="panel-body">
+                            <p><span class="fa fa-money"></span> Price</p>
+                            <select name="price" class="form-control">
+                                <c:choose>
+                                    <c:when test="${price == 'all'}">
+                                        <option value="all" selected>All Price</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="all">All Price</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${price == 'less500'}">
+                                        <option value="less500" selected>Less Than 500</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="less500">Less Than 500</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${price == '500-1,000'}">
+                                        <option value="500-1,000" selected>500 - 1,000</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="500-1,000">500 - 1,000</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${price == '1,000-1,500'}">
+                                        <option value="1,000-1,500" selected>1,000 - 1,500</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="1,000-1,500">1,000 - 1,500</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${price == '1,500-2,000'}">
+                                        <option value="1,500-2,000" selected>1,500 - 2,000</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="1,500-2,000">1,500 - 2,000 </option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${price == 'more2,000'}">
+                                        <option value="more2,000" selected>More Than 2,000</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="more2,000">More Than 2,000</option>
+                                    </c:otherwise>
+                                </c:choose> 
+                            </select>
+                        </div>
+                        <!--End price search -->
+                        <!--Start resolution search-->
+                        <hr>
+                        <div class="panel-body">
+                            <p><span class="fa fa-image"></span> Resolution</p>
+                            <select name="res" class="form-control">
+                                <c:choose>
+                                    <c:when test="${res == 'all'}">
+                                        <option value="all" selected>All Resolution</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="all">All Resolution</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '612x612'}">
+                                        <option value="612x612" selected>612x612</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="612x612">612x612</option>
+                                    </c:otherwise>
+                                </c:choose> 
+                                <c:choose>
+                                    <c:when test="${res == '640x640'}">
+                                        <option value="640x640" selected>640x640</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="640x640">640x640</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '900x595'}">
+                                        <option value="900x595" selected>900x595</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="900x595">900x595</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '900x601'}">
+                                        <option value="900x601" selected>900x601</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="900x601">900x601</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '900x604'}">
+                                        <option value="900x604" selected>900x604</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="900x604">900x604</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${res == '900x619'}">
+                                        <option value="900x619" selected>900x619</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="900x619">900x619</option>
+                                    </c:otherwise>
+                                </c:choose>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="panel-body">
+                            <p><span class="fa fa-sort"></span> Sort By</p>
+                            <select name="sort" class="form-control">
+                                <c:choose>
+                                    <c:when test="${sort == 'low to high'}">
+                                        <option value="low to high" selected>Sort by price : low to high</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="low to high">Sort by price : low to high</option>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${sort == 'high to low'}">
+                                        <option value="high to low" selected>Sort by price : high to low</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="high to low">Sort by price : high to low</option>
+                                    </c:otherwise>
+                                </c:choose>
+                            </select>
+                        </div>
+                        <!--search button-->
+                        <div class="panel-body">
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </div>
+                        <!--start price search -->
+                    </div>
+                </div>
+            </form>
+            <!--search side -->
+            <!--photo side-->
+            <!--เฉพาะสองแถวแรก-->
+            <c:choose>
+                <c:when test="${! empty photoList}">
+                    <div class=" col-md-8">
+                        <div class="row">
+                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="39" end="42">
+                                <form action="<%=response.encodeURL("AddToCart")%>" method="post">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="thumbnail">
+                                            <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
+                                                <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                            </a>
+                                            <div class="caption">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td style="float:right;">
+                                                            <a>
+                                                                <input type="hidden" name="id" value="${p.getId()}">
+                                                                <input type="hidden" name="kind" value="${kind}">
+                                                                <input type="hidden" name="photosearchkey" value="${search}">
+                                                                <input type="hidden" name="page" value="4">
+                                                                <div>
+                                                                    <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
+                                                                        <i class='fa fa-cart-plus'> add to cart</i>
+                                                                    </button>
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </c:forEach>
                         </div>
                     </div>
-                </form>
-                <!--search side -->
-                <!--photo side-->
-                <!--เฉพาะสองแถวแรก-->
-                <c:choose>
-                    <c:when test="${! empty photoList}">
-                        <div class=" col-md-8">
-                            <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="39" end="42">
-                                    <form action="<%=response.encodeURL("AddToCart")%>" method="post">
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="thumbnail">
-                                                <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
-                                                    <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
-                                                </a>
-                                                <div class="caption">
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
-                                                            <td style="float:right;">
-                                                                <a>
-                                                                    <input type="hidden" name="id" value="${p.getId()}">
-                                                                    <input type="hidden" name="kind" value="${kind}">
-                                                                    <input type="hidden" name="photosearchkey" value="${search}">
-                                                                    <input type="hidden" name="page" value="4">
-                                                                    <div>
-                                                                        <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
-                                                                            <i class='fa fa-cart-plus'> add to cart</i>
-                                                                        </button>
-                                                                    </div>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
+                    <!--จบ เฉพาะสองแถวแรก-->
+                    <!--แถวที่สามเป็นต้นไป-->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="43" end="51">
+                                <form action="<%=response.encodeURL("AddToCart")%>" method="post">
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail">
+                                            <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
+                                                <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
+                                            </a>
+                                            <div class="caption">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td style="float:right;">
+                                                            <a>
+                                                                <input type="hidden" name="id" value="${p.getId()}">
+                                                                <input type="hidden" name="kind" value="${kind}">
+                                                                <input type="hidden" name="photosearchkey" value="${search}">
+                                                                <input type="hidden" name="page" value="4">
+                                                                <div>
+                                                                    <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
+                                                                        <i class='fa fa-cart-plus'> add to cart</i>
+                                                                    </button>
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
-                                    </form>
-                                </c:forEach>
-                            </div>
+                                    </div>
+                                </form>
+                            </c:forEach>
                         </div>
-                        <!--จบ เฉพาะสองแถวแรก-->
-                        <!--แถวที่สามเป็นต้นไป-->
-                        <div class="col-md-12">
-                            <div class="row">
-                                <c:forEach items="${photoList}" var="p" varStatus="count" begin="43" end="51">
-                                    <form action="<%=response.encodeURL("AddToCart")%>" method="post">
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="thumbnail">
-                                                <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
-                                                    <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
-                                                </a>
-                                                <div class="caption">
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
-                                                            <td style="float:right;">
-                                                                <a>
-                                                                    <input type="hidden" name="id" value="${p.getId()}">
-                                                                    <input type="hidden" name="kind" value="${kind}">
-                                                                    <input type="hidden" name="photosearchkey" value="${search}">
-                                                                    <input type="hidden" name="page" value="4">
-                                                                    <div>
-                                                                        <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
-                                                                            <i class='fa fa-cart-plus'> add to cart</i>
-                                                                        </button>
-                                                                    </div>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </c:forEach>
-                            </div>
+                    </div>
+                    <!--จบ แถวที่สามเป็นต้นไป-->
+                </c:when>
+                <c:otherwise>
+                    <div class="col-md-8">
+                        <div class="alert alert-danger" role="alert">
+                            <h3 style="text-align: center"> 
+                                <span class="glyphicon glyphicon-exclamation-sign"></span> 
+                                Not Found
+                            </h3>
                         </div>
-                        <!--จบ แถวที่สามเป็นต้นไป-->
-                    </c:when>
-                    <c:otherwise>
-                        <div class="col-md-8">
-                            <div class="alert alert-danger" role="alert">
-                                <h3 style="text-align: center"> 
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span> 
-                                    Not Found
-                                </h3>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-                <!--End photo side-->
-            </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+            <!--End photo side-->
         </div>
-        <!--pagination-->
-        <div class="text-center"><!-- ทำให้ pagination อยู่ center-->
-            <nav>
-                <ul class="pagination">
-                    <c:if test="${size > 14}">
-                        <li><a href="PhotoList.jsp">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="PhotoList2.jsp">2 <span class="sr-only">(current)</span></a></li>
-                        </c:if>
-                        <c:if test="${size > 27}">
-                        <li><a href="PhotoList3.jsp">3 <span class="sr-only">(current)</span></a></li>
-                        </c:if>
-                        <c:if test="${size > 40}">
-                        <li class="active"><a href="">4 <span class="sr-only">(current)</span></a></li>
-                        </c:if>
-                </ul>
-            </nav>
-        </div>
-        <h1>${size}</h1>
-        <!--End pagination-->
+    </div>
+    <!--pagination-->
+    <div class="text-center"><!-- ทำให้ pagination อยู่ center-->
+        <nav>
+            <ul class="pagination">
+                <c:if test="${size > 14}">
+                    <li><a href="PhotoList.jsp">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="PhotoList2.jsp">2 <span class="sr-only">(current)</span></a></li>
+                    </c:if>
+                    <c:if test="${size > 27}">
+                    <li><a href="PhotoList3.jsp">3 <span class="sr-only">(current)</span></a></li>
+                    </c:if>
+                    <c:if test="${size > 40}">
+                    <li class="active"><a href="">4 <span class="sr-only">(current)</span></a></li>
+                    </c:if>
+            </ul>
+        </nav>
+    </div>
+    <h1>${size}</h1>
+    <!--End pagination-->
 
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
-    </body>
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
+</body>
 </html>
