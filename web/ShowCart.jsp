@@ -57,7 +57,7 @@
                                     <span> Sign up</span>
                                 </a>
                             </li>
-                            <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
+                            <li><a href="<%=response.encodeURL("Login?target=ShowCart.jsp")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
                             </c:otherwise>
                         </c:choose>
 

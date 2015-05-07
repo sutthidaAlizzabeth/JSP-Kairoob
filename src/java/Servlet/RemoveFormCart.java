@@ -31,14 +31,19 @@ public class RemoveFormCart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cart cart = (Cart) request.getSession().getAttribute("cart");
-        String id = request.getParameter("pid");
+        if (request.getSession().getAttribute("user") != null) {
+            Cart cart = (Cart) request.getSession().getAttribute("cart");
+            String id = request.getParameter("pid");
+
+            Photo p = new Photo();
+            p.setId(Integer.parseInt(id));
+            cart.remove(p);
+
+            getServletContext().getRequestDispatcher("/ShowCart.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        }
         
-        Photo p = new Photo();
-        p.setId(Integer.parseInt(id));
-        cart.remove(p);
-        
-        getServletContext().getRequestDispatcher("/ShowCart.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -30,7 +30,12 @@ public class AccountShowServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/AccountShow.jsp").forward(request, response);
+        if (request.getSession().getAttribute("user") != null) {
+            getServletContext().getRequestDispatcher("/AccountShow.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

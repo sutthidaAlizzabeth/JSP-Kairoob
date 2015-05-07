@@ -32,45 +32,50 @@ public class AddToCart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        String pid = request.getParameter("id");
-        String kind = request.getParameter("kind");
-        String price = request.getParameter("price");
-        String res = request.getParameter("res");
-        String photosearchkey = request.getParameter("photosearchkey");
-        String page = request.getParameter("page");
+        if (request.getSession().getAttribute("user") != null) {
+            request.setCharacterEncoding("utf-8");
+            String pid = request.getParameter("id");
+            String kind = request.getParameter("kind");
+            String price = request.getParameter("price");
+            String res = request.getParameter("res");
+            String photosearchkey = request.getParameter("photosearchkey");
+            String page = request.getParameter("page");
 
-        HttpSession session = request.getSession(true);
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
+            HttpSession session = request.getSession(true);
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+                session.setAttribute("cart", cart);
+            }
+
+            int id = Integer.parseInt(pid);
+            Photo p = Photo.findById(id);
+            if (p != null) {
+                cart.add(p);
+
+            }
+
+            if (kind == null || kind.length() == 0) {
+                kind = "all";
+            }
+
+            if (price == null || price.length() == 0) {
+                price = "all";
+            }
+
+            if (res == null || price.length() == 0) {
+                res = "all";
+            }
+
+            if (page == null || page.length() == 0) {
+                page = "";
+            }
+
+            getServletContext().getRequestDispatcher("/PhotoList?kind=" + kind + "&photosearchkey=" + photosearchkey + "&price=" + price + "&res=" + res + "&page=" + page).forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
 
-        int id = Integer.parseInt(pid);
-        Photo p = Photo.findById(id);
-        if (p != null) {
-            cart.add(p);
-
-        }
-        
-        if(kind == null || kind.length() == 0){
-            kind = "all";
-        }
-        
-        if(price == null || price.length() == 0){
-            price = "all";
-        }
-        
-        if(res == null || price.length() == 0){
-            res = "all";
-        }
-        
-        if(page == null || page.length() == 0){
-            page = "";
-        }
-        
-        getServletContext().getRequestDispatcher("/PhotoList?kind="+kind+"&photosearchkey="+photosearchkey+"&price="+price+"&res="+res+"&page="+page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

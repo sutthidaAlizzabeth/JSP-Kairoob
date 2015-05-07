@@ -55,18 +55,8 @@ public class LoginServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
 
-        String target = request.getParameter("target");
-        if (target == null) {
-            target = "/index.jsp";
-        } else if (target.equalsIgnoreCase("null") || target.length() == 0) {
-            target = "/index.jsp";
-        } else {
-            int pos = target.indexOf("/", 1);
-            if (pos > 0) {
-                target = target.substring(pos);
-            }
-        }
-        getServletContext().getRequestDispatcher(target).forward(request, response);
+        
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
