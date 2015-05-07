@@ -6,8 +6,8 @@
                 <div class="col-lg-12">
                     <div class="col-md-3">
                         <a href="Contact.jsp"><h4>Contact Us</h4></a>
-                        <p>Kairoob (ขายรูป)</p>
-                        <p>ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>
+                        <p>Kairoob</p>
+                        <p>Pracha Uthit Rd., Bang Mod, Thung Khru, Bangkok 10140, Thailand</p>
                         <br>
                         <a href="mailto:Kairoob@gmail.com">Kairoob@gmail.com</a>
                     </div>
