@@ -6,6 +6,8 @@
 package Servlet;
 
 import Model.Cart;
+import Model.History;
+import Model.Member;
 import Model.Photo;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,10 +51,15 @@ public class AddToCart extends HttpServlet {
             }
 
             int id = Integer.parseInt(pid);
-            Photo p = Photo.findById(id);
-            if (p != null) {
-                cart.add(p);
-
+            Member user = (Member) request.getSession().getAttribute("user");
+            int userId = user.getId();
+            boolean checkHistory = History.checkHistory(id, userId);
+            //if checkHistory is true คือลูกค้ายังไม่เคยซื้อ
+            if (checkHistory) {
+                Photo p = Photo.findById(id);
+                if (p != null) {
+                    cart.add(p);
+                }
             }
 
             if (kind == null || kind.length() == 0) {
