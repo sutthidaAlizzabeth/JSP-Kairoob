@@ -77,15 +77,17 @@
             </div>
         </div>
         <!--photo very big-->
-        <div class="container">
+        <div class="container" align="center">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="${photo.path}">
+                    <img style="border: solid #23527c 2px;" class="img-responsive" src="${photo.path}">
                 </div>
             </div>
         </div>
+        <br/>
+        <br/>
         <!--details photo-->
-        <div class="container">
+        <div class="container" style="background-color: #EEEEEE; padding-left: 2%; padding-right: 2%; border-radius: 2%">
             <div class="row">
                 <h3 style="font-weight:bold" >Image Details</h3>
                 <div class="col-lg-12">

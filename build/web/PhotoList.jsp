@@ -419,7 +419,15 @@ Author     : nattha
                         <div class="panel-body">
                             <button type="submit" class="btn btn-default">Search</button>
                         </div>
+                        <hr>
+                        <div class="panel-body">
+                            <h2 style="text-align: center;">Advertise 338x93</h2>
+                        </div>
                         <!--start price search -->
+                        <hr>
+                        <div class="panel-body">
+                            <h2 style="text-align: center;">Advertise 338x93</h2>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -529,6 +537,9 @@ Author     : nattha
                     </c:if>
                     <c:if test="${size > 40}">
                     <li><a href="PhotoList4.jsp">4 <span class="sr-only">(current)</span></a></li>
+                    </c:if>
+                    <c:if test="${size > 53}">
+                    <li><a href="PhotoList5.jsp">5 <span class="sr-only">(current)</span></a></li>
                     </c:if>
             </ul>
         </nav>

@@ -437,7 +437,7 @@ Author     : nattha
                 <c:when test="${! empty photoList}">
                     <div class=" col-md-8">
                         <div class="row">
-                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="39" end="42">
+                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="52" end="55">
                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                     <div class="col-sm-6 col-md-6">
                                         <div class="thumbnail">
@@ -453,7 +453,7 @@ Author     : nattha
                                                                 <input type="hidden" name="id" value="${p.getId()}">
                                                                 <input type="hidden" name="kind" value="${kind}">
                                                                 <input type="hidden" name="photosearchkey" value="${search}">
-                                                                <input type="hidden" name="page" value="4">
+                                                                <input type="hidden" name="page" value="5">
                                                                 <div>
                                                                     <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
                                                                         <i class='fa fa-cart-plus'> add to cart</i>
@@ -474,7 +474,7 @@ Author     : nattha
                     <!--แถวที่สามเป็นต้นไป-->
                     <div class="col-md-12">
                         <div class="row">
-                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="43" end="51">
+                            <c:forEach items="${photoList}" var="p" varStatus="count" begin="56" end="64">
                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
                                     <div class="col-sm-6 col-md-4">
                                         <div class="thumbnail">
@@ -490,7 +490,7 @@ Author     : nattha
                                                                 <input type="hidden" name="id" value="${p.getId()}">
                                                                 <input type="hidden" name="kind" value="${kind}">
                                                                 <input type="hidden" name="photosearchkey" value="${search}">
-                                                                <input type="hidden" name="page" value="4">
+                                                                <input type="hidden" name="page" value="5">
                                                                 <div>
                                                                     <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
                                                                         <i class='fa fa-cart-plus'> add to cart</i>
