@@ -20,7 +20,7 @@
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
         <script type="text/javascript" src="Assets/js/custom.js"></script>
         <script type="text/javascript" src="Assets/js/jquery.metisMenu.js"></script>
-        <title>SaleOrderAllDashBoard</title>
+        <title>Admin</title>
     </head>
     <body>
         <div id="wrapper">

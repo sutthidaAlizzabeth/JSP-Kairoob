@@ -1,10 +1,6 @@
-<%-- 
-Document   : PhotoList
-Created on : Apr 2, 2015, 10:36:16 PM
-Author     : nattha
---%>
 
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.util.List" %>
 <%@page import="Model.Photo" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -453,17 +449,17 @@ Author     : nattha
                                     <c:when test="${res == '900x538'}">
                                         <option value="900x538" selected>900x538</option>
                                     </c:when>
-                                    <c:choose>
+                                    <c:otherwise>
                                         <option value="900x538">900x538</option>
-                                    </c:choose>
+                                    </c:otherwise>>
                                 </c:choose>
                                 <c:choose>
                                     <c:when test="${res ='900x550'}" >
                                         <option value="900x550" selected>900x550</option>
                                     </c:when>
-                                    <c:choose>
-                                        <option value="900x550"></option>
-                                    </c:choose>
+                                    <c:otherwise>
+                                        <option value="900x550">900x550</option>
+                                    </c:otherwise>
                                 </c:choose>        
                                 <c:choose>
                                     <c:when test="${res == '900x568'}">
@@ -562,7 +558,7 @@ Author     : nattha
                         <div class="row">
                             <c:forEach items="${photoList}" var="p" varStatus="count" begin="13" end="16">
                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
-                                    <div class="col-sm-6 col-md-6">
+                                    <div class="col-sm-6 col-md-4">
                                         <div class="thumbnail">
                                             <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
                                                 <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
@@ -570,7 +566,7 @@ Author     : nattha
                                             <div class="caption">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail?pid=${p.getId()}">${p.getCaption()}</a></p></td>
                                                         <td style="float:right;">
                                                             <a>
                                                                 <input type="hidden" name="id" value="${p.getId()}">
@@ -607,7 +603,7 @@ Author     : nattha
                                             <div class="caption">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail?pid=${p.getId()}">${p.getCaption()}</a></p></td>
                                                         <td style="float:right;">
                                                             <a>
                                                                 <input type="hidden" name="id" value="${p.getId()}">

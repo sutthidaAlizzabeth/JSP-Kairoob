@@ -47,9 +47,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", member);
                 session.setMaxInactiveInterval(60 * 60);
 
-                //Cookie user = new Cookie("user", member.getEmail());
-                //user.setMaxAge(30 * 60);
-                //response.addCookie(user);
+                if(member.getType() == 1){
+                    getServletContext().getRequestDispatcher("SaleOrderAll").forward(request, response);
+                }
             }
         } else {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);

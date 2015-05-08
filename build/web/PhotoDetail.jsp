@@ -22,7 +22,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
+    <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -66,84 +66,66 @@
                 </ul>
             </div>
         </div>
-        </navbar>
+    </navbar>
 
+    <div class="container">
         <div class="container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="text-center">${photo.caption}</h1> <!--caption-->
-                    </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">${photo.caption}</h1> <!--caption-->
                 </div>
             </div>
-            <!--photo very big-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <img class="img-responsive" src="${photo.path}">
-                    </div>
-                </div>
-            </div>
-            <!--details photo-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Resolution: ${photo.resolution}</h3>
-                        <h3>Category: ${photo.categoryName}</h3>
-                        <h3>Tag: ${photo.tag}</h3>
-                    </div>
-                </div>
-            </div>
-            <!--ปุ่ม add to cart-->
-            <form action="<%= response.encodeURL("AddToCart") %>">
-            <div class=" container">
-                <div class="row">
-                    <div class="col-lg-12 cart-right">
-                        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart "/> Add To Cart</button>
-                    </div>
-                </div>
-            </div>
-            </form>
         </div>
-        <section class="section-page">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-md-3">
-                                <h4>Contact Us</h4>
-                                <p>Kairoob (ขายรูป)</p>
-                                <p>126 ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140</p>
-                                <br>
-                                <a href="mailto:Kairoob@gmail.com">Kairoob@gmail.com</a>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Creator</h4>
-                                <p>Nattha Boonnumchai</p>
-                                <p>Boom Pongtorn</p>
-                                <p>Sumet Benjawan</p>
-                                <p>Alizzabeth Carry</p>
-                                <p>Earth's Eternity</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Follow Us</h4>
-                                <a href="#">Facebook</a>
-                            </div>
-                            <div class="col-md-3">
-                                <h4>Sponsor</h4>
-                                <a href="https://www.facebook.com/iamfuphotography">Iamfu Studio</a>
-                                <br>
-                                <br>
-                                <a href="https://www4.sit.kmutt.ac.th">SIT KMUTT</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="col-lg-12">
-                        <p>Copyright © By <span class="glyphicon glyphicon-picture"></span>  Kairoob 2015</p> 
+        <!--photo very big-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="${photo.path}">
+                </div>
+            </div>
+        </div>
+        <!--details photo-->
+        <div class="container">
+            <div class="row">
+                <h3 style="font-weight:bold" >Image Details</h3>
+                <div class="col-lg-12">
+                    <h3>Photo ID : ${photo.id}</h3>
+                    <h3>Resolution: ${photo.resolution}</h3>
+                    <h3>Category: ${photo.categoryName}</h3>
+                    <h3>Price : ${photo.price}</h3>
+                    <h3>Model Release : </h3>
+                    <h3>Property Release : </h3>
+                    <h3>Tag: ${photo.tag}</h3>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-lg-12 ">
+
+                <div class="col-md-4">
+                    <div class="col-md-offset-4">
+                        <a href="<%=response.encodeURL("PhotoList")%>"><button class="btn btn-primary" value="Continue Shopping">Continue Shopping</button></a>
                     </div>
                 </div>
-            </footer>
-        </section>
-    </body>
+                <div class="col-md-4">
+                    <div class="col-md-offset-8">
+                        <form action="<%= response.encodeURL("AddToCart")%>">
+                            <input type="hidden" name="id" value="${photo.id}">
+                            <input type="hidden" name="kind" value="photo.getCategoryName()">
+                            <input type="hidden" name="price" value="all">
+                            
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart "/> Add To Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+    </div>
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
+</body>
 </html>

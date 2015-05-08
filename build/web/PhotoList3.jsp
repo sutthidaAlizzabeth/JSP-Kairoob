@@ -453,17 +453,17 @@ Author     : nattha
                                     <c:when test="${res == '900x538'}">
                                         <option value="900x538" selected>900x538</option>
                                     </c:when>
-                                    <c:choose>
+                                    <c:otherwise>
                                         <option value="900x538">900x538</option>
-                                    </c:choose>
+                                    </c:otherwise>
                                 </c:choose>
                                 <c:choose>
                                     <c:when test="${res ='900x550'}" >
                                         <option value="900x550" selected>900x550</option>
                                     </c:when>
-                                    <c:choose>
+                                    <c:otherwise>
                                         <option value="900x550"></option>
-                                    </c:choose>
+                                    </c:otherwise>
                                 </c:choose>        
                                 <c:choose>
                                     <c:when test="${res == '900x568'}">
@@ -570,7 +570,7 @@ Author     : nattha
                                             <div class="caption">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail?pid=${p.getId()}">${p.getCaption()}</a></p></td>
                                                         <td style="float:right;">
                                                             <a>
                                                                 <input type="hidden" name="id" value="${p.getId()}">
@@ -607,7 +607,7 @@ Author     : nattha
                                             <div class="caption">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td><p style="font-size:12pt"><a href="PhotoDetail.jsp">${p.getCaption()}</a></p></td>
+                                                        <td><p style="font-size:12pt"><a href="PhotoDetail?pid=${p.getId()}">${p.getCaption()}</a></p></td>
                                                         <td style="float:right;">
                                                             <a>
                                                                 <input type="hidden" name="id" value="${p.getId()}">

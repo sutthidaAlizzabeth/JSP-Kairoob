@@ -38,6 +38,7 @@ public class PhotoListServlet extends HttpServlet {
         String kindPhoto = request.getParameter("kind");
         String priceRage = request.getParameter("price");
         String res = request.getParameter("res");
+        String sort = request.getParameter("sort");
         String page = request.getParameter("page"); //number of page
         int kind = 0;
         String keys[] = null;
@@ -85,7 +86,12 @@ public class PhotoListServlet extends HttpServlet {
         
         //RESOLUTION
         if(res == null || res.length() == 0){
-            priceRage = "all";
+            res = "all";
+        }
+        
+        //SORT
+        if(sort == null || sort.length() == 0){
+            sort = "low";
         }
         
 
@@ -96,7 +102,7 @@ public class PhotoListServlet extends HttpServlet {
                 if(photoList == null){
                     photoList = new TreeSet<Photo>();
                 }
-                photoList.addAll(Photo.searchPhoto("%"+key+"%", kind ,priceRage,res));
+                photoList.addAll(Photo.searchPhoto("%"+key+"%", kind ,priceRage,res,sort));
 
             }
         } catch (Exception e) {
@@ -109,6 +115,7 @@ public class PhotoListServlet extends HttpServlet {
         request.getSession().setAttribute("price", priceRage);
         request.getSession().setAttribute("res", res);
         request.getSession().setAttribute("photoList", photoList);
+        request.getSession().setAttribute("message", null);
         
         if(page == null || page.length() == 0){
             page = "";

@@ -124,7 +124,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <a href="<%= response.encodeURL("PhotoList?kind=animals&price=all&res=all")%>">
+                        <a href="<%= response.encodeURL("PhotoList?kind=animals&price=all&res=all&sort=all")%>">
                             <div class="thumbnail">
                                 <img src="Assets/photo/animals/icons_animals.jpg" alt="animals">
                                 <div class="caption">

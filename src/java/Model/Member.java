@@ -18,6 +18,7 @@ public class Member {
     private String password = null;
     private String email = null;
     private String tel = null;
+    private int type = 0;
 
     public Member() {
     }
@@ -96,6 +97,14 @@ public class Member {
     public void setTel(String tel) {
         this.tel = tel;
     }
+    
+    public int getType(){
+        return type;
+    }
+    
+    public void setType(int type){
+        this.type = type;
+    }
 
     private static void getRow(Member mem, ResultSet rs) throws SQLException {
         mem.setId(rs.getInt("id"));
@@ -105,6 +114,7 @@ public class Member {
         mem.setPassword(rs.getString("password"));
         mem.setTel(rs.getString("tel"));
         mem.setEmail(rs.getString("email"));
+        mem.setType(rs.getInt("member_type"));
     }
 
     public static Member findById(int id) {

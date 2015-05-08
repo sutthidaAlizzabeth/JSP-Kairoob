@@ -22,7 +22,7 @@ import java.util.TreeSet;
  *
  * @author Alizzabeth
  */
-public class Photo implements Serializable, Comparable<Photo>{
+public class Photo implements Serializable, Comparable<Photo> {
 
     private int id = 0;//PK
     private String path = null;
@@ -87,8 +87,8 @@ public class Photo implements Serializable, Comparable<Photo>{
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-    
-    public String getCategoryName(){
+
+    public String getCategoryName() {
         String categoryName = null;
         String sql = "select category_name from Categories where id = ?";
         try {
@@ -96,10 +96,10 @@ public class Photo implements Serializable, Comparable<Photo>{
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1, this.categoryId);
             ResultSet result = pstm.executeQuery();
-            if(result.next()){
+            if (result.next()) {
                 categoryName = result.getString("category_name");
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -141,7 +141,7 @@ public class Photo implements Serializable, Comparable<Photo>{
     }
 
     //method สำหรับค้นหา/ดึงรูปภาพขึ้นมาจาก database
-    public static Collection<Photo> searchPhoto(String tag, int kind,String price, String res) throws ClassNotFoundException, SQLException {
+    public static Collection<Photo> searchPhoto(String tag, int kind, String price, String res, String sort) throws ClassNotFoundException, SQLException {
         Collection<Photo> photoList = null;
 
         try {
@@ -153,49 +153,637 @@ public class Photo implements Serializable, Comparable<Photo>{
 
             //ถ้าเป็นการค้นหาแยกตามประเภทของรูปภาพ
             //ถ้า kind = 0 หมายถึงให้ค้นหาจากทุกประเภท
-            if (kind != 0 && price.equals("all") && res.equals("all")) {
-                sql = "select * from Photo where category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            }else if(kind != 0 && price.equals("less500") && res.equals("all")){
-                sql = "select * from Photo where price < 500 and category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            }else if(kind != 0 && price.equals("500-1,000") && res.equals("all")){
-                sql = "select * from Photo where price between 500 and 1000 and category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            }else if(kind != 0 && price.equals("1,000-1,500") && res.equals("all")){
-                sql = "select * from Photo where price between 1000 and 1500 and category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            }else if(kind != 0 && price.equals("1,500-2,000") && res.equals("all")){
-                sql = "select * from Photo where price between 1500 and 2000 and category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
-            }else if(kind != 0 && price.equals("more2,000") && res.equals("all")){
-                sql = "select * from Photo where price > 2000 and category_id = ? and tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setInt(1, kind);
-                pstm.setString(2, tag);
+            if (sort.equals("low")) {
+                if (kind != 0 && price.equals("all") && res.equals("all")) {
+                    sql = "select * from Photo where category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("all")) {
+                    sql = "select * from Photo where price < 500 and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("572×900")) {
+                    sql = "select * from Photo where price < 500 and resolution = '572×900' and category_id = ? and tag like ? order by price ;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("612x612")) {
+                    sql = "select * from Photo where price < 500 and resolution = '612x612' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("640x640")) {
+                    sql = "select * from Photo where price < 500 and resolution = '640x640' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x538")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x538' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x550")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x550' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x568")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x568' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x595")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x595' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x601")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x604")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("960x640")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price < 500 and resolution = '1024x768' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("all")) {
+                    sql = "select * from Photo where price between 500 and 1000 and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '572×900' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '612x612' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '640x640' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x538' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x550' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x568' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x595' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '1024x768' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("all")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '572×900' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '612x612' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '640x640' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x538' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x550' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x568' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x595' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '1024x768' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("all")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '572×900' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '612x612' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '640x640' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x538' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x550' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x568' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x595' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '1024x768' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("all")) {
+                    sql = "select * from Photo where price > 2000 and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '572×900' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '612x612' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '640x640' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x538' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x550' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x568' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x595' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '1024x768' and category_id = ? and tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else {
+                    sql = "select * from Photo where tag like ? order by price;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setString(1, tag);
+                }
+            } else {
+                if (kind != 0 && price.equals("all") && res.equals("all")) {
+                    sql = "select * from Photo where category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("all")) {
+                    sql = "select * from Photo where price < 500 and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("572×900")) {
+                    sql = "select * from Photo where price < 500 and resolution = '572×900' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("612x612")) {
+                    sql = "select * from Photo where price < 500 and resolution = '612x612' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("640x640")) {
+                    sql = "select * from Photo where price < 500 and resolution = '640x640' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x538")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x538' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x550")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x550' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x568")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x568' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x595")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x595' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x601")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("900x604")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("960x640")) {
+                    sql = "select * from Photo where price < 500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("less500") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price < 500 and resolution = '1024x768' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("all")) {
+                    sql = "select * from Photo where price between 500 and 1000 and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '572×900' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '612x612' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '640x640' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x538' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x550' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x568' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x595' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("500-1,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 500 and 1000 and resolution = '1024x768' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("all")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '572×900' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '612x612' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '640x640' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x538' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x550' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x568' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x595' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,000-1,500") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 1000 and 1500 and resolution = '1024x768' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("all")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '572×900' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '612x612' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '640x640' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x538' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x550' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x568' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x595' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("1,500-2,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '1024x768' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("all")) {
+                    sql = "select * from Photo where price > 2000 and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("572×900")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '572×900' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("612x612")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '612x612' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("640x640")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '640x640' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x538")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x538' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x550")) {
+                    sql = "select * from Photo where price between 1500 and 2000 and resolution = '900x550' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x568")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x568' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x595")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x595' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x601")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("900x604")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("960x640")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '900x601' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else if (kind != 0 && price.equals("more2,000") && res.equals("1024x768")) {
+                    sql = "select * from Photo where price > 2000 and resolution = '1024x768' and category_id = ? and tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setInt(1, kind);
+                    pstm.setString(2, tag);
+                } else {
+                    sql = "select * from Photo where tag like ? order by price desc;";
+                    pstm = con.prepareStatement(sql);
+                    pstm.setString(1, tag);
+                }
             }
-            else {
-                sql = "select * from Photo where tag like ? ;";
-                pstm = con.prepareStatement(sql);
-                pstm.setString(1, tag);
-            }
+
             //เก็บผลลัพธ์จาก database ไว้ใน "result"
             ResultSet result = pstm.executeQuery();
             //เอา result มาเช็คว่ามีข้อมูลหรือไม่
             while (result.next()) {
                 //ถ้าเป็นครั้งแรกของ loop ให้ new ArrayList
                 if (photoList == null) {
-                    photoList = new TreeSet<Photo>() {};
+                    photoList = new TreeSet<Photo>();
                 }
                 Photo p = new Photo();
                 //เอาข้อมูลที่ได้จาก database (ใน result) ไปยัดใส่ object ของ photo (ตัวแปร p) ด้วย method setPhoto
@@ -209,8 +797,6 @@ public class Photo implements Serializable, Comparable<Photo>{
 
         return photoList;
     }
-
-    
 
     @Override
     public int compareTo(Photo o) {
