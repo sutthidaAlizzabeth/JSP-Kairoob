@@ -3,6 +3,7 @@
     Created on : Apr 4, 2015, 11:50:39 AM
     Author     : nattha
 --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -89,7 +90,7 @@
                                 <td class="text-center">${item.p.caption}</td>
                                 <td class="text-center">${item.p.categoryName}</td>
                                 <td class="text-center">${item.p.resolution}</td>
-                                <td class="text-center">${item.p.price}</td>
+                                <td class="text-center"><fmt:formatNumber pattern="#,###,##0.00" value="${item.p.price}"/></td>
                                 <td class="text-center">
                                     <form action="<%= response.encodeURL("RemoveFormCart")%>" method="post">
                                         <input type="hidden" name="pid" value="${item.p.id}" />

@@ -180,17 +180,6 @@
                                             </span>
                                             <div class="clearfix"></div>
                                         </li>
-                                        <!--เมนูให้เลือกวิธีการจ่ายตังค์แบบ VISA -->
-                                        <li class="payment-method">
-                                            <span class="pull-left"style="font-size: 13pt;" >
-                                                <i class="payment-icon fa fa-cc-visa fa-2x "></i>
-                                                Pay with Visa 
-                                            </span>
-                                            <span class="control-radio pull-right">
-                                                <input type="radio" name="payment" value="visa" id="visa">
-                                            </span>
-                                            <div class="clearfix"></div>
-                                        </li>
                                         <!--เมนูให้เลือกวิธีการจ่ายตังค์แบบ Paypal -->
                                         <li class="payment-method">
                                             <span class=" pull-left" style="font-size: 13pt;" >
@@ -206,31 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--visa form-->
-                        <form id="visa-method" class="form-group" action="#" method="post">
-                            <div class="form-group">
-                                <label>Card Number</label>
-                                <input type="text" data-stripe="number" maxlength="16" size="20" tabindex="1"class="form-control"/>
-                            </div>
-                            <div class="wrapper-payment wrapper-month">
-                                <label>Expiry Date</label>
-                                <input data-stripe="exp-month" maxlength="2" placeholder="MM" size="2" tabindex="2" type="text" class="form-control"/>
-                            </div>
-                            <div class="wrapper-payment wrapper-year">
-                                <input data-stripe="exp-year" maxlength="4" placeholder="YYYY" size="4" tabindex="3" type="text" class="form-control"/>
-                            </div>
-                            <div class="wrapper-payment wrapper-cvc">
-                                <label>CVC</label>
-                                <input class="form-control" data-stripe="cvc" maxlength="4" size="4" tabindex="4" type="text"/>
-                            </div>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember this card
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
+                        
                         <!--button submit-->
                         <div class="form-group">
                             <form action="#" method="post">

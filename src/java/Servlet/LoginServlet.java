@@ -45,17 +45,16 @@ public class LoginServlet extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", member);
-                session.setMaxInactiveInterval(60 * 60);
+                session.setMaxInactiveInterval(60 * 60 * 60);
 
-                if(member.getType() == 1){
-                    getServletContext().getRequestDispatcher("SaleOrderAll").forward(request, response);
+                if (member.getType() == 1) {
+                    getServletContext().getRequestDispatcher("/Admin_SaleOrderAllDashBoard.jsp").forward(request, response);
                 }
             }
         } else {
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
 
-        
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
