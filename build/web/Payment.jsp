@@ -58,40 +58,116 @@
     </navbar>
 
     <div class="paymentdiv">
-        <h2>Add Payment</h2>
-        <table class="payment">
-            <tr>
-                <td>Details Payment</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td rowspan="3">Account</td>
-                <td><input type="radio" name="bank">1</td>
-            </tr>
-            <tr>
-                <td><input type="radio" name="bank">2</td>
-            </tr>
-            <tr>
-                <td><input type="radio" name="bank">3</td>
-            </tr>
-            <tr>
-                <td>Date Transfer</td>
-                <td><input class="form-control" type="text" id="datepicker" style="width: 300px"></td>
-            </tr>
-            <tr>
-                <td>Monty</td>
-                <td><input class="form-control" type="text" style="width: 300px;" placeholder="xxx.xx"></td>
-                <td>Baht</td>
-            </tr>
-            <tr>
-                <td>Details</td>
-                <td><input type="text" style="width: 300px;" placeholder="Date"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input class="btn btn-default" type="button" value="Add Payment"></td>
-            </tr>
-        </table>
+        <h2>Payment</h2>            
+        <div class="col-lg-12">
+            <div class="col-md-6">
+                <h3>Details Payment</h3>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/BANGKOK-1.png" class="img-responsive"><span>Bangkok Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 699-0-09667-0
+                    <br>
+                    Branch : Rama 1
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/GSB-1.png" class="img-responsive"/><span>GSB Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 699-0-09667-0
+                    <br>
+                    Branch : Rama 5
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/KBANK-1.png" class="img-responsive"><span>KBANK</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 995-2-50667-9
+                    <br>
+                    Branch : Rama 7
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/KRUNGSRI-1.png" class="img-responsive"><span>KRUNGSRI Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 199-0-08867-0
+                    <br>
+                    Branch : Rama 4
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/KTB-1.png" class="img-responsive"><span>KTB Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 199-1-09667-0
+                    <br>
+                    Branch : Rama 3
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/SC-1.png" class="img-responsive"><span>SC Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 689-0-09557-0
+                    <br>
+                    Branch : Rama 2
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/SCB-1.png" class="img-responsive"><span>SCB Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 609-0-09667-0
+                    <br>
+                    Branch : Ladprao
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/THANACHART-1.png" class="img-responsive"><span>THANACHART Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 799-0-08267-0
+                    <br>
+                    Branch : Rama 9
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/TMB.png" class="img-responsive"><span>TMB Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 499-0-09667-5
+                    <br>
+                    Branch : Sukhumvit
+                </div>
+                <div class="col-sm-12">
+                    <img src="Assets/icon/UOB.png" class="img-responsive"><span>UOB Bank</span>
+                    <br>
+                    Account Name : Nattha Boonnumchai
+                    <br>
+                    Account No : 399-5-09667-8
+                    <br>
+                    Branch : Rachaphruk
+                </div>
+            </div>
+            <div class="col-md-6">
+                Transfer Date
+                <input class="form-control" type="text" id="datepicker" style="width: 300px">
+                <br>
+                Amount 
+                <input class="form-control" type="text" style="width: 300px;" placeholder="xxx.xx"><div style="float: right; margin-top:-25px;">Baht</div>
+                <br>
+                Details
+                <br>
+                <input type="text" class="form-control" style="width: 300px;" placeholder="Details">
+                <br>
+                <input class="btn btn-info" type="button" value="Add Payment">
+                <a href="AccountShow.jsp"><button type="button" class="btn btn-default" value="AccountShow">Account Show</button></a>
+            </div>
+        </div>
     </div>
     <jsp:include page="WEB-INF/include/footer.jsp"/>
 </body>

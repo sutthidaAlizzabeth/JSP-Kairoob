@@ -61,7 +61,7 @@
         <h1>Account</h1>
         <table class="accountedit">
             <tr>
-                <td style="font-weight: bold" colspan="2" rowspan="9">picture<br><span style="font-size:9em; margin-left: -30px;" class="fa fa-user fa-5x"></span></td>
+                <td style="font-weight: bold" colspan="2" rowspan="9"><span style="margin-left: 45px" >picture</span><br><span style="font-size:9em; margin-left: 10px;" class="fa fa-user fa-5x"></span></td>
                 <td style="font-weight: bold" colspan="2">Identity Card </td>
             </tr>
             <tr>
@@ -97,8 +97,10 @@
             </tr>
             <tr>
                 <td>
-                    <a href="<%= response.encodeURL("AccountEditShow")%>"><input class="btn btn-default" type="button" value="Edit"></a>
+                    <a href="<%= response.encodeURL("AccountEditShow")%>"><input class="btn btn-warning" type="button" value="Edit"></a>
                 </td>
+                <td><a href="HistoryShopping.jsp"><input class="btn btn-success" type="button" value="HistoryShopping"/></a></td>
+                <td><a href="MyPhoto.jsp"><input class="btn btn-info" type="button" value="MyPhoto" /></a></td>
             </tr>
         </table>
     </div>
