@@ -408,139 +408,7 @@
                             </select>
                         </div>
                         <!--End price search -->
-                        <!--Start resolution search-->
-                        <hr>
-                        <div class="panel-body">
-                            <p><span class="fa fa-image"></span> Resolution</p>
-                            <select name="res" class="form-control">
-                                <c:choose>
-                                    <c:when test="${res == 'all'}">
-                                        <option value="all" selected>All Resolution</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="all">All Resolution</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res =='572×900'}">
-                                        <option value="572×900" selected>572×900</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="572×900">572×900</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '612x612'}">
-                                        <option value="612x612" selected>612x612</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="612x612">612x612</option>
-                                    </c:otherwise>
-                                </c:choose> 
-                                <c:choose>
-                                    <c:when test="${res == '640x640'}">
-                                        <option value="640x640" selected>640x640</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="640x640">640x640</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '900x538'}">
-                                        <option value="900x538" selected>900x538</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x538">900x538</option>
-                                    </c:otherwise>>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res ='900x550'}" >
-                                        <option value="900x550" selected>900x550</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x550">900x550</option>
-                                    </c:otherwise>
-                                </c:choose>        
-                                <c:choose>
-                                    <c:when test="${res == '900x568'}">
-                                        <option value="900x568" selected>900x568</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x568">900x568</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '900x595'}">
-                                        <option value="900x595" selected>900x595</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x595">900x595</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '900x601'}">
-                                        <option value="900x601" selected>900x601</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x601">900x601</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '900x604'}">
-                                        <option value="900x604" selected>900x604</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x604">900x604</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '900x619'}">
-                                        <option value="900x619" selected>900x619</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="900x619">900x619</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '960x640'}">
-                                        <option value="960x640" selected>960x640</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="960x640">960x640</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${res == '1024x768'}">
-                                        <option value="1024x768" selected>960x640</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="1024x768">960x640</option>
-                                    </c:otherwise>
-                                </c:choose>
-                            </select>
-                        </div>
-                        <hr>
-                        <div class="panel-body">
-                            <p><span class="fa fa-sort"></span> Sort By</p>
-                            <select name="sort" class="form-control">
-                                <c:choose>
-                                    <c:when test="${sort == 'low'}">
-                                        <option value="low" selected>Sort by price : low to high</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="low">Sort by price : low to high</option>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${sort == 'high'}">
-                                        <option value="high" selected>Sort by price : high to low</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="high">Sort by price : high to low</option>
-                                    </c:otherwise>
-                                </c:choose>
-                            </select>
-                        </div>
+                        <hr/>
                         <!--search button-->
                         <div class="panel-body">
                             <button type="submit" class="btn btn-default">Search</button>
@@ -558,7 +426,7 @@
                         <div class="row">
                             <c:forEach items="${photoList}" var="p" varStatus="count" begin="13" end="16">
                                 <form action="<%=response.encodeURL("AddToCart")%>" method="post">
-                                    <div class="col-sm-6 col-md-4">
+                                    <div class="col-sm-6 col-md-6">
                                         <div class="thumbnail">
                                             <a class="fancybox" href="${p.getPath()}" data-fancybox-group="gallery" title="${p.getCaption()}">
                                                 <img style="height: 250px;" src="${p.getPath()}" alt="${p.getCaption()}">
@@ -571,8 +439,9 @@
                                                             <a>
                                                                 <input type="hidden" name="id" value="${p.getId()}">
                                                                 <input type="hidden" name="kind" value="${kind}">
+                                                                <input type="hidden" name="kind" value="${price}">
+                                                                <input type="hidden" name="kind" value="${res}">
                                                                 <input type="hidden" name="photosearchkey" value="${search}">
-                                                                <input type="hidden" name="page" value="2">
                                                                 <div>
                                                                     <button style="margin-top: 10px;" class="btn btn-default" onclick='addtocart()'>
                                                                         <i class='fa fa-cart-plus'> add to cart</i>
