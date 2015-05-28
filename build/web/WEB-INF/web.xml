@@ -52,6 +52,10 @@
         <servlet-name>SaleOrderAllServlet</servlet-name>
         <servlet-class>Servlet.SaleOrderAllServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistoryShopping</servlet-name>
+        <servlet-class>Servlet.HistoryShoppingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PhotoListServlet</servlet-name>
         <url-pattern>/PhotoList</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>SaleOrderAllServlet</servlet-name>
         <url-pattern>/SaleOrderAll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryShopping</servlet-name>
+        <url-pattern>/HistoryShopping</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

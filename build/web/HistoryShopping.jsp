@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="Assets/css/kairoob.css"/>
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.css"/>
         <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="Assets/css/simple-sidebar.css"/>
         <script type="text/javascript" src="Assets/js/jquery.js"></script>
         <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
     </head>
@@ -66,6 +67,27 @@
             </div>
         </div>
     </navbar>
+                    <div id="wrapper">
+        <div class="container">
+            <div id="sidebar-wrapper" style="margin-top:45px">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Menu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("AccountShow")%>">AccountShow</a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("HistoryShopping")%>">HistoryShopping</a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("MyPhoto")%>">MyPhoto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>    
 
     <div align="center" class='divcen'>
         <div align="center">
@@ -80,6 +102,14 @@
                 <td>Details</td>
                 <td>Add Payment</td>
             </tr>
+            <c:if test="${! empty history}">
+                <c:forEach items="history" var="aHis" varStatus="count">
+                    <tr>
+                        <td>${count.index+1}</td>
+                        <td></td>
+                    </tr>
+                </c:forEach>
+            </c:if>
             <tr>
                 <td colspan='6'>
                     ( Backend )                   

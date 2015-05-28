@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="WEB-INF/include/taghead.jsp"/>
+        <link rel="stylesheet" href="Assets/css/simple-sidebar.css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -59,6 +60,27 @@
             </div>
         </div>
     </navbar>
+                        <div id="wrapper">
+        <div class="container">
+            <div id="sidebar-wrapper" style="margin-top:45px">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Menu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("AccountShow")%>">AccountShow</a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("HistoryShopping")%>">HistoryShopping</a>
+                    </li>
+                    <li>
+                        <a href="<%=response.encodeURL("MyPhoto")%>">MyPhoto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>    
         <section class="section-page">
         <div class="container">
             <h1>My Photo :::</h1>
@@ -103,7 +125,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="col-md-offset-8">
-                            <a href="<%=response.encodeURL("#")%>"><button class="btn btn-default" value="HistoryShopping">HistoryShopping</button></a>
+                            <a href="<%=response.encodeURL("HistoryShopping")%>"><button class="btn btn-default" value="HistoryShopping">HistoryShopping</button></a>
                         </div>
                     </div>
                 </div>
