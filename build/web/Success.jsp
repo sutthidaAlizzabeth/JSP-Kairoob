@@ -1,20 +1,26 @@
 <%-- 
-    Document   : Myphoto
-    Created on : May 8, 2015, 3:45:24 AM
+    Document   : Checkout
+    Created on : Apr 2, 2015, 10:36:16 PM
     Author     : nattha
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List" %>
-<%@page import="Model.Photo" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="WEB-INF/include/taghead.jsp"/>
-        <link rel="stylesheet" href="Assets/css/simple-sidebar.css"/>
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="Assets/css/reset.css"/>
+        <link rel="stylesheet" href="Assets/css/bootstrap.css"/>
+        <link rel="stylesheet" href="Assets/css/thumbnail-gallery.css">
+        <link rel="stylesheet" href="Assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="Assets/css/stylish-portfolio.css"/>
+        <link rel="stylesheet" href="Assets/css/kairoob.css"/>
+        <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="Assets/js/jquery.js"></script>
+        <script type="text/javascript" src="Assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="Assets/js/jquery-1.10.1.min.js"></script>
     </head>
     <body>
     <navbar class="navbar navbar-kairoob navbar-inverse navbar-fixed-top" role="nav">
@@ -62,48 +68,8 @@
             </div>
         </div>
     </navbar>
-    <div id="wrapper">
-        <div class="container">
-            <div id="sidebar-wrapper" style="margin-top:45px">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Menu
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<%=response.encodeURL("AccountShow")%>">AccountShow</a>
-                    </li>
-                    
-                    <li>
-                        <a href="<%=response.encodeURL("MyPhoto")%>">MyPhoto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>    
-        <section class="section-page">
-            <div class="container">
-                <h1>My Photo :::</h1>
-                <c:choose>
-                    <c:when test="${! empty photos}">
-                        <br/>
-                        <table>
-                            <c:forEach items="${photos}" var="photo" varStatus="no">
-                                <tr>
-                                    <td>${no.index+1}</td>
-                                    <td>${photo.caption}</td>
-                                    <td><a href="${photo.path}">Download</a></td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </c:when>
-                    <c:otherwise>
-                        <br/>
-                        <a href="<%= response.encodeURL("PhotoList")%>"><span style="margin-left: 40%;">Buy Photo</span></a>
-                    </c:otherwise>
-                </c:choose>
 
-        </section>
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
-    </body>
+                        <h1 style="text-align: center;">Success</h1>
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
+</body>
 </html>

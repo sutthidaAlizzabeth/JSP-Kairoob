@@ -199,11 +199,9 @@
                     <li>
                         <a href="<%=response.encodeURL("AccountShow")%>">AccountShow</a>
                     </li>
+                    
                     <li>
-                        <a href="<%=response.encodeURL("HistoryShopping")%>">HistoryShopping</a>
-                    </li>
-                    <li>
-                        <a href="<%=response.encodeURL("MyPhoto")%>">MyPhoto</a>
+                        <a href="<%=response.encodeURL("MyPhoto")%>">My Photo</a>
                     </li>
                 </ul>
             </div>

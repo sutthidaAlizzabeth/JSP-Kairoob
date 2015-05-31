@@ -198,8 +198,8 @@
                         
                         <!--button submit-->
                         <div class="form-group">
-                            <form action="#" method="post">
-                                <button type="submit" class="btn btn-primary btn-block" value="submit" id="checkout" name="#">Proceed to Check Out</button>
+                            <form action="Success.jsp" method="post">
+                                <a href="success.jsp"><button type="submit" class="btn btn-primary btn-block" value="submit" id="checkout" name="#">Proceed to Check Out</button></a>
                             </form>
                         </div>
                     </div>

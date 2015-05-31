@@ -33,35 +33,31 @@
                             <img src="Assets/bg/find_user.png" class="user-image img-responsive"/>
                         </li>
                         <li>
-                            <a href="MemberAllAdmin.jsp"><i class="fa fa-users fa-3x"></i>Members All</a>
+                            <a href="Admin_MemberAll.jsp"><i class="fa fa-users fa-3x"></i>Members All</a>
                         </li>
                         
                         <li>
-                            <a href="PhotoListAdmin.jsp"><i class="fa fa-picture-o fa-3x"></i>Photos All</a>
+                            <a href="Admin_PhotoList.jsp"><i class="fa fa-picture-o fa-3x"></i>Photos All</a>
                         </li>
-                        <li>
-                            <a href="PhotoEditAdmin.jsp"><i class="fa fa-picture-o fa-3x"></i><i class="fa fa-pencil-square-o fa-2x"></i>Photo edit details</a>
-                        </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-bar-chart fa-3x"></i>Sale DashBoard <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active-menu" href="SaleOrderAllDashBoard.jsp">สรุปยอดสั่งซื้อทั้งหมด</a>
+                                    <a class="active-menu" href="Admin_SaleOrderAllDashBoard.jsp">สรุปยอดสั่งซื้อทั้งหมด</a>
                                 </li>
                                 <li>
-                                    <a href="SaleOrderNotPayment.jsp">สรุปยอดการสั่งซื้อที่ยังไม่ชำระเงิน</a>
+                                    <a href="Admin_SaleOrderNotPayment.jsp">สรุปยอดการสั่งซื้อที่ยังไม่ชำระเงิน</a>
                                 </li>
                                 <li>
-                                    <a href="SaleOrderPayment.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินแล้ว<span class="fa arrow"></span></a>
+                                    <a href="Admin_SaleOrderPayment.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินแล้ว<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
+                                        
                                         <li>
-                                            <a href="SaleOrderPaymentVisa.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน visa</a>
+                                            <a href="Admin_SaleOrderPaymentPayPal.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน paypal</a>
                                         </li>
                                         <li>
-                                            <a href="SaleOrderPaymentPayPal.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน paypal</a>
-                                        </li>
-                                        <li>
-                                            <a href="SaleOrderTransferMoney.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินด้วยการโอนเงิน</a>
+                                            <a href="Admin_SaleOrderTransferMoney.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินด้วยการโอนเงิน</a>
                                         </li>
 
                                     </ul>
@@ -95,12 +91,12 @@
 
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">120,000</div>
+                                                    <div >120,000</div>
                                                     <div>New Orders!</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="SaleOrderPayment.jsp">
+                                        <a href="Admin_SaleOrderPayment.jsp">
                                             <div class="panel-footer">
                                                 <span class="pull-left">สรุปยอดการสั่งซื้อที่ชำระเงินแล้ว</span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -118,12 +114,12 @@
                                                     <i class="fa fa-money fa-5x"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">120,000</div>
+                                                    <div >120,000</div>
                                                     <div>New Orders!</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="SaleOrderNotPayment.jsp">
+                                        <a href="Admin_SaleOrderNotPayment.jsp">
                                             <div class="panel-footer">
                                                 <span class="pull-left">สรุปยอดการสั่งซื้อที่ยังไม่ชำระเงิน</span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -141,12 +137,12 @@
                                                     <i class="fa fa-cc-paypal fa-5x"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">120,000</div>
+                                                    <div >120,000</div>
                                                     <div>New Orders!</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="SaleOrderPaymentPayPal.jsp">
+                                        <a href="Admin_SaleOrderPaymentPayPal.jsp">
                                             <div class="panel-footer">
                                                 <span class="pull-left">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน paypal</span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -155,29 +151,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <!--visa-->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="panel panel-yellow">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-cc-visa fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge">120,000</div>
-                                                    <div>New Orders!</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="SaleOrderPaymentVisa.jsp">
-                                            <div class="panel-footer">
-                                                <span class="pull-left">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน visa</span>
-                                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-lg-3 col-md-12">
                                     <div class="panel panel-violet">
                                         <div class="panel-heading">
@@ -235,12 +209,12 @@
                                                          M6A/Aei5xh5j9ON1wAAAABJRU5ErkJggg==" width="100" height="100"/>  
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">120,000</div>
+                                                    <div >120,000</div>
                                                     <div>New Orders!</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="SaleOrderTransferMoney.jsp">
+                                        <a href="Admin_SaleOrderTransferMoney.jsp">
                                             <div class="panel-footer">
                                                 <span class="pull-left">สรุปยอดการสั่งซื้อที่ชำระเงินด้วยการโอนเงิน</span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

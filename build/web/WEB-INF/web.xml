@@ -56,6 +56,10 @@
         <servlet-name>HistoryShopping</servlet-name>
         <servlet-class>Servlet.HistoryShoppingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyPhotoServlet</servlet-name>
+        <servlet-class>Servlet.MyPhotoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PhotoListServlet</servlet-name>
         <url-pattern>/PhotoList</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>HistoryShopping</servlet-name>
         <url-pattern>/HistoryShopping</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyPhotoServlet</servlet-name>
+        <url-pattern>/MyPhoto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

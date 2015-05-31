@@ -27,44 +27,38 @@
         <div id="wrapper">
             <jsp:include page="WEB-INF/include/header_admin.jsp"/>
             <!--/. NAV TOP-->
-            <nav class="navbar-default navbar-side" role="navigation">
+           <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="main-menu">
                         <li class="text-center">
                             <img src="Assets/bg/find_user.png" class="user-image img-responsive"/>
                         </li>
                         <li>
-                            <a href="MemberAllAdmin.jsp"><i class="fa fa-users fa-3x"></i>Members All</a>
+                            <a href="Admin_MemberAll.jsp"><i class="fa fa-users fa-3x"></i>Members All</a>
                         </li>
+                        
                         <li>
-                            <a  href="MemberDetailAdmin.jsp"><i class="fa fa-user fa-3x"></i>Member Details</a>
+                            <a href="Admin_PhotoList.jsp"><i class="fa fa-picture-o fa-3x"></i>Photos All</a>
                         </li>
-                        <li>
-                            <a href="PhotoListAdmin.jsp"><i class="fa fa-picture-o fa-3x"></i>Photos All</a>
-                        </li>
-                        <li>
-                            <a href="PhotoEditAdmin.jsp"><i class="fa fa-picture-o fa-3x"></i><i class="fa fa-pencil-square-o fa-2x"></i>Photo edit details</a>
-                        </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-bar-chart fa-3x"></i>Sale DashBoard <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="SaleOrderAllDashBoard.jsp">สรุปยอดสั่งซื้อทั้งหมด</a>
+                                    <a class="active-menu" href="Admin_SaleOrderAllDashBoard.jsp">สรุปยอดสั่งซื้อทั้งหมด</a>
                                 </li>
                                 <li>
-                                    <a href="SaleOrderNotPayment.jsp">สรุปยอดการสั่งซื้อที่ยังไม่ชำระเงิน</a>
+                                    <a href="Admin_SaleOrderNotPayment.jsp">สรุปยอดการสั่งซื้อที่ยังไม่ชำระเงิน</a>
                                 </li>
                                 <li>
-                                    <a href="#">สรุปยอดการสั่งซื้อที่ชำระเงินแล้ว<span class="fa arrow"></span></a>
+                                    <a href="Admin_SaleOrderPayment.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินแล้ว<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
+                                        
                                         <li>
-                                            <a href="SaleOrderPaymentVisa.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน visa</a>
+                                            <a href="Admin_SaleOrderPaymentPayPal.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน paypal</a>
                                         </li>
                                         <li>
-                                            <a  href="SaleOrderPaymentPayPal.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินผ่าน paypal</a>
-                                        </li>
-                                        <li>
-                                            <a class="active-menu" href="SaleOrderTransferMoney.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินด้วยการโอนเงิน</a>
+                                            <a href="Admin_SaleOrderTransferMoney.jsp">สรุปยอดการสั่งซื้อที่ชำระเงินด้วยการโอนเงิน</a>
                                         </li>
 
                                     </ul>
@@ -73,7 +67,7 @@
                             </ul>
                         </li>  
                         <li>
-                            <a href="#"><i class="fa fa-sign-out fa-3x"></i>Log out</a>
+                            <a  href="#"><i class="fa fa-sign-out fa-3x"></i>Log out</a>
                         </li>	
                     </ul>
                 </div>
@@ -147,7 +141,7 @@
                                                  M6A/Aei5xh5j9ON1wAAAABJRU5ErkJggg==" width="100" height="100"/>  
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">120,000</div>
+                                            <div >120,000</div>
                                             <div>New Orders!</div>
                                         </div>
                                     </div>

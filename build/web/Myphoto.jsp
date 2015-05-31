@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List" %>
+<%@page import="Model.Photo" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -44,8 +46,8 @@
                         <c:when test="${! empty user}">
                             <li><a href="<%=response.encodeURL("AccountShow")%>"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
                             <li><a href="<%=response.encodeURL("Logout")%>"><span class="glyphicon glyphicon-off"></span> <span> Logout</span></a></li>
-                        </c:when>
-                        <c:otherwise>
+                            </c:when>
+                            <c:otherwise>
                             <li>
                                 <a href="<%=response.encodeURL("Register")%>">
                                     <span class="glyphicon glyphicon-user"></span> 
@@ -53,14 +55,14 @@
                                 </a>
                             </li>
                             <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
-                        </c:otherwise>
-                    </c:choose>
+                            </c:otherwise>
+                        </c:choose>
 
                 </ul>
             </div>
         </div>
     </navbar>
-                        <div id="wrapper">
+    <div id="wrapper">
         <div class="container">
             <div id="sidebar-wrapper" style="margin-top:45px">
                 <ul class="sidebar-nav">
@@ -72,9 +74,7 @@
                     <li>
                         <a href="<%=response.encodeURL("AccountShow")%>">AccountShow</a>
                     </li>
-                    <li>
-                        <a href="<%=response.encodeURL("HistoryShopping")%>">HistoryShopping</a>
-                    </li>
+                    
                     <li>
                         <a href="<%=response.encodeURL("MyPhoto")%>">MyPhoto</a>
                     </li>
@@ -82,55 +82,28 @@
             </div>
         </div>    
         <section class="section-page">
-        <div class="container">
-            <h1>My Photo :::</h1>
-            <c:choose>
-                <c:when test="${! empty cart}">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td class="text-center">No</td>
-                            <td class="text-center">Preview</td>
-                            <td class="text-center">Caption</td>
-                            <td class="text-center">Category</td>
-                            <td class="text-center">Resolution</td>
-                            <td class="text-center">Download</td>
-                        </tr>
-                        <!--coding -->
-                        <c:forEach items="${cart.items}" var="item" varStatus="no">
-                            <tr>
-                                <td class="text-center">${no.index+1}</td>
-                                <td class="text-center"><img width="50px" height="50px" src="${item.p.path}" /></td>
-                                <td class="text-center">${item.p.caption}</td>
-                                <td class="text-center">${item.p.categoryName}</td>
-                                <td class="text-center">${item.p.resolution}</td>
-                                <td class="text-center">${item.p.price}</td>
-                                <td class="text-center">                                    
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </c:when>
-                <c:otherwise>
-                    Empty
-                </c:otherwise>
-            </c:choose>
-            <!--ปุ่ม submit checkout update-->
-            <div class="row">
-                <div class="col-lg-12 ">
+            <div class="container">
+                <h1>My Photo :::</h1>
+                <c:choose>
+                    <c:when test="${! empty photos}">
+                        <br/>
+                        <table>
+                            <c:forEach items="${photos}" var="photo" varStatus="no">
+                                <tr>
+                                    <td>${no.index+1}</td>
+                                    <td>${photo.caption}</td>
+                                    <td><a href="${photo.path}">Download</a></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </c:when>
+                    <c:otherwise>
+                        <br/>
+                        <a href="<%= response.encodeURL("PhotoList")%>"><span style="margin-left: 40%;">Buy Photo</span></a>
+                    </c:otherwise>
+                </c:choose>
 
-                    <div class="col-md-4">
-                        <div class="col-md-offset-4">
-                            <a href="<%=response.encodeURL("AccountShow")%>"><button class="btn btn-default" value="AccountShow">AccountShow</button></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-offset-8">
-                            <a href="<%=response.encodeURL("HistoryShopping")%>"><button class="btn btn-default" value="HistoryShopping">HistoryShopping</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
-</body>
+        </section>
+        <jsp:include page="WEB-INF/include/footer.jsp"/>
+    </body>
 </html>

@@ -213,5 +213,27 @@ public class Photo implements Serializable, Comparable<Photo> {
     public int compareTo(Photo o) {
         return this.getId() - o.getId();
     }
+    
+    public static List<Photo> soldPhoto(int member_id) {
+        List<Photo> soldPhoto = null;
+        try {
+            Connection con = ConnectDB.db();
+            String sql = "select p.* from OrderList ol join Orders o on ol.id = o.id join Photo p on p.id = ol.photo_id join Members m on m.id = o.member_id where m.id = ?;";
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setInt(1, member_id);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                if(soldPhoto == null){
+                    soldPhoto = new ArrayList<Photo>();
+                }
+                Photo p = new Photo();
+                soldPhoto.add(Photo.setPhoto(rs, p));
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        return soldPhoto;
+    }
 
 }
