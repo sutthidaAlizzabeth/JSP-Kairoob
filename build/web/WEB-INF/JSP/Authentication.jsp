@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="WEB-INF/include/taghead.jsp"/>
+        <jsp:include page="/WEB-INF/include/taghead.jsp"/>
 
         <title>Authentication</title>
     </head>
@@ -39,22 +39,13 @@
                             <span>&nbsp;&nbsp; ${cart.items == null ? 0 : cart.size} </span>
                         </a>
                     </li>
-                    <c:choose>
-                        <c:when test="${! empty user}">
-                            <li><a href="<%=response.encodeURL("AccountShow")%>"><span class="glyphicon glyphicon-user"></span> <span> User</span></a></li>
-                            <li><a href="<%=response.encodeURL("Logout")%>"><span class="glyphicon glyphicon-off"></span> <span> Logout</span></a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li>
-                                <a href="<%=response.encodeURL("Register")%>">
-                                    <span class="glyphicon glyphicon-user"></span> 
-                                    <span> Sign up</span>
-                                </a>
-                            </li>
-                            <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
-                        </c:otherwise>
-                    </c:choose>
-
+                    <li>
+                        <a href="<%=response.encodeURL("Register")%>">
+                            <span class="glyphicon glyphicon-user"></span> 
+                            <span> Sign up</span>
+                        </a>
+                    </li>
+                    <li><a href="<%=response.encodeURL("Login")%>"><span class="glyphicon glyphicon-lock"></span> <span> Login</span></a></li>
                 </ul>
             </div>
         </div>
@@ -72,6 +63,6 @@
         </div>
     </div>
 
-    <jsp:include page="WEB-INF/include/footer.jsp"/>
+    <jsp:include page="/WEB-INF/include/footer.jsp"/>
 </body>
 </html>

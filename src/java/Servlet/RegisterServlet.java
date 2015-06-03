@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
                 } else {
                     Member.addMember(userName, password);
                     //out.println("Registeration complete");
-                    getServletContext().getRequestDispatcher("/Authentication.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/WEB-INF/JSP/Authentication.jsp").forward(request, response);
                 }
             }
 
